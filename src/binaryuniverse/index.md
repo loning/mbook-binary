@@ -54,6 +54,7 @@
 - [`T0-17-information-entropy-zeckendorf.md`](T0-17-information-entropy-zeckendorf.md) - 定理T0-17：信息熵Zeckendorf编码理论（熵的φ-量化表示和Fibonacci增长）
 - [`T0-18-quantum-state-emergence.md`](T0-18-quantum-state-emergence.md) - 定理T0-18：量子态No-11约束涌现理论（量子叠加、坍缩和Born规则的推导）
 - [`T0-19-observation-collapse.md`](T0-19-observation-collapse.md) - 定理T0-19：观察坍缩信息过程理论（观察导致波函数坍缩的信息理论机制）
+- [`T0-20-zeckendorf-metric-space-foundation.md`](T0-20-zeckendorf-metric-space-foundation.md) - 定理T0-20：Zeckendorf度量空间基础理论（完备度量空间的严格数学基础）
 
 #### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
