@@ -1,0 +1,12 @@
+[book]
+authors = ["Auric"]
+language = "en"
+src = "src"
+title = "Documentation Project"
+
+[preprocessor.katex]
+after = ["links"]
+
+[output.html]
+mathjax-support = true
+no-section-label = true
