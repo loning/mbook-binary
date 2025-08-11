@@ -165,7 +165,7 @@ $$
 
 张量积形式：$T = E \otimes \Phi \otimes \Pi$，其中：
 - $E = \text{span}\{e^{at}: a \in \mathbb{R}\}$
-- $\Φ = \text{span}\{\phi^{bs}: b \in \mathbb{Z}_{\text{Zeck}}\}$
+- $\Phi = \text{span}\{\phi^{bs}: b \in \mathbb{Z}_{\text{Zeck}}\}$
 - $\Pi = \text{span}\{e^{ic\omega}: c \in \mathbb{Z}\}$ ∎
 
 ### 定理26-4-C：自指完备性的谱表示

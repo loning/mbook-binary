@@ -197,7 +197,7 @@ def track_spiral_evolution(initial_state: ZeckendorfString,
 ## 应用示例
 
 ### 示例1：简单状态的trace结构分解
-考虑状态 $s_0 = \"1010\"$ (Zeckendorf: 5)：
+考虑状态 $s_0 = \text{"1010"}$ (Zeckendorf: 5)：
 - $\tau_\psi(s_0) = 1 \cdot F_2 + 3 \cdot F_4 = 1 \cdot 1 + 3 \cdot 3 = 10$
 - 层次分解：$\tau_0(s_0) = 1$, $\tau_1(s_0) = 9$
 - 结构核：$\text{Core}(\tau_\psi(s_0)) = \gcd(1, 9) = 1$
