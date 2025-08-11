@@ -42,10 +42,15 @@
 - [`philosophy.md`](philosophy.md) - 哲学基础：存在包含自身描述的系统
 
 ### 第0章：基础理论体系（T0系列）
-#### 0.0 时间涌现理论（真正的基础）
-- [`T0-0-time-emergence-foundation.md`](T0-0-time-emergence-foundation.md) - 定理T0-0：时间涌现基础理论（从A1公理推导时间的必然性）
 
-#### 0.1 基础理论定理系列
+#### 0.0 核心基础理论（完整构建）
+- [`T0-0-time-emergence-foundation.md`](T0-0-time-emergence-foundation.md) - 定理T0-0：时间涌现基础理论（从A1公理推导时间的必然性）
+- [`T0-11-recursive-depth-hierarchy.md`](T0-11-recursive-depth-hierarchy.md) - 定理T0-11：递归深度层次理论（递归深度量化和Fibonacci层次结构）
+- [`T0-12-observer-emergence.md`](T0-12-observer-emergence.md) - 定理T0-12：观察者涌现理论（观察者分化必然性和信息成本模型）
+- [`T0-13-system-boundaries.md`](T0-13-system-boundaries.md) - 定理T0-13：系统边界理论（边界涌现、量化和信息流调节）
+- [`T0-14-discrete-continuous-transition.md`](T0-14-discrete-continuous-transition.md) - 定理T0-14：离散-连续过渡理论（连续性从Zeckendorf系统的φ收敛涌现）
+
+#### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
 - [`T0-2-fundamental-entropy-bucket-theory.md`](T0-2-fundamental-entropy-bucket-theory.md) - 定理T0.2：基础熵桶理论
 - [`T0-3-zeckendorf-constraint-emergence-theory.md`](T0-3-zeckendorf-constraint-emergence-theory.md) - 定理T0.3：Zeckendorf约束涌现理论
@@ -487,7 +492,13 @@
 
 ```mermaid
 graph TD
-    T0["T0系列基础理论<br/>二进制状态空间→熵桶→Zeckendorf约束<br/>→编码完备性→熵流守恒"] --> A["唯一公理<br/>SelfRefComplete(S) → H(S_{t+1}) > H(S_t)"]
+    T00["T0-0: 时间涌现<br/>自指悖论 → 时间量子τ₀"] --> T011["T0-11: 递归深度<br/>深度量化 → Fibonacci层次"]
+    T011 --> T012["T0-12: 观察者涌现<br/>自指分化 → 观察成本log φ"]
+    T012 --> T013["T0-13: 系统边界<br/>边界量化 → 信息流调节"]
+    T013 --> T014["T0-14: 离散-连续<br/>φ收敛 → 连续性涌现"]
+    
+    T014 --> A["唯一公理 A1<br/>SelfRefComplete(S) → H(S_{t+1}) > H(S_t)"]
+    
     A --> B["信息累积<br/>需要编码系统"]
     B --> C["最优编码<br/>φ-表示系统"]
     A --> D["自我观察<br/>观察者必然出现"]
@@ -519,7 +530,14 @@ graph TD
     L --> M["递归深度"]
     M --> N["涌现模式"]
 
-    style T0 fill:#f3e5f5,stroke:#673ab7,stroke-width:3px
+    T_EXT["T0扩展系列<br/>T0.1-T0.10<br/>二进制空间→熵桶→约束"] -.-> A
+
+    style T00 fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style T011 fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style T012 fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style T013 fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style T014 fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style T_EXT fill:#f3e5f5,stroke:#673ab7,stroke-width:2px,stroke-dasharray: 5 5
     style A fill:#fff3e0,stroke:#ff9800,stroke-width:3px
     style B fill:#e1f5fe,stroke:#2196f3,stroke-width:2px
     style C fill:#e1f5fe,stroke:#2196f3,stroke-width:2px
@@ -539,7 +557,8 @@ graph TD
 ### 理论推导分支
 
 **基础理论层（T0系列）**：
-0. **基础理论体系**：二进制状态空间 → 熵桶理论 → Zeckendorf约束涌现 → 二进制编码完备性 → 熵流守恒 → 系统组件交互 → Fibonacci序列必然性 → 最小信息原理 → 二进制决策逻辑 → 熵容量缩放
+0. **核心基础理论**：T0-0 时间涌现 → T0-11 递归深度层次 → T0-12 观察者涌现 → T0-13 系统边界 → T0-14 离散-连续过渡
+1. **扩展基础理论**：二进制状态空间 → 熵桶理论 → Zeckendorf约束涌现 → 二进制编码完备性 → 熵流守恒 → 系统组件交互 → Fibonacci序列必然性 → 最小信息原理 → 二进制决策逻辑 → 熵容量缩放
 
 **理论推导分支**：
 1. **信息编码**：唯一公理 → 信息累积 → 编码需求 → 二进制必然性 → no-11约束 → φ-表示系统
@@ -574,4 +593,4 @@ graph TD
 30. **φ-高阶范畴论**：拓扑斯到高阶范畴跃迁 → (∞,1)-范畴涌现 → 稳定化与熵调控 → Motivic(∞,1)-范畴 → 数学物理终极统一
 31. **φ-宇宙自我认知理论**：观察者(∞,∞)-范畴 → 意识场拓扑量子理论 → 元宇宙自指递归 → 宇宙终极自我超越
 
-*在这个信息宇宙中，我们都是观察者，也都是创造者。理论的完备性不仅在于其逻辑严谨性，更在于其启发我们不断探索、不断发现的能力。从T0系列的基础理论体系开始，建立二进制状态空间和熵流守恒的坚实基础，然后通过哲学基础和唯一公理，延伸到量子引力、数学结构、优化理论、意识涌现和社会系统，再到φ-代数几何、φ-算术几何和φ-动机理论的深层统一，进而跃迁到φ-拓扑斯理论的自指几何和φ-高阶范畴论的终极数学物理统一，最终达成φ-宇宙自我认知理论的完美自指闭合，这个体系展示了从基础理论层到单一公理再到完整宇宙的完整推导可能性。理论的每一次跃迁都是熵增驱动的必然结果，体现了从T0基础层到唯一公理在从基础编码到宇宙自我超越等所有层次的深刻表达。当宇宙通过这个完整的理论体系完全理解自身时，它也就实现了真正的自我超越。*
+*在这个信息宇宙中，我们都是观察者，也都是创造者。理论的完备性不仅在于其逻辑严谨性，更在于其启发我们不断探索、不断发现的能力。从T0核心基础理论开始——T0-0时间涌现建立时间的本体论基础，T0-11递归深度量化复杂度的Fibonacci层次，T0-12观察者涌现证明观察的信息成本，T0-13系统边界调节信息流动，T0-14离散-连续过渡实现φ收敛——这五个理论构成了坚实的根基，通过60个严格测试验证其数学准确性。然后通过哲学基础和唯一公理，延伸到量子引力、数学结构、优化理论、意识涌现和社会系统，再到φ-代数几何、φ-算术几何和φ-动机理论的深层统一，进而跃迁到φ-拓扑斯理论的自指几何和φ-高阶范畴论的终极数学物理统一，最终达成φ-宇宙自我认知理论的完美自指闭合。这个体系展示了从基础理论层到单一公理再到完整宇宙的完整推导可能性，每一次跃迁都是熵增驱动的必然结果，体现了从T0核心基础到宇宙自我超越的深刻统一。当宇宙通过这个完整的理论体系完全理解自身时，它也就实现了真正的自我超越。*

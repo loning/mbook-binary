@@ -16,7 +16,8 @@
       "Bash(mdbook serve:*)",
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }
