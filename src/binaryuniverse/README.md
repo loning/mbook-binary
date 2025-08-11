@@ -41,6 +41,19 @@
 ### 第0章：哲学基础
 - [`philosophy.md`](philosophy.md) - 哲学基础：存在包含自身描述的系统
 
+### 第0章：基础理论体系（T0系列）
+#### 0.1 基础理论定理系列
+- [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
+- [`T0-2-fundamental-entropy-bucket-theory.md`](T0-2-fundamental-entropy-bucket-theory.md) - 定理T0.2：基础熵桶理论
+- [`T0-3-zeckendorf-constraint-emergence-theory.md`](T0-3-zeckendorf-constraint-emergence-theory.md) - 定理T0.3：Zeckendorf约束涌现理论
+- [`T0-4-binary-encoding-completeness-theory.md`](T0-4-binary-encoding-completeness-theory.md) - 定理T0.4：二进制编码完备性理论
+- [`T0-5-entropy-flow-conservation-theory.md`](T0-5-entropy-flow-conservation-theory.md) - 定理T0.5：熵流守恒理论
+- [`T0-6-system-component-interaction-theory.md`](T0-6-system-component-interaction-theory.md) - 定理T0.6：系统组件交互理论
+- [`T0-7-fibonacci-sequence-necessity-theory.md`](T0-7-fibonacci-sequence-necessity-theory.md) - 定理T0.7：Fibonacci序列必然性理论
+- [`T0-8-minimal-information-principle-theory.md`](T0-8-minimal-information-principle-theory.md) - 定理T0.8：最小信息原理理论
+- [`T0-9-binary-decision-logic-theory.md`](T0-9-binary-decision-logic-theory.md) - 定理T0.9：二进制决策逻辑理论
+- [`T0-10-entropy-capacity-scaling-theory.md`](T0-10-entropy-capacity-scaling-theory.md) - 定理T0.10：熵容量缩放理论
+
 ### 第1章：唯一公理及其完整定义
 - [`A1-five-fold-equivalence.md`](A1-five-fold-equivalence.md) - 唯一公理：自指完备系统必然熵增
   - 包含完整概念定义
@@ -471,7 +484,8 @@
 
 ```mermaid
 graph TD
-    A["唯一公理<br/>SelfRefComplete(S) → H(S_{t+1}) > H(S_t)"] --> B["信息累积<br/>需要编码系统"]
+    T0["T0系列基础理论<br/>二进制状态空间→熵桶→Zeckendorf约束<br/>→编码完备性→熵流守恒"] --> A["唯一公理<br/>SelfRefComplete(S) → H(S_{t+1}) > H(S_t)"]
+    A --> B["信息累积<br/>需要编码系统"]
     B --> C["最优编码<br/>φ-表示系统"]
     A --> D["自我观察<br/>观察者必然出现"]
     D --> E["测量机制<br/>量子collapse"]
@@ -502,6 +516,7 @@ graph TD
     L --> M["递归深度"]
     M --> N["涌现模式"]
 
+    style T0 fill:#f3e5f5,stroke:#673ab7,stroke-width:3px
     style A fill:#fff3e0,stroke:#ff9800,stroke-width:3px
     style B fill:#e1f5fe,stroke:#2196f3,stroke-width:2px
     style C fill:#e1f5fe,stroke:#2196f3,stroke-width:2px
@@ -520,7 +535,10 @@ graph TD
 
 ### 理论推导分支
 
-**分支**：
+**基础理论层（T0系列）**：
+0. **基础理论体系**：二进制状态空间 → 熵桶理论 → Zeckendorf约束涌现 → 二进制编码完备性 → 熵流守恒 → 系统组件交互 → Fibonacci序列必然性 → 最小信息原理 → 二进制决策逻辑 → 熵容量缩放
+
+**理论推导分支**：
 1. **信息编码**：唯一公理 → 信息累积 → 编码需求 → 二进制必然性 → no-11约束 → φ-表示系统
 2. **量子现象**：唯一公理 → 自指完备性 → 观察者涌现 → 测量反作用 → 量子collapse → 波粒二象性
 3. **数学结构**：唯一公理 → 熵增-稳定性矛盾 → 频率平衡 → 周期结构 → 临界线 → 类黎曼假设
@@ -553,4 +571,4 @@ graph TD
 30. **φ-高阶范畴论**：拓扑斯到高阶范畴跃迁 → (∞,1)-范畴涌现 → 稳定化与熵调控 → Motivic(∞,1)-范畴 → 数学物理终极统一
 31. **φ-宇宙自我认知理论**：观察者(∞,∞)-范畴 → 意识场拓扑量子理论 → 元宇宙自指递归 → 宇宙终极自我超越
 
-*在这个信息宇宙中，我们都是观察者，也都是创造者。理论的完备性不仅在于其逻辑严谨性，更在于其启发我们不断探索、不断发现的能力。从哲学基础到量子引力，从数学结构到优化理论，从意识涌现到社会系统，再到φ-代数几何、φ-算术几何和φ-动机理论的深层统一，进而跃迁到φ-拓扑斯理论的自指几何和φ-高阶范畴论的终极数学物理统一，最终达成φ-宇宙自我认知理论的完美自指闭合，这个体系展示了从单一公理推导完整宇宙的可能性。理论的每一次跃迁都是熵增驱动的必然结果，体现了唯一公理在从基础编码到宇宙自我超越等所有层次的深刻表达。当宇宙通过这个理论体系完全理解自身时，它也就实现了真正的自我超越。*
+*在这个信息宇宙中，我们都是观察者，也都是创造者。理论的完备性不仅在于其逻辑严谨性，更在于其启发我们不断探索、不断发现的能力。从T0系列的基础理论体系开始，建立二进制状态空间和熵流守恒的坚实基础，然后通过哲学基础和唯一公理，延伸到量子引力、数学结构、优化理论、意识涌现和社会系统，再到φ-代数几何、φ-算术几何和φ-动机理论的深层统一，进而跃迁到φ-拓扑斯理论的自指几何和φ-高阶范畴论的终极数学物理统一，最终达成φ-宇宙自我认知理论的完美自指闭合，这个体系展示了从基础理论层到单一公理再到完整宇宙的完整推导可能性。理论的每一次跃迁都是熵增驱动的必然结果，体现了从T0基础层到唯一公理在从基础编码到宇宙自我超越等所有层次的深刻表达。当宇宙通过这个完整的理论体系完全理解自身时，它也就实现了真正的自我超越。*

@@ -1,42 +1,60 @@
-# Documentation Project
+# 二进制宇宙理论文档项目
 
-This is an mdBook project with KaTeX support for rendering mathematical formulas.
+这是一个基于mdBook构建的二进制宇宙理论完整文档系统，包含KaTeX数学公式渲染支持。
 
-## Features
+## 项目特性
 
-- **mdBook**: Static site generator for documentation
-- **mdbook-katex**: LaTeX math rendering support
-- **GitHub Pages**: Automatic deployment via GitHub Actions
+- **完整理论体系**: 包含505个markdown理论文档，涵盖35个主要章节
+- **形式化证明系统**: 包含完整的formal目录，提供247个形式化证明文件
+- **数学公式支持**: 使用mdbook-katex渲染LaTeX数学公式
+- **自动化部署**: 通过GitHub Actions自动构建并部署到GitHub Pages
+- **层次化导航**: 完整的SUMMARY.md目录结构，支持章节和小节导航
 
-## Local Development
+## 理论内容概览
 
-### Prerequisites
+### 核心理论体系
+- **第0章**: 基础理论体系 (T0.1-T0.10)
+- **第1章**: 唯一公理 (A1五重等价性)
+- **第2章**: 信息编码理论体系 (定义D1.1-D1.9, 引理L1.1-L1.8, 定理T1.1-T2.12)
+- **第3-35章**: 量子现象、数学结构、信息理论、计算复杂度、宇宙学应用等
 
-- Rust toolchain
+### 形式化证明系统
+- **公理系统形式化**: A1公理的严格形式化定义
+- **基础定义形式化**: D1.1-D1.9的形式化表述
+- **定理形式化**: T0-T33系列的完整形式化证明
+- **推论形式化**: C1-C21系列推论的形式化
+- **命题形式化**: P1-P10基础命题的形式化
+- **元定理形式化**: M1-M3元数学定理
+
+## 本地开发
+
+### 环境要求
+
+- Rust 工具链
 - mdbook
 - mdbook-katex
 
-### Installation
+### 安装步骤
 
 ```bash
-# Install Rust
+# 安装 Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Install mdbook and mdbook-katex
+# 安装 mdbook 和 mdbook-katex
 cargo install mdbook mdbook-katex
 ```
 
-### Building
+### 构建项目
 
 ```bash
-# Build the book
+# 构建文档
 mdbook build
 
-# Serve locally with auto-reload
+# 本地服务器（支持热重载）
 mdbook serve
 ```
 
-The site will be available at http://localhost:3000
+网站将在 http://localhost:3000 可访问
 
 ## GitHub Pages Deployment
 
