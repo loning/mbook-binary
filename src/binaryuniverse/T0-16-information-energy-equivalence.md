@@ -248,19 +248,34 @@ All thermodynamic laws emerge from information processing principles.
 **Definition 10.1** (Field Information Density):
 Energy fields represent distributed information processing:
 ```
-ρ_field(x⃗,t) = [dI/dt](x⃗,t) / c²_φ
+ρ_E(x⃗,t) = [∂I/∂t](x⃗,t) × ℏ_φ / (τ₀ × c²_φ)
 ```
+where the energy density can be positive or negative, representing energy flow direction.
+
+**Definition 10.2** (No-11 Compliant Fields):
+Information fields must satisfy the No-11 constraint locally:
+```
+|I(x⃗,t)| < 1 ∨ |I(x⃗+δx⃗,t)| < 1  ∀ adjacent points
+```
+This prevents consecutive maximal information states.
 
 **Theorem 10.1** (Field Equations from Information Flow):
 Maxwell-like equations emerge from information conservation.
 
 *Proof*:
 1. Information conservation: ∂I/∂t + ∇ · J⃗_I = 0
-2. Information current: J⃗_I = information flow density
-3. Energy density: ρ_E = (∂I/∂t) × ℏ_φ / τ₀
+2. Information current: J⃗_I = -∇I × velocity
+3. Energy density: ρ_E = (∂I/∂t) × ℏ_φ / (τ₀ × c²_φ)
 4. Energy current: J⃗_E = J⃗_I × ℏ_φ / τ₀
-5. Field equations: ∂ρ_E/∂t + ∇ · J⃗_E = 0
-6. This is the energy continuity equation underlying field theory ∎
+5. Continuity equation: ∂ρ_E/∂t + ∇ · J⃗_E = 0
+6. This ensures local energy conservation in field theory ∎
+
+**Corollary 10.1** (Total Field Energy):
+The total field energy is given by:
+```
+E_total = ∫ √(ρ_E²) d³x
+```
+This integral is conserved for isolated systems.
 
 ## 11. Connection to Higher Theories
 

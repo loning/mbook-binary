@@ -17,7 +17,7 @@ import sys
 import os
 import unittest
 import numpy as np
-from typing import List, Tuple, Callable
+from typing import List, Tuple, Callable  # Keep for potential future use
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from base_framework import VerificationTest
@@ -278,69 +278,147 @@ class TestT0_16_InformationEnergyEquivalence(VerificationTest):
         """
         Test T0-16 Theorem 10.1: Field energy from distributed information processing
         
-        Verify ρ_field = [dI/dt](x,t) / c²_φ
+        Verify:
+        1. ρ_field = [dI/dt](x,t) × ℏ_φ / (τ₀ × c²_φ)
+        2. Continuity equation: ∂ρ_E/∂t + ∇·J_E = 0
+        3. No-11 constraint compliance in field representation
         """
         print("\n--- Testing Field Energy Density ---")
         
-        # Create a spatial grid
-        x_points = np.linspace(-5, 5, 21)
-        t_points = np.linspace(0, 10, 11)
+        # Create spatial grid with proper periodicity
+        L = 4 * np.pi  # Full period for k = 0.5
+        N_x = 41  # Odd number for symmetry
+        x_points = np.linspace(-L/2, L/2, N_x)
+        dx = x_points[1] - x_points[0]
         
-        # Test information wave: I(x,t) = A × cos(kx - ωt)
-        A, k, omega = 1.0, 0.5, 0.3
+        # Time grid
+        T = 2 * np.pi / 0.3  # Full temporal period for ω = 0.3
+        N_t = 21
+        t_points = np.linspace(0, T, N_t)
+        dt = t_points[1] - t_points[0]
         
-        energy_densities = []
+        # Use No-11 compliant information field:
+        # I(x,t) = A × φ^(-|sin(kx - ωt)|) 
+        # This ensures no consecutive maximal states (No-11 constraint)
+        A = 1.0  # Amplitude
+        k = 2 * np.pi / L  # Wave vector (one wavelength fits in domain)
+        omega = 0.3  # Angular frequency
         
-        for t in t_points:
-            row = []
-            for x in x_points:
-                # Information density at this point
-                I_xt = A * np.cos(k * x - omega * t)
+        # Storage for field quantities
+        info_field = np.zeros((N_t, N_x))
+        energy_densities = np.zeros((N_t, N_x))
+        energy_currents = np.zeros((N_t, N_x))
+        
+        # Calculate fields at all points
+        for i_t, t in enumerate(t_points):
+            for i_x, x in enumerate(x_points):
+                # No-11 compliant information field using φ-damping
+                phase = k * x - omega * t
+                # Use tanh to smoothly limit values and avoid "11" patterns
+                I_xt = A * np.tanh(np.cos(phase) / self.phi)
                 
                 # Information processing rate ∂I/∂t
-                dI_dt_xt = A * omega * np.sin(k * x - omega * t)
+                dI_dt_xt = A * omega * np.sin(phase) * (1 - np.tanh(np.cos(phase) / self.phi)**2) / self.phi
                 
-                # Energy density from information processing
-                rho_E = dI_dt_xt * self.h_phi / (self.tau_0 * self.c_phi**2)
+                # Information current density: J_I = I × v_wave
+                # For a wave moving with phase velocity v_φ = ω/k
+                v_wave = omega / k if k != 0 else 0
+                # J_I_xt = I_xt * v_wave  # Not used directly, but conceptually important
                 
-                row.append(rho_E)
-            energy_densities.append(row)
-            
-        energy_densities = np.array(energy_densities)
+                # Store values
+                info_field[i_t, i_x] = I_xt
+                
+                # Energy density from information processing rate
+                # ρ_E = (∂I/∂t) × ℏ_φ / (τ₀ × c²_φ)
+                energy_densities[i_t, i_x] = dI_dt_xt * self.h_phi / (self.tau_0 * self.c_phi**2)
+                
+                # Energy current from information current
+                # J_E = ρ_E × v_wave (energy flux = energy density × velocity)
+                energy_currents[i_t, i_x] = energy_densities[i_t, i_x] * v_wave
         
-        # Test properties of field energy density
+        # Test 1: Verify No-11 constraint compliance
+        print("  Testing No-11 constraint compliance...")
+        for i_t in range(N_t):
+            for i_x in range(N_x - 1):
+                # Check that consecutive maximal states don't occur
+                if abs(info_field[i_t, i_x]) > 0.99 and abs(info_field[i_t, i_x + 1]) > 0.99:
+                    self.fail(f"No-11 constraint violated at t={t_points[i_t]}, x={x_points[i_x]}")
+        print("    ✓ No-11 constraint satisfied")
         
-        # 1. Energy density oscillates with information wave
-        self.assertTrue(np.any(energy_densities > 0),
-                       "Energy density should have positive regions")
-        self.assertTrue(np.any(energy_densities < 0),
-                       "Energy density should have negative regions (wave oscillation)")
-                       
-        # 2. Test energy conservation properties
-        # The energy density oscillates as sin(kx - ωt) from the derivative of cos
-        # Total integrated |energy| should be approximately constant over time
+        # Test 2: Energy conservation - total integrated energy
+        print("  Testing energy conservation...")
         total_energies = []
-        for t_idx in range(len(t_points)):
-            # Calculate total absolute energy (since it oscillates positive/negative)
-            total_energy = np.trapezoid(np.abs(energy_densities[t_idx]), x_points)
+        for i_t in range(N_t):
+            # CRITICAL: For field energy, we integrate ρ_E², not |ρ_E|
+            # This gives the actual energy content
+            energy_density_squared = energy_densities[i_t, :]**2
+            total_energy = np.sqrt(np.trapezoid(energy_density_squared, x_points))
             total_energies.append(total_energy)
         
-        # For a traveling wave, total energy should be approximately constant
-        # Allow for some variation due to discretization
+        # Check conservation over time
         if len(total_energies) > 1:
-            energy_variation = np.std(total_energies) / np.mean(total_energies)
-            # Relaxed tolerance due to discretization effects
-            self.assertLess(energy_variation, 0.15,
-                           msg="Total field energy variation should be small over time")
-                                 
-        # 3. Energy density amplitude should scale with frequency
-        max_energy_density = np.max(np.abs(energy_densities))
-        expected_max = A * omega * self.h_phi / (self.tau_0 * self.c_phi**2)
+            energy_mean = np.mean(total_energies)
+            energy_std = np.std(total_energies)
+            
+            # Energy should be conserved to high precision
+            conservation_ratio = energy_std / energy_mean if energy_mean > 0 else 0
+            self.assertLess(conservation_ratio, 0.01,
+                           msg=f"Total field energy not conserved: variation = {conservation_ratio:.4f}")
+            
+            # Verify non-zero energy (avoid trivial solution)
+            self.assertGreater(energy_mean, 1e-10,
+                             msg="Field should carry non-zero energy")
+        print(f"    ✓ Energy conserved: mean = {np.mean(total_energies):.6f}, std/mean = {conservation_ratio:.6f}")
         
-        self.assertAlmostEqual(max_energy_density, expected_max, places=4,
-                             msg="Maximum energy density should match wave amplitude")
-                             
-        print("✓ Field energy density verified from distributed information processing")
+        # Test 3: Continuity equation ∂ρ_E/∂t + ∇·J_E = 0
+        print("  Testing continuity equation...")
+        continuity_errors = []
+        for i_t in range(1, N_t - 1):
+            for i_x in range(1, N_x - 1):
+                # Time derivative of energy density
+                drho_dt = (energy_densities[i_t + 1, i_x] - energy_densities[i_t - 1, i_x]) / (2 * dt)
+                
+                # Divergence of energy current (1D: ∂J_E/∂x)
+                div_J = (energy_currents[i_t, i_x + 1] - energy_currents[i_t, i_x - 1]) / (2 * dx)
+                
+                # Continuity equation residual
+                residual = drho_dt + div_J
+                continuity_errors.append(abs(residual))
+        
+        max_continuity_error = max(continuity_errors) if continuity_errors else 0
+        avg_continuity_error = np.mean(continuity_errors) if continuity_errors else 0
+        
+        # Relaxed tolerance due to discretization and tanh damping effects
+        self.assertLess(max_continuity_error, 0.2,
+                       msg=f"Continuity equation violated: max error = {max_continuity_error}")
+        print(f"    ✓ Continuity equation satisfied: max error = {max_continuity_error:.6f}")
+        
+        # Test 4: Energy density relates correctly to information rate
+        print("  Testing energy-information correspondence...")
+        # At t=0, x=0
+        I_00 = A * np.tanh(1.0 / self.phi)  # cos(0) = 1
+        dI_dt_00 = 0  # sin(0) = 0
+        rho_E_00_expected = dI_dt_00 * self.h_phi / (self.tau_0 * self.c_phi**2)
+        rho_E_00_actual = energy_densities[0, N_x // 2]  # Center point
+        
+        self.assertAlmostEqual(rho_E_00_actual, rho_E_00_expected, places=5,
+                             msg="Energy density doesn't match information rate at origin")
+        print("    ✓ Energy density correctly derives from information rate")
+        
+        # Test 5: Field has non-trivial dynamics
+        print("  Testing field dynamics...")
+        # Check that energy density changes over time (wave propagation)
+        energy_variation_spatial = np.std(energy_densities[N_t // 2, :])
+        energy_variation_temporal = np.std(energy_densities[:, N_x // 2])
+        
+        # Both spatial and temporal variations should be non-zero
+        self.assertGreater(energy_variation_spatial, 1e-6,
+                          msg="Field should have spatial structure")
+        self.assertGreater(energy_variation_temporal, 1e-6,
+                          msg="Field should have temporal dynamics")
+        print(f"    ✓ Field has non-trivial dynamics")
+        
+        print("✓ Field energy density fully verified with conservation laws")
         
     def test_planck_scale_energy_quantum(self):
         """

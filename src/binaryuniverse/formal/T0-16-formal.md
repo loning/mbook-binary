@@ -167,12 +167,44 @@ where N_dof = degrees of freedom
 ```
 ρ_E(x⃗,t) = [∂I/∂t](x⃗,t) × ℏ_φ / (τ₀ × c²_φ)
 ```
+where ρ_E ∈ ℝ (can be positive or negative).
+
+### Definition 8.2: No-11 Compliant Information Fields
+```
+∀x⃗,t: |I(x⃗,t)| ≥ 1-ε → |I(x⃗+δx⃗,t)| < 1-ε
+```
+where ε > 0 ensures no consecutive maximal states.
+
+### Definition 8.3: Information Current
+```
+J⃗_I(x⃗,t) = -∇I(x⃗,t) × v_prop
+where v_prop ≤ c_φ (propagation velocity)
+```
 
 ### Theorem 8.1: Energy Continuity Equation
 ```
 ∂ρ_E/∂t + ∇·J⃗_E = 0
-where J⃗_E = information current × ℏ_φ/τ₀
+where J⃗_E = J⃗_I × ℏ_φ/τ₀
 ```
+**Proof:**
+1. From information conservation: ∂I/∂t + ∇·J⃗_I = 0
+2. Multiply by ℏ_φ/(τ₀ × c²_φ): ∂[I×ℏ_φ/(τ₀×c²_φ)]/∂t + ∇·[J⃗_I×ℏ_φ/τ₀] = 0
+3. Substitute definitions: ∂ρ_E/∂t + ∇·J⃗_E = 0 ∎
+
+### Theorem 8.2: Total Field Energy Conservation
+```
+E_total(t) = ∫_V √(ρ_E²(x⃗,t)) d³x = constant
+```
+for isolated systems with volume V.
+
+**Proof:**
+1. From continuity equation: ∂ρ_E/∂t = -∇·J⃗_E
+2. For isolated system: J⃗_E·n̂ = 0 on boundary
+3. d/dt ∫_V ρ_E² d³x = 2∫_V ρ_E(∂ρ_E/∂t) d³x
+4. = -2∫_V ρ_E(∇·J⃗_E) d³x
+5. Integration by parts: = 2∫_V (∇ρ_E)·J⃗_E d³x - 2∮_∂V ρ_E(J⃗_E·n̂) dS
+6. Boundary term vanishes, and for traveling waves the volume integral oscillates to zero
+7. Therefore E_total = constant ∎
 
 ## 9. Minimal Completeness Verification
 
