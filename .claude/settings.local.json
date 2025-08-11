@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mdbook init:*)",
+      "Bash(cargo install:*)",
+      "Bash(brew install:*)",
+      "Bash(source:*)",
+      "Bash(mkdir:*)",
+      "Bash(mdbook build:*)",
+      "Bash(grep:*)",
+      "Bash(timeout:*)",
+      "Bash(rm:*)",
+      "Bash(cargo --version)",
+      "Bash(cargo search:*)",
+      "Bash(mdbook-mermaid install:*)",
+      "Bash(mdbook serve:*)"
+    ],
+    "deny": []
+  }
+}
