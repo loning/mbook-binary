@@ -1,5 +1,4 @@
 # Summary
-
 - [二进制宇宙理论]()
   - [理论概述](./binaryuniverse/README.md)
   - [哲学基础](./binaryuniverse/philosophy.md)
@@ -37,12 +36,12 @@
       - [L1.8: 测量不可逆性](./binaryuniverse/L1-8-measurement-irreversibility.md)
     - [核心编码定理系列]()
       - [T1.1: 熵增必然性](./binaryuniverse/T1-1-entropy-increase-necessity.md)
-      - [五重等价性](./binaryuniverse/T1-2-five-fold-equivalence-theorem.md)
-      - [熵增率定理](./binaryuniverse/T1-3-entropy-rate-theorem.md)
-      - [熵增方向唯一性](./binaryuniverse/T1-4-entropy-direction-uniqueness.md)
-      - [局域熵减条件](./binaryuniverse/T1-5-local-entropy-decrease-conditions.md)
-      - [自指完成定理](./binaryuniverse/T1-6-self-reference-completion-theorem.md)
-      - [编码必然性](./binaryuniverse/T2-1-encoding-necessity-theorem.md)
+      - [T1.2: 五重等价性](./binaryuniverse/T1-2-five-fold-equivalence-theorem.md)
+      - [T1.3: 熵增率定理](./binaryuniverse/T1-3-entropy-rate-theorem.md)
+      - [T1.4: 熵增方向唯一性](./binaryuniverse/T1-4-entropy-direction-uniqueness.md)
+      - [T1.5: 局域熵减条件](./binaryuniverse/T1-5-local-entropy-decrease-conditions.md)
+      - [T1.6: 自指完成定理](./binaryuniverse/T1-6-self-reference-completion-theorem.md)
+      - [T2.1: 编码必然性](./binaryuniverse/T2-1-encoding-necessity-theorem.md)
       - [T2.2: 编码完备性](./binaryuniverse/T2-2-encoding-completeness-theorem.md)
       - [T2.3: 编码优化](./binaryuniverse/T2-3-encoding-optimization-theorem.md)
       - [T2.4: 二进制基底必然性](./binaryuniverse/T2-4-binary-base-necessity-theorem.md)
@@ -344,7 +343,7 @@
       - [T33.2: φ-意识场拓扑量子理论](./binaryuniverse/T33-2-phi-consciousness-field-quantum-theory.md)
       - [T33.3: φ-元宇宙自指递归理论](./binaryuniverse/T33-3-phi-meta-universe-self-transcendence.md)
 
-- [附录：形式化证明系统]()
+- [附录：形式化证明系统 GITHUB有所有的及python验证程序]()
   - [公理系统形式化]()
     - [A1公理形式化](./binaryuniverse/formal/A1-formal.md)
   - [基础定义形式化]()

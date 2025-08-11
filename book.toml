@@ -2,14 +2,19 @@
 authors = ["Auric"]
 language = "en"
 src = "src"
-title = "Documentation Project"
+title = "Binary Universe"
 
 [preprocessor.katex]
 after = ["links"]
 
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
 [output.html]
+git-repository-url = "https://github.com/loning/mbook-binary"
 mathjax-support = true
 no-section-label = true
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [output.html.search]
 enable = true
