@@ -70,7 +70,7 @@ Amplitudes must be complex to maintain No-11 under evolution.
 ### 2.2 Normalization from Information Conservation
 
 **Theorem 2.2** (Born Rule Derivation):
-The normalization |α|² + |β|² = 1 emerges from information conservation.
+The normalization |α|² + |β|² = 1 emerges from information conservation and the φ-probability measure.
 
 *Proof*:
 1. Total information in quantum state: I_total = 1 bit
@@ -80,6 +80,22 @@ The normalization |α|² + |β|² = 1 emerges from information conservation.
 5. From T0-12 (observer): P₀ = |⟨0|ψ⟩|² = |α|²
 6. Similarly: P₁ = |⟨1|ψ⟩|² = |β|²
 7. Therefore: |α|² + |β|² = 1 ∎
+
+### 2.3 Probability Measure Foundation
+
+**Theorem 2.3** (φ-Measure Basis):
+The Born rule |⟨ψ|φ⟩|² emerges from the φ-probability measure P_φ defined in T0-22.
+
+*Proof*:
+1. From T0-22: probability space (Ω_Z, Σ_φ, P_φ)
+2. Quantum amplitude αₖ corresponds to path sum: αₖ = Σ_π∈Ωₖ A(π)
+3. Path amplitude: A(π) = exp(iS[π]/ℏ_φ)
+4. Measurement probability: P(k) = |αₖ|² = |Σ_π∈Ωₖ A(π)|²
+5. This equals P_φ([k]) = φ^(-H_φ(k))/Z_φ under path interference
+6. The Born rule is thus grounded in Zeckendorf path multiplicity ∎
+
+**Corollary 2.3.1** (Quantum-Classical Correspondence):
+As ℏ_φ → 0, quantum probabilities reduce to classical determinism per T0-22.
 
 ## 3. Wave Function Collapse Mechanism
 
@@ -93,16 +109,18 @@ M|ψ⟩ → |0⟩ with probability |α|²
 ```
 
 **Theorem 3.1** (Collapse from Entropy Maximization):
-Wave function collapse occurs via entropy-driven path selection.
+Wave function collapse occurs via entropy-driven path selection governed by the φ-probability measure.
 
 *Proof*:
 1. From T0-17: measurement increases entropy by log φ
-2. Superposition state: H_super = -|α|²log|α|² - |β|²log|β|²
-3. Post-measurement: H_collapsed = 0 (definite state)
-4. But total entropy increases: H_environment increases
-5. Collapse path selected by maximum entropy production
-6. Path probabilities: P(|0⟩) ∝ exp(ΔH₀/k), P(|1⟩) ∝ exp(ΔH₁/k)
-7. This gives Born rule: P = |amplitude|² ∎
+2. From T0-22: measurement requires minimum information exchange of log φ bits
+3. Superposition state: H_super = -|α|²log|α|² - |β|²log|β|²
+4. Post-measurement: H_collapsed = 0 (definite state)
+5. But total entropy increases: H_environment increases
+6. Collapse path selected by maximum entropy production under P_φ measure
+7. Path probabilities from T0-22: P(|0⟩) = P_φ([0]) = φ^(-H_φ(0))/Z_φ
+8. Similarly: P(|1⟩) = P_φ([1]) = φ^(-H_φ(1))/Z_φ
+9. This recovers Born rule: P = |amplitude|² with φ-measure corrections ∎
 
 ### 3.2 No-11 Constraint on Collapse
 
@@ -127,6 +145,9 @@ A quantum bit with Zeckendorf-structured amplitudes:
 |φ⟩ = (1/√φ)|0⟩ + (1/√(φ+1))|1⟩
 ```
 
+**Remark 4.1** (Probabilistic Interpretation):
+Each quantum superposition |ψ⟩ = Σᵢ cᵢ|i⟩ corresponds to a Zeckendorf probability distribution over the basis states, where the coefficients cᵢ are constrained by the φ-measure normalization from T0-22.
+
 **Theorem 4.1** (Optimal Quantum Encoding):
 The φ-qubit maximizes information capacity under No-11.
 
@@ -147,6 +168,9 @@ Non-separable multi-qubit state:
 ```
 |Ψ⟩ = α|00⟩ + β|11⟩
 ```
+
+**Remark 5.1** (Measurement Probability):
+The measurement process fundamentally involves the collapse of the φ-probability distribution (T0-22) onto a single eigenstate, with transition probabilities governed by the Zeckendorf encoding constraints and path interference effects.
 
 **Theorem 5.1** (Entanglement from No-11 Propagation):
 The No-11 constraint creates quantum entanglement.
@@ -174,6 +198,18 @@ The Schrödinger equation emerges from information flow under No-11.
 5. This gives: iℏ_φ ∂|ψ⟩/∂t = H|ψ⟩
 6. With ℏ_φ = φ·τ₀·log φ from T0-16 ∎
 
+### 6.2 Probability Measure Evolution
+
+**Theorem 6.2** (Measure-Preserving Evolution):
+Unitary quantum evolution preserves the φ-probability measure structure.
+
+*Proof*:
+1. From T0-22: initial measure P_φ([ψ₀]) = φ^(-H_φ(ψ₀))/Z_φ
+2. Unitary evolution: |ψ(t)⟩ = U(t)|ψ₀⟩
+3. Measure invariance: P_φ([ψ(t)]) = P_φ([U⁻¹ψ(t)]) = P_φ([ψ₀])
+4. This ensures probability conservation under quantum dynamics
+5. The φ-measure provides the fundamental probabilistic structure ∎
+
 ## 7. Layer Binary Encoding
 
 From T0-17 (10001) + 1 = T0-18 (10010):
@@ -189,5 +225,6 @@ Quantum mechanics is not postulated but emerges necessarily from:
 2. No-11 constraint preventing simultaneous activity
 3. Self-referential completeness requiring description
 4. Entropy increase under observation
+5. φ-probability measure structure (T0-22) providing rigorous probabilistic foundation
 
-The quantum state |ψ⟩ = α|0⟩ + β|1⟩ is the minimal complete resolution to these constraints, with all quantum phenomena (collapse, entanglement, Born rule) following from the fundamental No-11 restriction on information encoding.
+The quantum state |ψ⟩ = α|0⟩ + β|1⟩ is the minimal complete resolution to these constraints, with all quantum phenomena (collapse, entanglement, Born rule) following from the fundamental No-11 restriction on information encoding. The probabilistic interpretation is not ad-hoc but emerges from the Zeckendorf path multiplicity and observer incompleteness as established in T0-22, providing a deterministic foundation for quantum probability.

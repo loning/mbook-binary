@@ -57,6 +57,10 @@
 - [`T0-20-zeckendorf-metric-space-foundation.md`](T0-20-zeckendorf-metric-space-foundation.md) - 定理T0-20：Zeckendorf度量空间基础理论（完备度量空间的严格数学基础）
 - [`T0-21-mass-emergence-from-information-density.md`](T0-21-mass-emergence-from-information-density.md) - 定理T0-21：Mass Emergence from Information Density（从信息密度梯度导出质量的涌现机制）
 - [`T0-22-probability-measure-emergence.md`](T0-22-probability-measure-emergence.md) - 定理T0-22：Probability Measure Emergence Theory（从Zeckendorf路径多重性导出概率测度基础）
+- [`T0-23-causal-cone-lightcone-structure.md`](T0-23-causal-cone-lightcone-structure.md) - 定理T0-23：Causal Cone and Lightcone Structure（从No-11约束导出光锥几何和因果结构）
+- [`T0-24-fundamental-symmetries-theory.md`](T0-24-fundamental-symmetries-theory.md) - 定理T0-24：Fundamental Symmetries Theory（CPT对称性的信息论起源和守恒律统一推导）
+- [`T0-25-phase-transition-critical-theory.md`](T0-25-phase-transition-critical-theory.md) - 定理T0-25：Phase Transition Critical Theory（φ-临界指数和普适类的信息论分类）
+- [`T0-26-topological-invariants-theory.md`](T0-26-topological-invariants-theory.md) - 定理T0-26：Topological Invariants Theory（Zeckendorf拓扑数和φ-系数同调理论）
 
 #### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论

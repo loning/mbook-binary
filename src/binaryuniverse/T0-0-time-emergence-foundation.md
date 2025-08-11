@@ -160,9 +160,33 @@ Time intervals follow Fibonacci scaling.
 5. Time intervals scale as φⁿ
 6. Golden ratio emerges in time structure ∎
 
-## 7. Time Direction Uniqueness
+## 7. Causal Ordering Definition
 
-**Theorem 7.1** (Irreversible Time):
+### 7.1 Formal Definition of Causal Order
+
+**Definition 7.1** (Causal Ordering):
+A causal ordering ≺ on the set of events E is a strict partial order satisfying:
+1. **Irreflexivity**: ∀e ∈ E: ¬(e ≺ e)
+2. **Transitivity**: ∀e₁,e₂,e₃ ∈ E: (e₁ ≺ e₂) ∧ (e₂ ≺ e₃) → (e₁ ≺ e₃)
+3. **No-11 Constraint**: The binary encoding of any causal chain cannot contain consecutive 1s
+
+**Theorem 7.1** (Causal Order Emergence):
+In self-referential complete systems, causal ordering emerges necessarily from entropy increase.
+
+*Proof*:
+1. By A1 axiom: H(S(later)) > H(S(earlier))
+2. This defines ordering: earlier ≺ later
+3. Zeckendorf encoding enforces: if e₁ = "1" and e₂ = "1", then e₁ ≺ e₂ requires intermediate "0"
+4. This prevents simultaneous "11" states
+5. The ordering ≺ satisfies all requirements of Definition 7.1
+6. Causal ordering emerges from entropy gradient ∎
+
+**Connection to Spacetime Structure**: 
+This causal ordering provides the foundation for the light cone structure derived in T0-23, where the geometric constraints of No-11 encoding manifest as the universal speed limit c = l₀/τ₀.
+
+### 7.2 Time Direction Uniqueness
+
+**Theorem 7.2** (Irreversible Time):
 Time's arrow is unique and irreversible.
 
 *Proof by Zeckendorf Constraint*:
@@ -183,6 +207,15 @@ T0-0 provides the time parameter assumed in T0.1-T0.10.
 - T0-0 derives why t+1 exists and differs from t
 - T0.2-T0.10 use temporal evolution
 - T0-0 explains evolution's necessity
+
+**Theorem 8.2** (Causal Structure Foundation):
+The causal ordering defined in Section 7.1 provides the mathematical foundation for T0-23's lightcone geometry.
+
+*Connection Points*:
+- The partial order ≺ defined here becomes the causal precedence relation in T0-23
+- The No-11 constraint on causal chains leads to finite information propagation speed
+- The maximum speed c = l₀/τ₀ in T0-23 emerges from the minimum time quantum τ₀ defined here
+- The impossibility of simultaneous "11" states explains why information cannot propagate instantaneously
 
 **Corollary 8.1** (Retroactive Justification):
 All temporal references in existing theories are now grounded.
