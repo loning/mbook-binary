@@ -42,6 +42,9 @@
 - [`philosophy.md`](philosophy.md) - 哲学基础：存在包含自身描述的系统
 
 ### 第0章：基础理论体系（T0系列）
+#### 0.0 时间涌现理论（真正的基础）
+- [`T0-0-time-emergence-foundation.md`](T0-0-time-emergence-foundation.md) - 定理T0-0：时间涌现基础理论（从A1公理推导时间的必然性）
+
 #### 0.1 基础理论定理系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
 - [`T0-2-fundamental-entropy-bucket-theory.md`](T0-2-fundamental-entropy-bucket-theory.md) - 定理T0.2：基础熵桶理论

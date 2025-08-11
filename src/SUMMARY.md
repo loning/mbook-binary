@@ -3,6 +3,7 @@
   - [理论概述](./binaryuniverse/README.md)
   - [哲学基础](./binaryuniverse/philosophy.md)
   - [第0章：基础理论体系]()
+    - [T0-0: 时间涌现基础](./binaryuniverse/T0-0-time-emergence-foundation.md)
     - [T0.1: 二进制状态空间基础](./binaryuniverse/T0-1-binary-state-space-foundation.md)
     - [T0.2: 基础熵桶理论](./binaryuniverse/T0-2-fundamental-entropy-bucket-theory.md)
     - [T0.3: Zeckendorf约束涌现理论](./binaryuniverse/T0-3-zeckendorf-constraint-emergence-theory.md)
