@@ -49,6 +49,11 @@
 - [`T0-12-observer-emergence.md`](T0-12-observer-emergence.md) - 定理T0-12：观察者涌现理论（观察者分化必然性和信息成本模型）
 - [`T0-13-system-boundaries.md`](T0-13-system-boundaries.md) - 定理T0-13：系统边界理论（边界涌现、量化和信息流调节）
 - [`T0-14-discrete-continuous-transition.md`](T0-14-discrete-continuous-transition.md) - 定理T0-14：离散-连续过渡理论（连续性从Zeckendorf系统的φ收敛涌现）
+- [`T0-15-spatial-dimension-emergence.md`](T0-15-spatial-dimension-emergence.md) - 定理T0-15：空间维度涌现理论（从φ-正交性推导3+1维时空结构）
+- [`T0-16-information-energy-equivalence.md`](T0-16-information-energy-equivalence.md) - 定理T0-16：信息-能量等价理论（能量作为信息处理速率的涌现）
+- [`T0-17-information-entropy-zeckendorf.md`](T0-17-information-entropy-zeckendorf.md) - 定理T0-17：信息熵Zeckendorf编码理论（熵的φ-量化表示和Fibonacci增长）
+- [`T0-18-quantum-state-emergence.md`](T0-18-quantum-state-emergence.md) - 定理T0-18：量子态No-11约束涌现理论（量子叠加、坍缩和Born规则的推导）
+- [`T0-19-observation-collapse.md`](T0-19-observation-collapse.md) - 定理T0-19：观察坍缩信息过程理论（观察导致波函数坍缩的信息理论机制）
 
 #### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
