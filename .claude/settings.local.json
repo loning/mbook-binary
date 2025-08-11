@@ -15,7 +15,8 @@
       "Bash(mdbook-mermaid install:*)",
       "Bash(mdbook serve:*)",
       "Bash(python:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
