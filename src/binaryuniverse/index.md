@@ -61,6 +61,8 @@
 - [`T0-24-fundamental-symmetries-theory.md`](T0-24-fundamental-symmetries-theory.md) - 定理T0-24：Fundamental Symmetries Theory（CPT对称性的信息论起源和守恒律统一推导）
 - [`T0-25-phase-transition-critical-theory.md`](T0-25-phase-transition-critical-theory.md) - 定理T0-25：Phase Transition Critical Theory（φ-临界指数和普适类的信息论分类）
 - [`T0-26-topological-invariants-theory.md`](T0-26-topological-invariants-theory.md) - 定理T0-26：Topological Invariants Theory（Zeckendorf拓扑数和φ-系数同调理论）
+- [`T0-27-fluctuation-dissipation-theorem.md`](T0-27-fluctuation-dissipation-theorem.md) - 定理T0-27：Fluctuation-Dissipation Theorem（量子涨落与信息噪声的统一，涨落-耗散关系）
+- [`T0-28-quantum-error-correction.md`](T0-28-quantum-error-correction.md) - 定理T0-28：Quantum Error Correction（No-11约束的纠错能力，量子纠错的Zeckendorf实现）
 
 #### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
