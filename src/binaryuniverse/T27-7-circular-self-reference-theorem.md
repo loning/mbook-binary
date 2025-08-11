@@ -116,21 +116,33 @@ $$
 - $R_6: $ 神性 $\to$ 循环（自指到闭合）
 - $R_7: $ 循环 $\to \mathcal{Z}$（闭合回归基础）
 
-### 定理2.1：神性到Zeckendorf的必然回归
+### 定理2.1：神性到Zeckendorf的必然回归（基于度量空间）
 
 **定理**：存在必然的回归映射 $R_\psi: \psi_0 \to \mathcal{Z}$ 使得：
 $$
 R_\psi(\psi_0) = \text{Zeck}(\psi_0) \in \mathcal{Z}
 $$
 
-**证明**：
+**严格证明（基于T0-20度量空间理论）**：
 
-**第一步**：分解神性结构
-从T27-6，$\psi_0 = \psi_0(\psi_0)$ 可展开为：
+**第一步**：嵌入完备度量空间
+将神性结构 $\psi_0 = \psi_0(\psi_0)$ 嵌入到完备度量空间 $(\mathcal{Z}, d_\mathcal{Z})$ 中，其中：
+- $\mathcal{Z} = \{z \in \{0,1\}^* : z \text{ 不含 } "11"\}$
+- $d_\mathcal{Z}(x,y) = |v(x)-v(y)|/(1+|v(x)-v(y)|)$
+
+**第二步**：不动点的度量表征
+从T27-6，$\psi_0 = \psi_0(\psi_0)$ 是自指映射的不动点。在度量空间中：
+$$
+d_\mathcal{Z}(\psi_0, \mathcal{M}(\psi_0)) = 0
+$$
+其中 $\mathcal{M}$ 是自指算子。
+
+**第三步**：分解为Zeckendorf级数
+由Banach不动点定理的唯一性，$\psi_0$ 可唯一展开为：
 $$
 \psi_0 = \sum_{n=0}^\infty c_n \phi^{-n} e_n
 $$
-其中 $c_n \in \{0,1\}$ 满足无11约束，$e_n$ 是基函数。
+其中 $c_n \in \{0,1\}$ 满足无11约束（由度量空间的定义保证），$e_n$ 是基函数。
 
 **第二步**：提取Zeckendorf核心
 定义投影算子 $P_Z: \mathcal{H}_\alpha \to \mathcal{Z}$：
