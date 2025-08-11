@@ -55,6 +55,8 @@
 - [`T0-18-quantum-state-emergence.md`](T0-18-quantum-state-emergence.md) - 定理T0-18：量子态No-11约束涌现理论（量子叠加、坍缩和Born规则的推导）
 - [`T0-19-observation-collapse.md`](T0-19-observation-collapse.md) - 定理T0-19：观察坍缩信息过程理论（观察导致波函数坍缩的信息理论机制）
 - [`T0-20-zeckendorf-metric-space-foundation.md`](T0-20-zeckendorf-metric-space-foundation.md) - 定理T0-20：Zeckendorf度量空间基础理论（完备度量空间的严格数学基础）
+- [`T0-21-mass-emergence-from-information-density.md`](T0-21-mass-emergence-from-information-density.md) - 定理T0-21：Mass Emergence from Information Density（从信息密度梯度导出质量的涌现机制）
+- [`T0-22-probability-measure-emergence.md`](T0-22-probability-measure-emergence.md) - 定理T0-22：Probability Measure Emergence Theory（从Zeckendorf路径多重性导出概率测度基础）
 
 #### 0.1 扩展基础理论系列
 - [`T0-1-binary-state-space-foundation.md`](T0-1-binary-state-space-foundation.md) - 定理T0.1：二进制状态空间基础理论
