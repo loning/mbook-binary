@@ -315,33 +315,51 @@ class TheorySystemValidator:
             ))
     
     def _validate_operation_types(self, nodes: Dict[int, TheoryNode]):
-        """验证操作类型"""
+        """验证操作类型（基于新的五类分类系统）"""
         for theory_num, node in nodes.items():
-            # 检查Fibonacci数理论的操作类型
-            if node.is_fibonacci_theory:
-                if theory_num == 1:
-                    expected_op = FibonacciOperationType.AXIOM
-                else:
-                    expected_op = FibonacciOperationType.THEOREM
-                
-                if node.operation != expected_op:
-                    self.issues.append(ValidationIssue(
-                        level=ValidationLevel.ERROR,
-                        category="Operation",
-                        theory_number=theory_num,
-                        message=f"T{theory_num}操作类型应为{expected_op.value}，实际为{node.operation.value}",
-                        suggestion=f"Fibonacci数理论T{theory_num}应标记为{expected_op.value}"
-                    ))
+            is_prime = self.prime_checker.is_prime(theory_num)
+            is_fib = node.is_fibonacci_theory
             
-            # 检查复合理论的操作类型
+            # 确定预期的操作类型
+            if theory_num == 1:
+                expected_op = FibonacciOperationType.AXIOM
+            elif is_fib and is_prime:
+                expected_op = FibonacciOperationType.PRIME_FIB
+            elif is_fib:
+                expected_op = FibonacciOperationType.FIBONACCI
+            elif is_prime:
+                expected_op = FibonacciOperationType.PRIME
             else:
-                if node.operation == FibonacciOperationType.AXIOM:
+                expected_op = FibonacciOperationType.COMPOSITE
+            
+            # 检查操作类型是否正确
+            if node.operation != expected_op:
+                self.issues.append(ValidationIssue(
+                    level=ValidationLevel.ERROR,
+                    category="Classification",
+                    theory_number=theory_num,
+                    message=f"T{theory_num}分类错误：应为{expected_op.value}，实际为{node.operation.value}",
+                    suggestion=f"根据素数-Fibonacci分类，T{theory_num}应标记为{expected_op.value}"
+                ))
+            
+            # 验证分类的数学一致性
+            if node.operation == FibonacciOperationType.PRIME_FIB:
+                if not (is_prime and is_fib):
                     self.issues.append(ValidationIssue(
                         level=ValidationLevel.ERROR,
-                        category="Operation",
+                        category="Classification",
                         theory_number=theory_num,
-                        message=f"复合理论T{theory_num}不应标记为AXIOM",
-                        suggestion="复合理论应标记为EXTENDED"
+                        message=f"T{theory_num}标记为PRIME-FIB但不同时满足素数和Fibonacci条件",
+                        suggestion="检查理论编号的数学性质"
+                    ))
+            elif node.operation == FibonacciOperationType.PRIME:
+                if not is_prime or is_fib:
+                    self.issues.append(ValidationIssue(
+                        level=ValidationLevel.ERROR,
+                        category="Classification",
+                        theory_number=theory_num,
+                        message=f"T{theory_num}标记为PRIME但不满足纯素数条件",
+                        suggestion="纯素数理论应是素数但非Fibonacci"
                     ))
     
     def _validate_prime_theories(self, nodes: Dict[int, TheoryNode]):
