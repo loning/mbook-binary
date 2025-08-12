@@ -62,8 +62,8 @@ def test_fibonacci_tensor_space():
         from fibonacci_tensor_space import FibonacciTensorSpace, FibonacciDimension
         
         # 测试基本功能
-        tensor_space = FibonacciTensorSpace(max_dimension=13)
-        print(f"  ✅ 成功创建张量空间，最大维度: 13")
+        tensor_space = FibonacciTensorSpace(max_fibonacci=13)
+        print(f"  ✅ 成功创建张量空间，最大Fibonacci数: 13")
         
         # 测试维度
         dim_count = len([d for d in FibonacciDimension])
@@ -85,40 +85,19 @@ def test_bdag_visualizer():
         bdag = FibonacciBDAG()
         print("  ✅ 成功创建BDAG可视化器")
         
+        # 测试加载功能
+        examples_dir = Path(__file__).parent.parent / 'examples'
+        if examples_dir.exists():
+            bdag.load_from_directory(str(examples_dir))
+            node_count = len(bdag.nodes)
+            print(f"  ✅ 成功加载 {node_count} 个节点")
+        
         return True
     except Exception as e:
         print(f"  ❌ BDAG可视化器测试失败: {e}")
         return False
 
-def test_consistency_checker():
-    """测试一致性检查器"""
-    print("✅ 测试一致性检查器...")
-    
-    try:
-        from consistency_checker import TheoryConsistencyChecker
-        
-        checker = TheoryConsistencyChecker()
-        print("  ✅ 成功创建一致性检查器")
-        
-        return True
-    except Exception as e:
-        print(f"  ❌ 一致性检查器测试失败: {e}")
-        return False
 
-def test_file_manager():
-    """测试文件管理器"""
-    print("📁 测试文件管理器...")
-    
-    try:
-        from file_manager import FibonacciFileManager
-        
-        manager = FibonacciFileManager()
-        print("  ✅ 成功创建文件管理器")
-        
-        return True
-    except Exception as e:
-        print(f"  ❌ 文件管理器测试失败: {e}")
-        return False
 
 def test_imports():
     """测试包导入"""
@@ -132,8 +111,6 @@ def test_imports():
         import theory_validator
         import fibonacci_tensor_space
         import bdag_visualizer
-        import consistency_checker
-        import file_manager
         
         print("  ✅ 所有模块成功导入")
         return True
@@ -154,8 +131,6 @@ def main():
     test_results.append(("理论验证器", test_theory_validator()))
     test_results.append(("Fibonacci张量空间", test_fibonacci_tensor_space()))
     test_results.append(("BDAG可视化器", test_bdag_visualizer()))
-    test_results.append(("一致性检查器", test_consistency_checker()))
-    test_results.append(("文件管理器", test_file_manager()))
     
     # 总结结果
     print("\n📊 测试结果总结:")

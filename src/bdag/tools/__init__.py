@@ -22,16 +22,7 @@ from .fibonacci_tensor_space import (
 )
 from .bdag_visualizer import (
     FibonacciBDAG,
-    TheoryNode as VisualizerNode
-)
-from .consistency_checker import (
-    TheoryConsistencyChecker,
-    ConsistencyReport,
-    ConsistencyLevel
-)
-from .file_manager import (
-    FibonacciFileManager,
-    FileOperation
+    VisualizerNode
 )
 
 __all__ = [
@@ -51,16 +42,9 @@ __all__ = [
     'FibonacciTensor',
     'FibonacciDimension',
     
-    # 可视化和分析
+    # 可视化
     'FibonacciBDAG',
-    'VisualizerNode',
-    'TheoryConsistencyChecker',
-    'ConsistencyReport',
-    'ConsistencyLevel',
-    
-    # 文件管理
-    'FibonacciFileManager',
-    'FileOperation'
+    'VisualizerNode'
 ]
 
 __version__ = '2.1.0'

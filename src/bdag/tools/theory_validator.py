@@ -8,7 +8,10 @@ from typing import List, Dict, Optional
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from theory_parser import TheoryParser, TheoryNode, FibonacciOperationType
+try:
+    from .theory_parser import TheoryParser, TheoryNode, FibonacciOperationType
+except ImportError:
+    from theory_parser import TheoryParser, TheoryNode, FibonacciOperationType
 
 class ValidationLevel(Enum):
     """验证级别"""
