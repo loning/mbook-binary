@@ -33,7 +33,7 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-          key: ${{ runner.os }}-cargo-${{ env.MDBOOK_VERSION }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml') }}
+          key: ${{ runner.os }}-cargo-${{ env.MDBOOK_VERSION }}-mermaid-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml') }}
           restore-keys: |
             ${{ runner.os }}-cargo-${{ env.MDBOOK_VERSION }}-
             ${{ runner.os }}-cargo-
@@ -47,6 +47,10 @@ jobs:
           # Check if mdbook-katex is already installed
           if ! command -v mdbook-katex &> /dev/null; then
             cargo install mdbook-katex
+          fi
+          # Check if mdbook-mermaid is already installed
+          if ! command -v mdbook-mermaid &> /dev/null; then
+            cargo install mdbook-mermaid
           fi
       - name: Setup Pages
         id: pages

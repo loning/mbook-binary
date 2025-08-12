@@ -4,17 +4,18 @@ language = "en"
 src = "src"
 title = "Binary Universe"
 
-[preprocessor.katex]
-after = ["links"]
-
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
+
+[preprocessor.katex]
+after = ["links", "mermaid"]
 
 [output.html]
 git-repository-url = "https://github.com/loning/mbook-binary"
 mathjax-support = true
 no-section-label = true
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+additional-css = []
 additional-head-tags = '''
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJD1R6PLTV"></script>
@@ -38,3 +39,7 @@ boost-paragraph = 1
 expand = true
 heading-split-level = 3
 copy-js = true
+
+[output.html.fold]
+enable = true   # 打开折叠
+level  = 0      # 默认展开到第 1 层，其他层可点击折叠
