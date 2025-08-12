@@ -19,7 +19,8 @@
       "Bash(cp:*)",
       "Bash(ls:*)",
       "Bash(mv:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(true)"
     ],
     "deny": []
   }
