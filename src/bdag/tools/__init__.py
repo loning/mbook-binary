@@ -13,6 +13,24 @@ from .fibonacci_tensor_space import (
     FibonacciTensor,
     FibonacciDimension
 )
+from .theory_validator import (
+    FibonacciDependencyValidator,
+    TheoryValidationReport,
+    ValidationResult
+)
+from .bdag_visualizer import (
+    FibonacciBDAG,
+    TheoryNode
+)
+from .consistency_checker import (
+    TheoryConsistencyChecker,
+    ConsistencyReport,
+    ConsistencyLevel
+)
+from .file_manager import (
+    FibonacciFileManager,
+    FileOperation
+)
 
 __all__ = [
     'UnifiedFibonacciParser',
@@ -20,7 +38,17 @@ __all__ = [
     'FibonacciOperationType',
     'FibonacciTensorSpace',
     'FibonacciTensor',
-    'FibonacciDimension'
+    'FibonacciDimension',
+    'FibonacciDependencyValidator',
+    'TheoryValidationReport',
+    'ValidationResult',
+    'FibonacciBDAG',
+    'TheoryNode',
+    'TheoryConsistencyChecker',
+    'ConsistencyReport',
+    'ConsistencyLevel',
+    'FibonacciFileManager',
+    'FileOperation'
 ]
 
 __version__ = '2.0.0'
