@@ -6,3 +6,5 @@ src/bdag/formals/*.aux
 src/bdag/formals/*.glob
 .gitignore
 src/bdag/formals/*.v*
+!src/bdag/formals/*.v
+src/bdag/formals/.lia.cache
