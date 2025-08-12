@@ -20,7 +20,7 @@ $$\left(\exists \mathcal{C}: \mathcal{C}(\text{state}) = \text{constrained}\righ
 
 ### 2.3 严格推导
 **证明**：
-由Fibonacci递归关系：$F_4 = F_3 + F_2 = 3 + 2 = 5$
+**注**: Fibonacci递归关系 F4 = F3 + F2 由Fibonacci定义保证。
 
 设 $\mathcal{H}_5$ 为五维张量空间，则：
 $$\mathcal{T}_5 = \mathcal{T}_3 \oplus \mathcal{T}_2$$

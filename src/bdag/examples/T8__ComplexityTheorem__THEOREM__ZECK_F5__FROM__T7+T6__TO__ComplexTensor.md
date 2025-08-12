@@ -37,8 +37,7 @@ $$(\mathcal{T}_7 \circledast \mathcal{T}_6)_{ijklmnop} = \sum_{\alpha,\beta} \Ph
 **定理 T8.1**：T8作为F5体现了Fibonacci递归的普遍性。
 
 **证明**：
-Fibonacci递归关系：
-$$F_5 = F_4 + F_3 = 5 + 3 = 8$$
+**注**: Fibonacci递归关系 F5 = F4 + F3 由Fibonacci定义保证。
 
 在理论层面，这对应于：
 - F4维度：对应T5空间定理的5维结构

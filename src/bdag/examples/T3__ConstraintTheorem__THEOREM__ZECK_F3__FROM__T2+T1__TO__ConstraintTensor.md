@@ -16,7 +16,7 @@ $$\left(\frac{dH(\Omega)}{dt} > 0\right) \land (\Omega = \Omega(\Omega)) \implie
 
 ### 2.2 约束涌现的物理证明
 **证明**：
-**注**: Fibonacci递归关系 F3 = F2 + F1 由Fibonacci定义保证。
+**注**: F3 = F2 + F1 的Fibonacci递归关系由Fibonacci定义保证。
 
 设 $\mathcal{H}_3$ 为三维张量空间，则：
 $$\mathcal{T}_3 = \mathcal{T}_2 \oplus \mathcal{T}_1$$
