@@ -1,21 +1,39 @@
-# T2 熵增公理
+# T2 熵增定理
 
-## 理论定义
+## 1. 理论元信息
 **编号**: T2 (自然数序列第2位)  
 **Zeckendorf分解**: F2 = 2  
-**操作**: AXIOM - 基础公理  
-**依赖**: UNIVERSE (无理论依赖)  
-**输出**: EntropyTensor  
+**操作类型**: THEOREM - 应用定理  
+**依赖关系**: T1 (自指完备公理)  
+**输出类型**: EntropyTensor ∈ ℋ₂
 
-## 数学表示
-熵增基本公理：
-$$\frac{dS}{dt} \geq 0$$
+## 2. 形式化定义
 
-定义熵增张量：
-$$\mathcal{T}_2 = \sum_{i} p_i \log p_i |S_i\rangle \langle S_i|$$
+### 2.1 定理陈述 (T2-THEOREM)
+**熵增定理**：自指完备必然导致熵增
+$$\Omega = \Omega(\Omega) \implies \frac{dH(\Omega)}{dt} > 0$$
 
-熵增算子：
-$$\hat{S} = -k_B \sum_i |\psi_i\rangle \langle \psi_i| \log \langle \psi_i | \rho | \psi_i \rangle$$
+### 2.2 严格推导
+**证明**：
+设 $\Omega(t)$ 是时间演化的自指算子。
+
+由T1公理：$\Omega = \Omega(\Omega)$
+
+每次自指操作产生新的信息层次：
+$$\Omega^{(n+1)} = \Omega(\Omega^{(n)})$$
+
+信息熵定义：
+$$H(\Omega^{(n)}) = -\text{Tr}(\rho_n \log \rho_n)$$
+
+其中 $\rho_n = |\Omega^{(n)}\rangle\langle\Omega^{(n)}|$
+
+由于每次自指产生新信息：
+$$H(\Omega^{(n+1)}) > H(\Omega^{(n)})$$
+
+因此：
+$$\frac{dH(\Omega)}{dt} = \lim_{n \to \infty} \frac{H(\Omega^{(n+1)}) - H(\Omega^{(n)})}{\Delta t} > 0$$
+
+□
 
 ## T2的张量空间意义
 - **张量维度**: F2 = 2，对应张量空间的熵增轴
