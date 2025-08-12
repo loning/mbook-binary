@@ -1,0 +1,485 @@
+{
+  "meta": {
+    "total_theories": 997,
+    "max_theory": 997,
+    "analysis_date": "v3.0"
+  },
+  "classification_counts": {
+    "AXIOM": 1,
+    "PRIME-FIB": 6,
+    "COMPOSITE": 820,
+    "PRIME": 162,
+    "FIBONACCI": 8
+  },
+  "classification_percentages": {
+    "AXIOM": 0.10030090270812438,
+    "PRIME-FIB": 0.6018054162487462,
+    "COMPOSITE": 82.24674022066199,
+    "PRIME": 16.24874623871615,
+    "FIBONACCI": 0.802407221664995
+  },
+  "classification_examples": {
+    "AXIOM": [
+      1
+    ],
+    "PRIME-FIB": [
+      2,
+      3,
+      5,
+      13,
+      89,
+      233
+    ],
+    "COMPOSITE": [
+      4,
+      6,
+      9,
+      10,
+      12,
+      14,
+      15,
+      16,
+      18,
+      20
+    ],
+    "PRIME": [
+      7,
+      11,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43
+    ],
+    "FIBONACCI": [
+      8,
+      21,
+      34,
+      55,
+      144,
+      377,
+      610,
+      987
+    ]
+  },
+  "theoretical_densities": {
+    "prime": {
+      "theoretical": 144.39333630075546,
+      "actual": 168,
+      "accuracy": 1.163488595139006
+    },
+    "fibonacci": {
+      "theoretical": 14.348672269445181,
+      "actual": 15,
+      "accuracy": 1.0453928919919504
+    },
+    "prime_fib_intersection": {
+      "actual": 6,
+      "rarity_factor": 166.16666666666666
+    }
+  },
+  "special_analysis": {
+    "special_prime_types": {
+      "twin_primes": {
+        "count": 69,
+        "examples": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          29,
+          31,
+          41
+        ],
+        "percentage": 41.07142857142857
+      },
+      "mersenne_primes": {
+        "count": 4,
+        "examples": [
+          3,
+          7,
+          31,
+          127
+        ],
+        "percentage": 2.380952380952381
+      },
+      "sophie_germain_primes": {
+        "count": 37,
+        "examples": [
+          2,
+          3,
+          5,
+          11,
+          23,
+          29,
+          41,
+          53,
+          83,
+          89
+        ],
+        "percentage": 22.023809523809522
+      }
+    },
+    "fibonacci_factorizations": {
+      "2": [
+        [
+          2,
+          1
+        ]
+      ],
+      "3": [
+        [
+          3,
+          1
+        ]
+      ],
+      "34": [
+        [
+          2,
+          1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "5": [
+        [
+          5,
+          1
+        ]
+      ],
+      "610": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          61,
+          1
+        ]
+      ],
+      "8": [
+        [
+          2,
+          3
+        ]
+      ],
+      "233": [
+        [
+          233,
+          1
+        ]
+      ],
+      "377": [
+        [
+          13,
+          1
+        ],
+        [
+          29,
+          1
+        ]
+      ],
+      "13": [
+        [
+          13,
+          1
+        ]
+      ],
+      "144": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "21": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "55": [
+        [
+          5,
+          1
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "89": [
+        [
+          89,
+          1
+        ]
+      ],
+      "987": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          47,
+          1
+        ]
+      ]
+    },
+    "prime_fib_rarity": {
+      "total_count": 6,
+      "theories": [
+        2,
+        3,
+        5,
+        13,
+        89,
+        233
+      ],
+      "gaps_between": [
+        1,
+        2,
+        8,
+        76,
+        144
+      ],
+      "average_gap": 46.2
+    }
+  },
+  "distribution_patterns": {
+    "segment_analysis": {
+      "Early Universe": {
+        "range": "T1-T50",
+        "counts": {
+          "AXIOM": 1,
+          "PRIME-FIB": 4,
+          "COMPOSITE": 31,
+          "PRIME": 11,
+          "FIBONACCI": 3
+        },
+        "percentages": {
+          "AXIOM": 2.0,
+          "PRIME-FIB": 8.0,
+          "COMPOSITE": 62.0,
+          "PRIME": 22.0,
+          "FIBONACCI": 6.0
+        },
+        "dominant_type": "COMPOSITE"
+      },
+      "Foundation": {
+        "range": "T51-T100",
+        "counts": {
+          "COMPOSITE": 39,
+          "PRIME": 9,
+          "FIBONACCI": 1,
+          "PRIME-FIB": 1
+        },
+        "percentages": {
+          "COMPOSITE": 78.0,
+          "PRIME": 18.0,
+          "FIBONACCI": 2.0,
+          "PRIME-FIB": 2.0
+        },
+        "dominant_type": "COMPOSITE"
+      },
+      "Expansion": {
+        "range": "T101-T200",
+        "counts": {
+          "PRIME": 21,
+          "COMPOSITE": 78,
+          "FIBONACCI": 1
+        },
+        "percentages": {
+          "PRIME": 21.0,
+          "COMPOSITE": 78.0,
+          "FIBONACCI": 1.0
+        },
+        "dominant_type": "COMPOSITE"
+      },
+      "Complexity": {
+        "range": "T201-T500",
+        "counts": {
+          "COMPOSITE": 250,
+          "PRIME": 48,
+          "PRIME-FIB": 1,
+          "FIBONACCI": 1
+        },
+        "percentages": {
+          "COMPOSITE": 83.33333333333334,
+          "PRIME": 16.0,
+          "PRIME-FIB": 0.33333333333333337,
+          "FIBONACCI": 0.33333333333333337
+        },
+        "dominant_type": "COMPOSITE"
+      },
+      "Advanced": {
+        "range": "T501-T997",
+        "counts": {
+          "COMPOSITE": 422,
+          "PRIME": 73,
+          "FIBONACCI": 2
+        },
+        "percentages": {
+          "COMPOSITE": 84.90945674044266,
+          "PRIME": 14.688128772635814,
+          "FIBONACCI": 0.4024144869215292
+        },
+        "dominant_type": "COMPOSITE"
+      }
+    },
+    "clustering_analysis": {
+      "PRIME-FIB": {
+        "cluster_count": 1,
+        "max_cluster_size": 2,
+        "avg_cluster_size": 2.0,
+        "total_clustered": 2,
+        "largest_clusters": [
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "COMPOSITE": {
+        "cluster_count": 134,
+        "max_cluster_size": 19,
+        "avg_cluster_size": 5.8283582089552235,
+        "total_clustered": 781,
+        "largest_clusters": [
+          [
+            888,
+            889,
+            890,
+            891,
+            892,
+            893,
+            894,
+            895,
+            896,
+            897,
+            898,
+            899,
+            900,
+            901,
+            902,
+            903,
+            904,
+            905,
+            906
+          ],
+          [
+            524,
+            525,
+            526,
+            527,
+            528,
+            529,
+            530,
+            531,
+            532,
+            533,
+            534,
+            535,
+            536,
+            537,
+            538,
+            539,
+            540
+          ],
+          [
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126
+          ]
+        ]
+      }
+    }
+  },
+  "comparative_analysis": {
+    "ratio_comparison": {
+      "AXIOM": {
+        "expected": 0.0010030090270812437,
+        "actual": 0.0010030090270812437,
+        "deviation": 0.0,
+        "ratio": 1.0
+      },
+      "PRIME-FIB": {
+        "expected": 0.006,
+        "actual": 0.006018054162487462,
+        "deviation": 0.00300902708124364,
+        "ratio": 1.0030090270812437
+      },
+      "FIBONACCI": {
+        "expected": 0.015,
+        "actual": 0.00802407221664995,
+        "deviation": 0.4650618522233367,
+        "ratio": 0.5349381477766634
+      },
+      "PRIME": {
+        "expected": 0.15,
+        "actual": 0.1624874623871615,
+        "deviation": 0.08324974924774335,
+        "ratio": 1.0832497492477433
+      },
+      "COMPOSITE": {
+        "expected": 0.829,
+        "actual": 0.8224674022066198,
+        "deviation": 0.007880093840024261,
+        "ratio": 0.9921199061599757
+      }
+    },
+    "diversity_index": 0.768130579988866,
+    "mathematical_consistency": {
+      "total_consistency": true,
+      "axiom_consistency": true,
+      "prime_consistency": true,
+      "fibonacci_consistency": false,
+      "details": {
+        "total": {
+          "actual": 997,
+          "expected": 997
+        },
+        "primes": {
+          "actual": 168,
+          "expected": 168
+        },
+        "fibonacci": {
+          "actual": 14,
+          "expected": 15
+        }
+      }
+    }
+  }
+}

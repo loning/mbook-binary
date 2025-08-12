@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Prime Theory Classifier v1.0
-素数理论分类系统 - 实现四类理论分类(AXIOM/PRIME-FIB/PRIME/COMPOSITE)
+Prime Theory Classifier v3.0
+素数理论分类系统 - 实现五类理论分类(AXIOM/PRIME-FIB/FIBONACCI/PRIME/COMPOSITE)
+与theory_parser.py和其他工具完全同步
 """
 
 from typing import Dict, List, Optional, Tuple
@@ -11,19 +12,14 @@ from pathlib import Path
 
 try:
     from .theory_validator import PrimeChecker
-    from .theory_parser import TheoryParser
+    from .theory_parser import TheoryParser, FibonacciOperationType
 except ImportError:
     from theory_validator import PrimeChecker
-    from theory_parser import TheoryParser
+    from theory_parser import TheoryParser, FibonacciOperationType
 
 
-class TheoryClassType(Enum):
-    """理论分类类型（增强版）"""
-    AXIOM = "AXIOM"           # 唯一公理 (T1)
-    PRIME_FIB = "PRIME-FIB"    # 素数且是Fibonacci数
-    FIBONACCI = "FIBONACCI"    # 纯Fibonacci理论（非素数）
-    PRIME = "PRIME"           # 纯素数理论（非Fibonacci）
-    COMPOSITE = "COMPOSITE"    # 合数理论（非素数非Fibonacci）
+# 使用与theory_parser.py完全一致的分类枚举
+TheoryClassType = FibonacciOperationType
 
 
 @dataclass
@@ -41,30 +37,27 @@ class TheoryClassification:
     
 
 class PrimeTheoryClassifier:
-    """素数理论分类器"""
+    """素数理论分类器 v3.0 - 与其他工具完全同步"""
     
-    def __init__(self):
+    def __init__(self, max_theory: int = 997):
+        self.max_theory = max_theory
         self.prime_checker = PrimeChecker()
-        self.parser = TheoryParser()
-        self._fibonacci_set = set(self.parser.fibonacci_sequence[:20])  # 缓存前20个Fibonacci数
+        self.parser = TheoryParser(max_theory)
+        
+        # 生成完整的Fibonacci序列和素数集合
+        self.fibonacci_sequence = self.parser.fibonacci_sequence
+        self.fibonacci_set = set(self.fibonacci_sequence)
+        self.primes = self.prime_checker.get_primes_up_to(max_theory)
+        self.prime_set = set(self.primes)
     
     def classify_theory(self, n: int) -> TheoryClassification:
-        """分类单个理论"""
+        """分类单个理论（五类分类系统）"""
         # 基础属性检测
-        is_prime = self.prime_checker.is_prime(n)
-        is_fibonacci = n in self._fibonacci_set or self._is_fibonacci(n)
+        is_prime = n in self.prime_set
+        is_fibonacci = n in self.fibonacci_set
         
-        # 确定分类类型
-        if n == 1:
-            class_type = TheoryClassType.AXIOM
-        elif is_prime and is_fibonacci:
-            class_type = TheoryClassType.PRIME_FIB
-        elif is_fibonacci and not is_prime:
-            class_type = TheoryClassType.FIBONACCI
-        elif is_prime and not is_fibonacci:
-            class_type = TheoryClassType.PRIME
-        else:
-            class_type = TheoryClassType.COMPOSITE
+        # 确定分类类型 - 使用一致的逻辑
+        class_type = self._verify_classification(n, is_prime, is_fibonacci)
         
         # 创建分类对象
         classification = TheoryClassification(
@@ -86,6 +79,19 @@ class PrimeTheoryClassifier:
         classification.special_properties = self._get_special_properties(classification)
         
         return classification
+    
+    def _verify_classification(self, n: int, is_prime: bool, is_fibonacci: bool) -> FibonacciOperationType:
+        """验证分类逻辑与parser一致"""
+        if n == 1:
+            return FibonacciOperationType.AXIOM
+        elif is_prime and is_fibonacci:
+            return FibonacciOperationType.PRIME_FIB
+        elif is_fibonacci:
+            return FibonacciOperationType.FIBONACCI
+        elif is_prime:
+            return FibonacciOperationType.PRIME
+        else:
+            return FibonacciOperationType.COMPOSITE
     
     def classify_range(self, start: int, end: int) -> Dict[int, TheoryClassification]:
         """分类一个范围内的所有理论"""
@@ -161,7 +167,7 @@ class PrimeTheoryClassifier:
             significance['safe_prime'] = 2 * n + 1
         
         # 素数在理论系统中的作用
-        if classification.class_type == TheoryClassType.PRIME_FIB:
+        if classification.class_type == FibonacciOperationType.PRIME_FIB:
             significance['role'] = '双重基础理论（素数+Fibonacci）'
             significance['importance'] = '极高'
         else:
@@ -174,20 +180,23 @@ class PrimeTheoryClassifier:
         
         return significance
     
-    def _is_fibonacci(self, n: int) -> bool:
-        """检查是否为Fibonacci数（扩展检查）"""
-        if n in self._fibonacci_set:
-            return True
+    def get_classification_statistics(self) -> Dict:
+        """获取分类统计信息"""
+        stats = {
+            'AXIOM': 0,
+            'PRIME-FIB': 0,
+            'FIBONACCI': 0,
+            'PRIME': 0,
+            'COMPOSITE': 0
+        }
         
-        # 使用数学判别式检查大Fibonacci数
-        # 一个数n是Fibonacci数当且仅当 5n²+4 或 5n²-4 是完全平方数
-        import math
+        for n in range(1, self.max_theory + 1):
+            is_prime = n in self.prime_set
+            is_fibonacci = n in self.fibonacci_set
+            class_type = self._verify_classification(n, is_prime, is_fibonacci)
+            stats[class_type.value] += 1
         
-        def is_perfect_square(x):
-            sqrt = int(math.sqrt(x))
-            return sqrt * sqrt == x
-        
-        return is_perfect_square(5 * n * n + 4) or is_perfect_square(5 * n * n - 4)
+        return stats
     
     def _add_prime_properties(self, classification: TheoryClassification):
         """添加素数的特殊性质"""
@@ -200,15 +209,19 @@ class PrimeTheoryClassifier:
         """获取理论的特殊性质描述"""
         properties = []
         
-        if classification.class_type == TheoryClassType.AXIOM:
+        if classification.class_type == FibonacciOperationType.AXIOM:
             properties.append("宇宙唯一公理")
             properties.append("所有理论的根源")
         
-        elif classification.class_type == TheoryClassType.PRIME_FIB:
+        elif classification.class_type == FibonacciOperationType.PRIME_FIB:
             properties.append("素数-Fibonacci双重性质")
             properties.append("系统核心基础理论")
             
-        elif classification.class_type == TheoryClassType.PRIME:
+        elif classification.class_type == FibonacciOperationType.FIBONACCI:
+            properties.append("纯Fibonacci递归理论")
+            properties.append("递归涌现性质")
+            
+        elif classification.class_type == FibonacciOperationType.PRIME:
             properties.append("原子理论")
             properties.append("不可分解")
             
@@ -276,11 +289,11 @@ class PrimeTheoryClassifier:
         
         # 统计各类理论
         stats = {
-            TheoryClassType.AXIOM: [],
-            TheoryClassType.PRIME_FIB: [],
-            TheoryClassType.FIBONACCI: [],
-            TheoryClassType.PRIME: [],
-            TheoryClassType.COMPOSITE: []
+            FibonacciOperationType.AXIOM: [],
+            FibonacciOperationType.PRIME_FIB: [],
+            FibonacciOperationType.FIBONACCI: [],
+            FibonacciOperationType.PRIME: [],
+            FibonacciOperationType.COMPOSITE: []
         }
         
         for n, cls in classifications.items():
@@ -293,39 +306,39 @@ class PrimeTheoryClassifier:
         report.append("=" * 60)
         
         report.append(f"\n统计概览:")
-        report.append(f"  AXIOM (公理): {len(stats[TheoryClassType.AXIOM])} 个")
-        report.append(f"  PRIME-FIB (素数-Fibonacci): {len(stats[TheoryClassType.PRIME_FIB])} 个")
-        report.append(f"  FIBONACCI (纯Fibonacci): {len(stats[TheoryClassType.FIBONACCI])} 个")
-        report.append(f"  PRIME (纯素数): {len(stats[TheoryClassType.PRIME])} 个")
-        report.append(f"  COMPOSITE (合数): {len(stats[TheoryClassType.COMPOSITE])} 个")
+        report.append(f"  AXIOM (公理): {len(stats[FibonacciOperationType.AXIOM])} 个")
+        report.append(f"  PRIME-FIB (素数-Fibonacci): {len(stats[FibonacciOperationType.PRIME_FIB])} 个")
+        report.append(f"  FIBONACCI (纯Fibonacci): {len(stats[FibonacciOperationType.FIBONACCI])} 个")
+        report.append(f"  PRIME (纯素数): {len(stats[FibonacciOperationType.PRIME])} 个")
+        report.append(f"  COMPOSITE (合数): {len(stats[FibonacciOperationType.COMPOSITE])} 个")
         
         # 详细列表
         report.append(f"\n详细分类:")
         
-        if stats[TheoryClassType.AXIOM]:
+        if stats[FibonacciOperationType.AXIOM]:
             report.append(f"\n【AXIOM - 公理】")
-            report.append(f"  T{stats[TheoryClassType.AXIOM]}")
+            report.append(f"  T{stats[FibonacciOperationType.AXIOM]}")
         
-        if stats[TheoryClassType.PRIME_FIB]:
+        if stats[FibonacciOperationType.PRIME_FIB]:
             report.append(f"\n【PRIME-FIB - 素数-Fibonacci双重理论】")
-            report.append(f"  T{stats[TheoryClassType.PRIME_FIB]}")
+            report.append(f"  T{stats[FibonacciOperationType.PRIME_FIB]}")
         
-        if stats[TheoryClassType.FIBONACCI]:
+        if stats[FibonacciOperationType.FIBONACCI]:
             report.append(f"\n【FIBONACCI - 纯Fibonacci理论】")
-            report.append(f"  T{stats[TheoryClassType.FIBONACCI][:20]}")  # 只显示前20个
-            if len(stats[TheoryClassType.FIBONACCI]) > 20:
-                report.append(f"  ... 还有 {len(stats[TheoryClassType.FIBONACCI])-20} 个")
+            report.append(f"  T{stats[FibonacciOperationType.FIBONACCI][:20]}")  # 只显示前20个
+            if len(stats[FibonacciOperationType.FIBONACCI]) > 20:
+                report.append(f"  ... 还有 {len(stats[FibonacciOperationType.FIBONACCI])-20} 个")
         
-        if stats[TheoryClassType.PRIME]:
+        if stats[FibonacciOperationType.PRIME]:
             report.append(f"\n【PRIME - 纯素数理论】")
-            report.append(f"  T{stats[TheoryClassType.PRIME][:30]}")  # 只显示前30个
-            if len(stats[TheoryClassType.PRIME]) > 30:
-                report.append(f"  ... 还有 {len(stats[TheoryClassType.PRIME])-30} 个")
+            report.append(f"  T{stats[FibonacciOperationType.PRIME][:30]}")  # 只显示前30个
+            if len(stats[FibonacciOperationType.PRIME]) > 30:
+                report.append(f"  ... 还有 {len(stats[FibonacciOperationType.PRIME])-30} 个")
         
         # 特殊素数
         report.append(f"\n特殊素数理论:")
         special_primes = []
-        for n in stats[TheoryClassType.PRIME] + stats[TheoryClassType.PRIME_FIB]:
+        for n in stats[FibonacciOperationType.PRIME] + stats[FibonacciOperationType.PRIME_FIB]:
             cls = classifications[n]
             if cls.is_twin_prime or cls.is_mersenne_prime or cls.is_sophie_germain:
                 special_desc = []

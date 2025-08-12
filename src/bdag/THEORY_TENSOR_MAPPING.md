@@ -128,19 +128,34 @@ Information(T_n) = log_φ(n)  (φ = 黄金比例)
 这确保了信息含量与Fibonacci位置的理论具有特殊意义
 ```
 
-## 🎯 文件命名规范
+## 🎯 五类分类文件命名规范 v3.0
 
-### 当前标准格式
+### 标准格式
 ```
-T{n}__{TheoryName}__{Type}__ZECK_{ZeckendorfCode}__FROM__{Dependencies}__TO__{Output}.md
+T{n}__{TheoryName}__{FiveClassType}__ZECK_{ZeckendorfCode}__FROM__{Dependencies}__TO__{TensorOutput}.md
 ```
 
-### 实际文件名示例
+### 五类分类实际文件名示例
 ```
+🔴 AXIOM:
 T1__SelfReferenceAxiom__AXIOM__ZECK_F1__FROM__UNIVERSE__TO__SelfRefTensor.md
-T2__EntropyTheorem__THEOREM__ZECK_F2__FROM__T1__TO__EntropyTensor.md
-T4__TimeExtended__EXTENDED__ZECK_F1+F3__FROM__T1+T3__TO__TimeTensor.md
-T6__QuantumExtended__EXTENDED__ZECK_F1+F4__FROM__T1+T5__TO__QuantumTensor.md
+
+⭐ PRIME-FIB (最重要):
+T2__EntropyTheorem__PRIME-FIB__ZECK_F2__FROM__T1__TO__EntropyTensor.md
+T3__ConstraintTheorem__PRIME-FIB__ZECK_F3__FROM__T2+T1__TO__ConstraintTensor.md
+T5__SpaceTheorem__PRIME-FIB__ZECK_F4__FROM__T3+T2__TO__SpaceTensor.md
+
+🟢 PRIME:
+T7__CodingTheorem__PRIME__ZECK_F2+F4__FROM__T2+T5__TO__CodingTensor.md
+T11__DimensionTheorem__PRIME__ZECK_F5+F3__FROM__T8+T3__TO__DimensionTensor.md
+
+🔵 FIBONACCI:
+T8__ComplexityTheorem__FIBONACCI__ZECK_F5__FROM__T7+T6__TO__ComplexTensor.md
+T21__ConsciousnessTheorem__FIBONACCI__ZECK_F7__FROM__T13+T8__TO__ConsciousnessTensor.md
+
+🟡 COMPOSITE:
+T4__TimeExtended__COMPOSITE__ZECK_F1+F3__FROM__T1+T3__TO__TimeTensor.md
+T6__QuantumExtended__COMPOSITE__ZECK_F1+F4__FROM__T1+T5__TO__QuantumTensor.md
 ```
 
 ### 编码规则

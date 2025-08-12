@@ -1,22 +1,30 @@
-# T{n} 完整理论系统表 (T1-T997) - 素数增强版
+# T{n} 完整理论系统表 (T1-T997) - 五类分类素数增强版 v3.0
+
+## 🎯 五类分类系统说明
+
+- 🔴 **AXIOM**: 唯一公理基础（T1）
+- ⭐ **PRIME-FIB**: 素数+Fibonacci双重基础理论
+- 🔵 **FIBONACCI**: 纯Fibonacci递归理论
+- 🟢 **PRIME**: 纯素数原子理论
+- 🟡 **COMPOSITE**: 合数组合理论
 
 ## 📊 统计概览
 
 - **总理论数**: 997
-- **AXIOM (公理)**: 1
-- **PRIME-FIB (素数-Fibonacci)**: 6
-- **FIBONACCI (纯Fibonacci)**: 8
-- **PRIME (纯素数)**: 162
-- **COMPOSITE (合数)**: 820
+- 🔴 **AXIOM (公理)**: 1 个 (0.1%)
+- ⭐ **PRIME-FIB (双重基础)**: 6 个 (0.60%)
+- 🔵 **FIBONACCI (递归)**: 8 个 (0.80%)
+- 🟢 **PRIME (原子)**: 162 个 (16.2%)
+- 🟡 **COMPOSITE (组合)**: 820 个 (82.2%)
 
 - **素数理论总数**: 168
 - **孪生素数**: 69个
 - **梅森素数**: 4个
 - **Sophie Germain素数**: 37个
 
-## 🌟 素数-Fibonacci双重理论
+## ⭐ PRIME-FIB双重基础理论
 
-这些理论同时具有素数和Fibonacci的双重性质，是系统的核心基础：
+这些理论同时具有素数性和Fibonacci性的双重数学基础，是系统的最核心支柱：
 
 - **T2** = F2 - EntropyTheorem (Sophie)
 - **T3** = F3 - ConstraintTheorem (Twin, Mersenne, Sophie)
@@ -25,9 +33,22 @@
 - **T89** = F10 - InfiniteRecursionTheorem (Sophie)
 - **T233** = F12 - TranscendenceTheorem (Sophie)
 
-## 🔢 纯素数理论（前30个）
+## 🔵 纯Fibonacci递归理论
 
-这些理论位于素数位置但不是Fibonacci数，代表不可分解的原子理论：
+这些理论是Fibonacci数但不是素数，体现纯递归涌现性质：
+
+- **T8** = F5 = 2^3 - ComplexityTheorem
+- **T21** = F7 = 3 × 7 - ConsciousnessTheorem
+- **T34** = F8 = 2 × 17 - UniverseMindTheorem
+- **T55** = F9 = 5 × 11 - MetaUniverseTheorem
+- **T144** = F11 = 2^4 × 3^2 - CosmicHarmonyTheorem
+- **T377** = F13 = 13 × 29 - OmegaPointTheorem
+- **T610** = F14 = 2 × 5 × 61 - SingularityTheorem
+- **T987** = F15 = 3 × 7 × 47 - UltimateRealityTheorem
+
+## 🟢 纯素数原子理论（前30个）
+
+这些理论位于素数位置但不是Fibonacci数，代表不可分解的原子构建块：
 
 - **T7** = F4+F2 ← FROM T5+T2 - CodingPrimeTheorem [Twin, Mersenne]
 - **T11** = F5+F3 ← FROM T8+T3 - ConstraintComplexityPrime [Twin, Sophie]

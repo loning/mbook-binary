@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 """
-T{n} 理论表生成器 (素数增强版) v2.0
+T{n} 理论表生成器 (素数增强版) v3.0
+基于五类分类系统：AXIOM/PRIME-FIB/FIBONACCI/PRIME/COMPOSITE
 包含素数标记、素因子分解和特殊素数类检测
 """
 
 from typing import List, Dict, Tuple, Optional
 try:
-    from .prime_theory_classifier import PrimeTheoryClassifier, TheoryClassType
+    from .prime_theory_classifier import PrimeTheoryClassifier
     from .theory_validator import PrimeChecker
+    from .theory_parser import FibonacciOperationType
 except ImportError:
-    from prime_theory_classifier import PrimeTheoryClassifier, TheoryClassType
+    from prime_theory_classifier import PrimeTheoryClassifier
     from theory_validator import PrimeChecker
+    from theory_parser import FibonacciOperationType
+
+# 使用统一的分类枚举
+TheoryClassType = FibonacciOperationType
 
 
 def generate_fibonacci(max_val):
@@ -78,10 +84,10 @@ def get_special_prime_types(n: int, prime_checker: PrimeChecker) -> List[str]:
 
 
 def generate_enhanced_theory_table(max_n=997):
-    """生成增强版理论表，包含素数信息"""
+    """生成增强版理论表，包含五类分类和素数信息"""
     
     # 初始化工具
-    classifier = PrimeTheoryClassifier()
+    classifier = PrimeTheoryClassifier(max_n)
     prime_checker = PrimeChecker()
     
     # 生成Fibonacci序列
@@ -115,7 +121,13 @@ def generate_enhanced_theory_table(max_n=997):
     
     # 生成表格
     table = []
-    table.append("# T{n} 完整理论系统表 (T1-T997) - 素数增强版")
+    table.append("# T{n} 完整理论系统表 (T1-T997) - 五类分类素数增强版 v3.0")
+    table.append("\n## 🎯 五类分类系统说明")
+    table.append("\n- 🔴 **AXIOM**: 唯一公理基础（T1）")
+    table.append("- ⭐ **PRIME-FIB**: 素数+Fibonacci双重基础理论")  
+    table.append("- 🔵 **FIBONACCI**: 纯Fibonacci递归理论")
+    table.append("- 🟢 **PRIME**: 纯素数原子理论")
+    table.append("- 🟡 **COMPOSITE**: 合数组合理论")
     table.append("\n## 📊 统计概览")
     
     # 统计各类理论
@@ -149,21 +161,21 @@ def generate_enhanced_theory_table(max_n=997):
             if cls.is_sophie_germain:
                 sophie_germain_primes.append(n)
     
-    # 输出统计
+    # 输出统计 
     table.append(f"\n- **总理论数**: {max_n}")
-    table.append(f"- **AXIOM (公理)**: {stats[TheoryClassType.AXIOM]}")
-    table.append(f"- **PRIME-FIB (素数-Fibonacci)**: {stats[TheoryClassType.PRIME_FIB]}")
-    table.append(f"- **FIBONACCI (纯Fibonacci)**: {stats[TheoryClassType.FIBONACCI]}")
-    table.append(f"- **PRIME (纯素数)**: {stats[TheoryClassType.PRIME]}")
-    table.append(f"- **COMPOSITE (合数)**: {stats[TheoryClassType.COMPOSITE]}")
+    table.append(f"- 🔴 **AXIOM (公理)**: {stats[TheoryClassType.AXIOM]} 个 ({stats[TheoryClassType.AXIOM]/max_n*100:.1f}%)")
+    table.append(f"- ⭐ **PRIME-FIB (双重基础)**: {stats[TheoryClassType.PRIME_FIB]} 个 ({stats[TheoryClassType.PRIME_FIB]/max_n*100:.2f}%)")
+    table.append(f"- 🔵 **FIBONACCI (递归)**: {stats[TheoryClassType.FIBONACCI]} 个 ({stats[TheoryClassType.FIBONACCI]/max_n*100:.2f}%)")
+    table.append(f"- 🟢 **PRIME (原子)**: {stats[TheoryClassType.PRIME]} 个 ({stats[TheoryClassType.PRIME]/max_n*100:.1f}%)")
+    table.append(f"- 🟡 **COMPOSITE (组合)**: {stats[TheoryClassType.COMPOSITE]} 个 ({stats[TheoryClassType.COMPOSITE]/max_n*100:.1f}%)")
     table.append(f"\n- **素数理论总数**: {prime_count}")
     table.append(f"- **孪生素数**: {len(twin_primes)}个")
     table.append(f"- **梅森素数**: {len(mersenne_primes)}个")
     table.append(f"- **Sophie Germain素数**: {len(sophie_germain_primes)}个")
     
     # 列出重要的素数-Fibonacci理论
-    table.append("\n## 🌟 素数-Fibonacci双重理论")
-    table.append("\n这些理论同时具有素数和Fibonacci的双重性质，是系统的核心基础：\n")
+    table.append("\n## ⭐ PRIME-FIB双重基础理论")
+    table.append("\n这些理论同时具有素数性和Fibonacci性的双重数学基础，是系统的最核心支柱：\n")
     for n in range(1, min(max_n + 1, 1000)):
         cls = classifications[n]
         if cls.class_type == TheoryClassType.PRIME_FIB:
@@ -172,9 +184,19 @@ def generate_enhanced_theory_table(max_n=997):
             special_str = f" ({', '.join(special)})" if special else ""
             table.append(f"- **T{n}** = F{fib_index.get(n, '?')} - {theory_name}{special_str}")
     
+    # 列出纯Fibonacci理论
+    table.append("\n## 🔵 纯Fibonacci递归理论")
+    table.append("\n这些理论是Fibonacci数但不是素数，体现纯递归涌现性质：\n")
+    pure_fibs = [n for n in range(1, max_n + 1) if classifications[n].class_type == TheoryClassType.FIBONACCI]
+    for n in pure_fibs:
+        theory_name = theory_names.get(n, f"FibonacciTheory_{n}")
+        prime_factors = prime_checker.prime_factorize(n) if n > 1 else []
+        factor_str = format_prime_factors(prime_factors)
+        table.append(f"- **T{n}** = F{fib_index.get(n, '?')} = {factor_str} - {theory_name}")
+    
     # 列出纯素数理论（前30个）
-    table.append("\n## 🔢 纯素数理论（前30个）")
-    table.append("\n这些理论位于素数位置但不是Fibonacci数，代表不可分解的原子理论：\n")
+    table.append("\n## 🟢 纯素数原子理论（前30个）")
+    table.append("\n这些理论位于素数位置但不是Fibonacci数，代表不可分解的原子构建块：\n")
     pure_primes = [n for n in range(1, max_n + 1) if classifications[n].class_type == TheoryClassType.PRIME]
     for n in pure_primes[:30]:
         zeck = zeckendorf_decompose(n, fib_seq)
