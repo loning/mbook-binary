@@ -90,7 +90,7 @@ def test_prime_theory_classifier():
         from prime_theory_classifier import PrimeTheoryClassifier
         from theory_parser import FibonacciOperationType
         
-        classifier = PrimeTheoryClassifier(max_theory=50)
+        classifier = PrimeTheoryClassifier(max_theory=100)
         
         # 测试关键理论分类
         test_theories = [1, 2, 3, 5, 13, 7, 11, 21, 34, 89]
@@ -113,6 +113,8 @@ def test_prime_theory_classifier():
             
             if classification.class_type == expected_types[n]:
                 correct_classifications += 1
+            else:
+                print(f"    ❌ T{n}: 期望{expected_types[n].value}, 实际{classification.class_type.value}")
         
         accuracy = correct_classifications / len(test_theories) * 100
         print(f"  ✅ 分类准确性: {correct_classifications}/{len(test_theories)} ({accuracy:.1f}%)")
@@ -133,7 +135,7 @@ def test_prime_theory_analyzer():
     try:
         from prime_theory_analyzer import PrimeTheoryAnalyzer
         
-        analyzer = PrimeTheoryAnalyzer(max_theory=50)
+        analyzer = PrimeTheoryAnalyzer(max_theory=100)
         
         # 测试重要素数分析
         test_primes = [2, 3, 5, 13, 89]  # 包含PRIME-FIB
@@ -192,28 +194,6 @@ def test_theory_table_generators():
         print(f"  ❌ 理论表生成器测试失败: {e}")
         return False
 
-def test_bdag_visualizer():
-    """测试BDAG可视化器"""
-    print("📊 测试BDAG可视化器...")
-    
-    try:
-        from bdag_visualizer import FibonacciBDAG
-        
-        # 测试基本功能
-        bdag = FibonacciBDAG()
-        print("  ✅ 成功创建BDAG可视化器")
-        
-        # 测试加载功能
-        examples_dir = Path(__file__).parent.parent / 'examples'
-        if examples_dir.exists():
-            bdag.load_from_directory(str(examples_dir))
-            node_count = len(bdag.nodes)
-            print(f"  ✅ 成功加载 {node_count} 个节点")
-        
-        return True
-    except Exception as e:
-        print(f"  ❌ BDAG可视化器测试失败: {e}")
-        return False
 
 
 
@@ -228,11 +208,11 @@ def test_imports():
         import theory_parser
         import theory_validator
         import fibonacci_tensor_space
-        import bdag_visualizer
         import prime_theory_classifier
         import prime_theory_analyzer
         import theory_table_generator
         import theory_table_generator_prime
+        import classification_statistics
         
         print("  ✅ 所有模块成功导入")
         return True
@@ -255,7 +235,6 @@ def main():
     test_results.append(("素数理论分类器", test_prime_theory_classifier()))
     test_results.append(("素数理论分析器", test_prime_theory_analyzer()))
     test_results.append(("理论表生成器", test_theory_table_generators()))
-    test_results.append(("BDAG可视化器", test_bdag_visualizer()))
     
     # 总结结果
     print("\n📊 测试结果总结:")

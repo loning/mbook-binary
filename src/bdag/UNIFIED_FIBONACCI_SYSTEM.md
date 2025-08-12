@@ -1,5 +1,6 @@
-# T{n}统一理论编号系统
-## Unified T{n} Theory Numbering System v2.1
+# T{n}统一五类分类理论系统
+## Unified Five-Class T{n} Theory System v3.0
+### 基于Fibonacci-Prime-Zeckendorf三维数学结构
 
 ## 🌌 系统核心原理
 
@@ -21,7 +22,7 @@ T{n}__{TheoryName}__{ClassType}__ZECK_{ZeckCode}__FROM__{Deps}__TO__{Output}.md
 ### 分解说明
 - **T{n}**: 自然数理论编号 (T1, T2, T3, T4, ...)
 - **TheoryName**: 理论的描述性名称
-- **ClassType**: 理论分类 (AXIOM/THEOREM/EXTENDED)
+- **FiveClassType**: 五类分类 (AXIOM/PRIME-FIB/FIBONACCI/PRIME/COMPOSITE)
 - **ZECK_{}**: Zeckendorf分解编码 (F1, F2, F1+F3, F1+F4, ...)
 - **FROM_{}**: 依赖来源 (与Zeckendorf分解对应)
 - **TO_{}**: 输出张量类型

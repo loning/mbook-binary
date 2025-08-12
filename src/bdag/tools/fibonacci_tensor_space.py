@@ -48,6 +48,13 @@ class TensorClassification(Enum):
     COMPOSITE = "COMPOSITE"    # 组合张量
 
 @dataclass
+class ClassificationResult:
+    """分类结果"""
+    class_type: TensorClassification
+    theory_number: int
+    is_prime_fib: bool
+
+@dataclass
 class UniversalTensor:
     """三维宇宙张量基向量"""
     theory_number: int                       # T{n}
@@ -218,6 +225,45 @@ class UniversalTensorSpace:
         
         return np.kron(tensor_a, tensor_b)
     
+    def classify_theory(self, theory_n: int) -> 'ClassificationResult':
+        """对理论进行分类"""
+        if theory_n not in self.basis_tensors:
+            # 如果不在预计算的张量中，计算临时分类
+            is_prime = theory_n in self.prime_set
+            is_fibonacci = theory_n in self.fibonacci_set
+            
+            if theory_n == 1:
+                class_type = TensorClassification.AXIOM
+            elif is_prime and is_fibonacci:
+                class_type = TensorClassification.PRIME_FIB
+            elif is_fibonacci:
+                class_type = TensorClassification.FIBONACCI
+            elif is_prime:
+                class_type = TensorClassification.PRIME
+            else:
+                class_type = TensorClassification.COMPOSITE
+                
+            return ClassificationResult(
+                class_type=class_type,
+                theory_number=theory_n,
+                is_prime_fib=(is_prime and is_fibonacci)
+            )
+        
+        tensor = self.basis_tensors[theory_n]
+        return ClassificationResult(
+            class_type=tensor.classification,
+            theory_number=theory_n,
+            is_prime_fib=(tensor.is_prime and tensor.is_fibonacci)
+        )
+    
+    def analyze_dual_foundations(self) -> List[int]:
+        """分析PRIME-FIB双重基础理论"""
+        dual_foundations = []
+        for n, tensor in self.basis_tensors.items():
+            if tensor.classification == TensorClassification.PRIME_FIB:
+                dual_foundations.append(n)
+        return sorted(dual_foundations)
+
     def prime_fibonacci_interaction(self, prime_theory: int, fib_theory: int) -> float:
         """计算素数理论与Fibonacci理论的相互作用强度"""
         if prime_theory not in self.basis_tensors or fib_theory not in self.basis_tensors:
