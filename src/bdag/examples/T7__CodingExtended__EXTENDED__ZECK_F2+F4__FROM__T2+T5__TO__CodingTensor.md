@@ -28,24 +28,11 @@ $$\mathcal{T}_7 := \mathcal{T}_2 \oplus \mathcal{T}_5 \in \mathcal{H}_{F_2} \opl
 
 其中 $\mathcal{H}_{F_2} \oplus \mathcal{H}_{F_4}$ 是Zeckendorf直和空间。
 
-## 3. Zeckendorf扩展的严格证明
+## 3. 编码扩展的物理机制
 
-### 3.1 唯一性证明
-**定理 T7.1**：7的Zeckendorf分解唯一为F2 + F4。
+**注**: 7 = F2 + F4 = 2 + 5 的Zeckendorf分解唯一性由Zeckendorf定理保证。
 
-**证明**：
-设7有其他Zeckendorf分解。检查所有可能：
-- F5 = 8 > 7 (不可能)
-- F4 + F3 = 5 + 3 = 8 > 7 (不可能)  
-- F4 + F2 = 5 + 2 = 7 ✓
-- F4 + F1 = 5 + 1 = 6 < 7 (不足)
-- F3 + F2 + F1 + F1 = 3 + 2 + 1 + 1 = 7，但重复F1违反唯一性
-- F3 + F2 + F2 = 3 + 2 + 2 = 7，但重复F2违反唯一性
-- F3 + F3 + F1 = 3 + 3 + 1 = 7，但重复F3违反唯一性
-
-因此 7 = F2 + F4 = 2 + 5 是唯一满足No-11约束的Zeckendorf分解。□
-
-### 3.2 扩展机制证明
+### 3.1 扩展机制证明
 **定理 T7.2**：T2与T5的组合通过Zeckendorf规则产生编码维度。
 
 **证明**：

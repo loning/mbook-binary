@@ -23,22 +23,11 @@ $$\mathcal{T}_4 := \mathcal{T}_1 \oplus \mathcal{T}_3 \in \mathcal{H}_{F_1} \opl
 
 其中 $\mathcal{H}_{F_1} \oplus \mathcal{H}_{F_3}$ 是Zeckendorf直和空间。
 
-## 3. Zeckendorf扩展的严格证明
+## 3. 时间扩展的物理机制
 
-### 3.1 唯一性证明
-**定理 T4.1**：4的Zeckendorf分解唯一为F1 + F3。
+**注**: 4 = F1 + F3 = 1 + 3 的Zeckendorf分解唯一性由Zeckendorf定理保证。
 
-**证明**：
-设4有其他Zeckendorf分解。所有可能的组合：
-- F4 = 5 > 4 (不可能)
-- F3 + F2 = 3 + 2 = 5 > 4 (不可能)
-- F3 + F1 = 3 + 1 = 4 ✓
-- F2 + F2 违反Zeckendorf唯一性规则 (不允许重复)
-- F2 + F1 + F1 违反唯一性规则 (不允许重复)
-
-因此 4 = F1 + F3 是唯一Zeckendorf分解。□
-
-### 3.2 扩展机制证明
+### 3.1 扩展机制证明
 **定理 T4.2**：T1与T3的组合通过Zeckendorf规则产生时间维度。
 
 **证明**：

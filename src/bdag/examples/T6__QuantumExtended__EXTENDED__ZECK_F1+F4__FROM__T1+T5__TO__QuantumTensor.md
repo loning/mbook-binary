@@ -28,24 +28,11 @@ $$\mathcal{T}_6 := \mathcal{T}_1 \oplus \mathcal{T}_5 \in \mathcal{H}_{F_1} \opl
 
 其中 $\mathcal{H}_{F_1} \oplus \mathcal{H}_{F_4}$ 是Zeckendorf直和空间。
 
-## 3. Zeckendorf扩展的严格证明
+## 3. 量子扩展的物理机制
 
-### 3.1 唯一性证明
-**定理 T6.1**：6的Zeckendorf分解唯一为F1 + F4。
+**注**: 6 = F1 + F4 = 1 + 5 的Zeckendorf分解唯一性由Zeckendorf定理保证。
 
-**证明**：
-设6有其他Zeckendorf分解。检查所有可能：
-- F5 = 8 > 6 (不可能)
-- F4 + F3 = 5 + 3 = 8 > 6 (不可能)
-- F4 + F2 = 5 + 2 = 7 > 6 (不可能)
-- F4 + F1 = 5 + 1 = 6 ✓
-- F3 + F2 + F1 = 3 + 2 + 1 = 6，但F3与F2相邻，违反No-11约束
-- F3 + F1 + F1 违反唯一性规则 (不允许重复)
-- F2 + F2 + F2 违反唯一性规则 (不允许重复)
-
-因此 6 = F1 + F4 = 1 + 5 是唯一满足No-11约束的Zeckendorf分解。□
-
-### 3.2 扩展机制证明
+### 3.1 扩展机制证明
 **定理 T6.2**：T1与T5的组合通过Zeckendorf规则产生量子维度。
 
 **证明**：
