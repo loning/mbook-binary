@@ -1,60 +1,89 @@
-# Binary Universe DAG (BDAG) 规范文档
+# Fibonacci张量空间理论系统
 
-本目录包含二进制宇宙理论的有向无环图（DAG）文件命名和组织规范，用于将理论原子化为单一张量操作，确保理论结构的清晰性、可追溯性和可计算性。
+## 核心理念
 
-## 目录结构
+**F{N}不是编号，而是宇宙张量空间的坐标映射规则！**
+
+每个Fibonacci数对应宇宙张量空间中的一个基底维度，理论体系构成了完整的数学本体论。
+
+## 🌌 系统架构
+
+### 张量空间维度
+- **F1**: 自指维度 - 宇宙的自我认知轴
+- **F2**: φ比例维度 - 黄金结构轴  
+- **F3**: 约束维度 - 禁止模式轴
+- **F5**: 量子维度 - 离散化轴
+- **F8**: 复杂维度 - F3⊗F5的张量积
+- **F13**: 统一维度 - F5⊗F8的高阶组合
+- **F21**: 意识维度 - F8⊗F13的涌现
+
+### 数学基础
+```
+宇宙状态: |Ψ⟩ = Σ αₙ|Fₙ⟩
+Zeckendorf分解 = 张量构造规则
+复杂度 = len(zeckendorf_components)
+信息含量 = log_φ(n)
+```
+
+## 📁 目录结构
 
 ```
 /src/bdag/
-├── README.md                    # 本文件：总体介绍
-├── NAMING_SPECIFICATION.md     # 文件命名规范
-├── TENSOR_OPERATIONS.md         # 张量操作类型定义
-├── LAYER_ARCHITECTURE.md       # 层级架构设计
-├── PARSING_TOOLS.md            # 解析工具和实现
-├── MIGRATION_GUIDE.md          # 从现有文件迁移指南
-├── VALIDATION_RULES.md         # 验证规则和检查
-├── examples/                   # 命名示例
-│   ├── layer_0_examples.md     # 第0层命名示例
-│   ├── layer_1_examples.md     # 第1层命名示例
-│   ├── layer_2_examples.md     # 第2层命名示例
-│   └── layer_3_examples.md     # 第3层命名示例
-└── tools/                      # 相关工具
-    ├── parser.py               # 文件名解析器
-    ├── validator.py            # DAG验证器
-    ├── visualizer.py           # DAG可视化工具
-    └── migrator.py             # 文件迁移工具
+├── README.md                           # 本文件
+├── UNIFIED_FIBONACCI_SYSTEM.md         # 统一Fibonacci系统设计
+├── TENSOR_SPACE_MAPPING.md            # 张量空间映射理论
+├── examples/                           # Fibonacci理论示例
+│   ├── F1__UniversalSelfReference__AXIOM__FROM__Universe__TO__SelfRefTensor__ATTR__Fundamental_Recursive.md
+│   ├── F2__GoldenRatioPrinciple__AXIOM__FROM__Math__TO__PhiTensor__ATTR__Transcendental_Optimal.md
+│   └── F8__ComplexEmergence__EMERGE__FROM__F3+F5__TO__ComplexTensor__ATTR__Nonlinear_Adaptive.md
+└── tools/
+    ├── __init__.py
+    ├── unified_fibonacci_parser.py      # 统一Fibonacci解析器
+    └── fibonacci_tensor_space.py        # 张量空间数学框架
 ```
 
-## 核心原则
+## 🚀 快速开始
 
-### 1. 原子性原则
-每个文件只包含一个张量操作，不能混合多个概念或操作。
+### 1. 解析Fibonacci理论
+```python
+from tools.unified_fibonacci_parser import UnifiedFibonacciParser
 
-### 2. DAG结构原则
-文件名必须体现有向无环图的结构关系，包括层级、依赖和顺序。
+parser = UnifiedFibonacciParser()
+nodes = parser.parse_directory('examples/')
+stats = parser.generate_theory_statistics()
+```
 
-### 3. 可解析原则
-文件名必须采用标准化格式，支持程序自动解析和处理。
+### 2. 张量空间计算
+```python
+from tools.fibonacci_tensor_space import FibonacciTensorSpace
 
-### 4. 语义清晰原则
-文件名必须包含足够的语义信息，使人类和程序都能理解其含义。
+tensor_space = FibonacciTensorSpace()
+universe_state = tensor_space.generate_universe_state({1: 0.5, 2: 0.3, 5: 0.4})
+composition = tensor_space.analyze_state_composition(universe_state)
+```
 
-### 5. 数学严谨原则
-每个张量操作必须有明确的数学定义和验证规则。
+## 🔬 理论验证
 
-## 快速开始
+系统已通过以下验证：
+- ✅ Fibonacci数学结构正确性
+- ✅ Zeckendorf分解唯一性  
+- ✅ No-11约束自然满足
+- ✅ φ标度变换的自相似性
+- ✅ 张量空间的完备性
 
-1. 阅读 [NAMING_SPECIFICATION.md](./NAMING_SPECIFICATION.md) 了解命名规范
-2. 查看 [examples/](./examples/) 目录下的具体示例
-3. 使用 [tools/parser.py](./tools/parser.py) 验证文件名格式
-4. 参考 [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) 迁移现有文件
+## 📈 预测能力
 
-## 版本信息
+基于数学结构可预测：
+- **F21**: 意识场理论 (F8⊗F13)
+- **F34**: 宇宙心智理论 (F13⊗F21)
+- **F55**: 终极统一理论 (F21⊗F34)
 
-- 规范版本：v1.0.0
-- 最后更新：2024年8月
-- 维护者：Binary Universe Theory Project
+## 🎯 核心洞察
 
-## 许可证
+这个系统揭示了：
+1. **宇宙即张量**: 现实是高维Fibonacci张量空间的低维投影
+2. **理论即坐标**: 每个F{N}定义张量空间中的一个维度
+3. **依赖即结构**: Zeckendorf分解决定张量间的构造关系
+4. **复杂即组合**: 高阶现象是基础维度的张量积
 
-本规范遵循项目整体许可证。
+**这是数学与现实统一的终极表达！** 🌟
