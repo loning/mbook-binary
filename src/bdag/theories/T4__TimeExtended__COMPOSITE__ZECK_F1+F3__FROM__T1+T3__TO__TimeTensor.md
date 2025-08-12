@@ -3,7 +3,7 @@
 ## 1. Theory Meta-Information
 **Number**: T4 (Natural sequence position 4)  
 **Zeckendorf Decomposition**: 4 = F1 + F3 = 1 + 3  
-**Operation Type**: EXTENDED - Extension Theorem  
+**Operation Type**: COMPOSITE - Composite number theory built from component theories  
 **Dependencies**: {T1, T3} (Self-Reference Axiom + Constraint Theorem)  
 **Output Type**: TimeTensor ∈ ℋ₁ ⊕ ℋ₃
 

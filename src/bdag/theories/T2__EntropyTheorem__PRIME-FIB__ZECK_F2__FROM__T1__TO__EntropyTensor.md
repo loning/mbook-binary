@@ -3,7 +3,7 @@
 ## 1. Theory Meta-Information
 **Number**: T2 (Natural sequence position 2)  
 **Zeckendorf Decomposition**: F2 = 2  
-**Operation Type**: THEOREM - Fibonacci Recursive Theorem  
+**Operation Type**: PRIME-FIB - Dual foundation as both prime and Fibonacci  
 **Dependencies**: {T1} (Self-Reference Axiom)  
 **Output Type**: EntropyTensor ∈ ℋ₂
 

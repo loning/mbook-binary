@@ -422,9 +422,23 @@ class TheoryParser:
 
 def main():
     """测试解析器"""
+    import sys
+    
     parser = TheoryParser()
     
-    # 测试解析目录
+    # 支持命令行参数指定目录
+    if len(sys.argv) > 1:
+        target_dir = Path(sys.argv[1])
+        if target_dir.exists():
+            print(f"解析目录: {target_dir.absolute()}")
+            parser.parse_directory(str(target_dir))
+            parser.print_comprehensive_report()
+            return
+        else:
+            print(f"❌ 指定目录不存在: {target_dir}")
+            return
+    
+    # 默认解析examples目录
     examples_dir = Path(__file__).parent.parent / 'examples'
     if examples_dir.exists():
         print(f"解析目录: {examples_dir}")

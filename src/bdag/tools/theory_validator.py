@@ -511,9 +511,23 @@ class TheorySystemValidator:
 
 def main():
     """测试验证器"""
+    import sys
+    
     validator = TheorySystemValidator()
     
-    # 验证examples目录
+    # 支持命令行参数指定目录
+    if len(sys.argv) > 1:
+        target_dir = Path(sys.argv[1])
+        if target_dir.exists():
+            print(f"验证目录: {target_dir.absolute()}")
+            report = validator.validate_directory(str(target_dir))
+            validator.print_validation_report(report)
+            return
+        else:
+            print(f"❌ 指定目录不存在: {target_dir}")
+            return
+    
+    # 默认验证examples目录
     examples_dir = Path(__file__).parent.parent / 'examples'
     if examples_dir.exists():
         print(f"验证目录: {examples_dir}")

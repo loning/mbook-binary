@@ -21,7 +21,8 @@
       "Bash(mv:*)",
       "Bash(find:*)",
       "Bash(true)",
-      "Bash(coqc:*)"
+      "Bash(coqc:*)",
+      "Bash(echo:*)"
     ],
     "deny": []
   }
