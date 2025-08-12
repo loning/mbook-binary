@@ -1,26 +1,28 @@
 """
-Fibonacci张量空间理论系统
-Binary Universe Fibonacci Tensor Space Theory System
+T{n}理论系统工具集
+Binary Universe T{n} Theory System Tools v2.0
 """
 
-from .unified_fibonacci_parser import (
-    UnifiedFibonacciParser,
-    FibonacciNode,
+# 主要工具 - 新版本
+from .theory_parser import (
+    TheoryParser,
+    TheoryNode,
     FibonacciOperationType
+)
+from .theory_validator import (
+    TheorySystemValidator,
+    ValidationReport,
+    ValidationLevel,
+    ValidationIssue
 )
 from .fibonacci_tensor_space import (
     FibonacciTensorSpace,
     FibonacciTensor,
     FibonacciDimension
 )
-from .theory_validator import (
-    FibonacciDependencyValidator,
-    TheoryValidationReport,
-    ValidationResult
-)
 from .bdag_visualizer import (
     FibonacciBDAG,
-    TheoryNode
+    TheoryNode as VisualizerNode
 )
 from .consistency_checker import (
     TheoryConsistencyChecker,
@@ -33,24 +35,34 @@ from .file_manager import (
 )
 
 __all__ = [
-    'UnifiedFibonacciParser',
-    'FibonacciNode', 
+    # 核心解析器
+    'TheoryParser',
+    'TheoryNode', 
     'FibonacciOperationType',
+    
+    # 验证系统
+    'TheorySystemValidator',
+    'ValidationReport',
+    'ValidationLevel',
+    'ValidationIssue',
+    
+    # 张量空间
     'FibonacciTensorSpace',
     'FibonacciTensor',
     'FibonacciDimension',
-    'FibonacciDependencyValidator',
-    'TheoryValidationReport',
-    'ValidationResult',
+    
+    # 可视化和分析
     'FibonacciBDAG',
-    'TheoryNode',
+    'VisualizerNode',
     'TheoryConsistencyChecker',
     'ConsistencyReport',
     'ConsistencyLevel',
+    
+    # 文件管理
     'FibonacciFileManager',
     'FileOperation'
 ]
 
-__version__ = '2.0.0'
+__version__ = '2.1.0'
 __author__ = 'Binary Universe Theory Project'
-__description__ = 'Fibonacci张量空间映射系统 - 宇宙理论的数学本体论'
+__description__ = 'T{n}理论系统工具集 - 支持THEOREM/EXTENDED分类的统一框架'
