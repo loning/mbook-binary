@@ -1,6 +1,6 @@
 # Summary
 - [INDEX](./index.md)
-- [二进制宇宙生成理论]
+- [二进制宇宙生成理论]()
   - [理论概述](./bdag/theories/index.md)
 - [二进制宇宙理论]()
   - [理论概述](./binaryuniverse/index.md)
