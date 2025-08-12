@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Theory Validation System v2.0
-验证T{n}理论系统的完整性和一致性
+Theory Validation System v3.0
+验证T{n}理论系统的完整性和一致性，包含素数理论支持
 """
 
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Set, Tuple
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
@@ -55,11 +55,102 @@ class ValidationReport:
         """是否有错误"""
         return len(self.errors) > 0
 
+class PrimeChecker:
+    """素数检测工具"""
+    
+    @staticmethod
+    def is_prime(n: int) -> bool:
+        """检查是否为素数"""
+        if n < 2:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+        for i in range(3, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
+    
+    @staticmethod
+    def prime_factorize(n: int) -> List[Tuple[int, int]]:
+        """素因子分解，返回[(素数, 幂次)]"""
+        if n < 2:
+            return []
+        
+        factors = []
+        # 检查2的因子
+        count = 0
+        while n % 2 == 0:
+            count += 1
+            n //= 2
+        if count > 0:
+            factors.append((2, count))
+        
+        # 检查奇数因子
+        i = 3
+        while i * i <= n:
+            count = 0
+            while n % i == 0:
+                count += 1
+                n //= i
+            if count > 0:
+                factors.append((i, count))
+            i += 2
+        
+        # 如果n本身是素数
+        if n > 2:
+            factors.append((n, 1))
+        
+        return factors
+    
+    @staticmethod
+    def get_primes_up_to(n: int) -> List[int]:
+        """获取n以内的所有素数"""
+        if n < 2:
+            return []
+        
+        # 埃拉托斯特尼筛法
+        sieve = [True] * (n + 1)
+        sieve[0] = sieve[1] = False
+        
+        for i in range(2, int(n**0.5) + 1):
+            if sieve[i]:
+                for j in range(i*i, n + 1, i):
+                    sieve[j] = False
+        
+        return [i for i in range(2, n + 1) if sieve[i]]
+    
+    @staticmethod
+    def is_twin_prime(n: int) -> bool:
+        """检查是否为孪生素数"""
+        if not PrimeChecker.is_prime(n):
+            return False
+        return PrimeChecker.is_prime(n - 2) or PrimeChecker.is_prime(n + 2)
+    
+    @staticmethod
+    def is_mersenne_prime(n: int) -> bool:
+        """检查是否为梅森素数 (2^p - 1形式)"""
+        if not PrimeChecker.is_prime(n):
+            return False
+        
+        # 检查n+1是否是2的幂
+        m = n + 1
+        return m > 0 and (m & (m - 1)) == 0
+    
+    @staticmethod
+    def is_sophie_germain_prime(n: int) -> bool:
+        """检查是否为Sophie Germain素数 (p和2p+1都是素数)"""
+        if not PrimeChecker.is_prime(n):
+            return False
+        return PrimeChecker.is_prime(2 * n + 1)
+
 class TheorySystemValidator:
     """T{n}理论系统验证器"""
     
     def __init__(self):
         self.parser = TheoryParser()
+        self.prime_checker = PrimeChecker()
         self.issues: List[ValidationIssue] = []
     
     def validate_directory(self, directory_path: str) -> ValidationReport:
@@ -85,6 +176,7 @@ class TheorySystemValidator:
         self._validate_dependency_graph(nodes)
         self._validate_fibonacci_coverage(nodes)
         self._validate_operation_types(nodes)
+        self._validate_prime_theories(nodes)  # 新增：素数理论验证
         
         return self._generate_report(nodes)
     
@@ -250,6 +342,74 @@ class TheorySystemValidator:
                         theory_number=theory_num,
                         message=f"复合理论T{theory_num}不应标记为AXIOM",
                         suggestion="复合理论应标记为EXTENDED"
+                    ))
+    
+    def _validate_prime_theories(self, nodes: Dict[int, TheoryNode]):
+        """验证素数理论的特殊性质"""
+        max_theory = max(nodes.keys()) if nodes else 0
+        
+        # 获取所有素数
+        primes = self.prime_checker.get_primes_up_to(max_theory)
+        
+        # 统计素数理论的覆盖情况
+        prime_theories = [p for p in primes if p in nodes]
+        prime_fib_theories = [p for p in prime_theories if p in self.parser.fibonacci_set]
+        pure_prime_theories = [p for p in prime_theories if p not in self.parser.fibonacci_set]
+        
+        # 记录素数-Fibonacci双重理论
+        if prime_fib_theories:
+            self.issues.append(ValidationIssue(
+                level=ValidationLevel.INFO,
+                category="Prime",
+                theory_number=0,
+                message=f"发现{len(prime_fib_theories)}个素数-Fibonacci双重理论: T{prime_fib_theories}",
+                suggestion="这些理论具有特殊的双重意义，建议重点关注"
+            ))
+        
+        # 分析缺失的重要素数理论
+        missing_primes = [p for p in primes[:20] if p not in nodes]  # 检查前20个素数
+        if missing_primes:
+            self.issues.append(ValidationIssue(
+                level=ValidationLevel.INFO,
+                category="Prime",
+                theory_number=0,
+                message=f"缺少重要素数位置的理论: T{missing_primes[:10]}",
+                suggestion="考虑为这些素数位置开发独特的理论内容"
+            ))
+        
+        # 检查特殊素数类
+        for theory_num in prime_theories:
+            special_types = []
+            if self.prime_checker.is_twin_prime(theory_num):
+                special_types.append("孪生素数")
+            if self.prime_checker.is_mersenne_prime(theory_num):
+                special_types.append("梅森素数")
+            if self.prime_checker.is_sophie_germain_prime(theory_num):
+                special_types.append("Sophie Germain素数")
+            
+            if special_types:
+                self.issues.append(ValidationIssue(
+                    level=ValidationLevel.INFO,
+                    category="Prime",
+                    theory_number=theory_num,
+                    message=f"T{theory_num}是特殊素数理论: {', '.join(special_types)}",
+                    suggestion="可以为这个理论添加相应的特殊性质"
+                ))
+        
+        # 分析合数理论的素因子结构
+        composite_theories = [n for n in nodes.keys() if n > 1 and not self.prime_checker.is_prime(n)]
+        for theory_num in composite_theories[:10]:  # 只分析前10个作为示例
+            factors = self.prime_checker.prime_factorize(theory_num)
+            if factors:
+                factor_str = ' × '.join([f"{p}^{e}" if e > 1 else str(p) for p, e in factors])
+                prime_deps = [p for p, _ in factors if p in nodes]
+                if prime_deps:
+                    self.issues.append(ValidationIssue(
+                        level=ValidationLevel.INFO,
+                        category="Prime",
+                        theory_number=theory_num,
+                        message=f"T{theory_num} = {factor_str}，可考虑与素数理论T{prime_deps}的深层关联",
+                        suggestion="合数理论可能继承其素因子理论的某些性质"
                     ))
     
     def _generate_report(self, nodes: Dict[int, TheoryNode]) -> ValidationReport:
