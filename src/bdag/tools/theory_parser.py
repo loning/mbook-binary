@@ -12,16 +12,12 @@ from enum import Enum
 import math
 
 class FibonacciOperationType(Enum):
-    """T{n}理论操作类型 - 更新后的分类"""
-    AXIOM = 'AXIOM'           # 公理理论（只有T1是真正的公理）
-    THEOREM = 'THEOREM'       # Fibonacci递归定理
-    EXTENDED = 'EXTENDED'     # Zeckendorf扩展定理
-    
-    # 保留旧类型以兼容
-    EMERGE = 'EMERGE'
-    DERIVE = 'DERIVE' 
-    COMBINE = 'COMBINE'
-    UNIFY = 'UNIFY'
+    """T{n}理论操作类型 - 基于素数-Fibonacci分类系统"""
+    AXIOM = 'AXIOM'           # 公理理论（只有T1）
+    PRIME_FIB = 'PRIME-FIB'   # 既是素数又是Fibonacci的理论
+    FIBONACCI = 'FIBONACCI'   # 纯Fibonacci理论（非素数）
+    PRIME = 'PRIME'           # 纯素数理论（非Fibonacci）
+    COMPOSITE = 'COMPOSITE'   # 合数理论（既非素数也非Fibonacci）
 
 @dataclass
 class TheoryNode:
@@ -92,14 +88,41 @@ class TheoryParser:
         self.nodes: Dict[int, TheoryNode] = {}
         self.errors: List[str] = []
         
-        # T{n}文件名正则表达式 - 支持新格式
+        # T{n}文件名正则表达式 - 支持素数分类格式
         self.filename_pattern = re.compile(
-            r'^T(\d+)__([A-Za-z][A-Za-z0-9_]*)__([A-Z]+)__'
+            r'^T(\d+)__([A-Za-z][A-Za-z0-9_]*)__(AXIOM|PRIME-FIB|FIBONACCI|PRIME|COMPOSITE)__'
             r'ZECK_(F\d+(?:\+F\d+)*)__'
             r'FROM__((?:T\d+(?:\+T\d+)*)|(?:UNIVERSE|Universe|Math|Physics|Information|Cosmos|Binary))__'
             r'TO__([A-Za-z][A-Za-z0-9_]*)'
             r'\.md$'
         )
+    
+    @staticmethod
+    def is_prime(n: int) -> bool:
+        """检查数字是否为素数"""
+        if n < 2:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+        for i in range(3, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
+    
+    def get_theory_classification(self, n: int) -> FibonacciOperationType:
+        """获取理论的完整分类（包含素数信息）"""
+        if n == 1:
+            return FibonacciOperationType.AXIOM
+        elif n in self.fibonacci_set and self.is_prime(n):
+            return FibonacciOperationType.PRIME_FIB
+        elif n in self.fibonacci_set:
+            return FibonacciOperationType.FIBONACCI
+        elif self.is_prime(n):
+            return FibonacciOperationType.PRIME
+        else:
+            return FibonacciOperationType.COMPOSITE
     
     def _generate_fibonacci_sequence(self) -> List[int]:
         """生成Fibonacci序列 (F1=1, F2=2, F3=3, F4=5, F5=8...)"""
@@ -300,9 +323,12 @@ class TheoryParser:
         
         total = len(self.nodes)
         axiom_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.AXIOM)
-        theorem_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.THEOREM)
-        extended_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.EXTENDED)
+        prime_fib_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.PRIME_FIB)
+        fibonacci_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.FIBONACCI)
+        prime_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.PRIME)
+        composite_count = sum(1 for n in self.nodes.values() if n.operation == FibonacciOperationType.COMPOSITE)
         fibonacci_theories = sum(1 for n in self.nodes.values() if n.is_fibonacci_theory)
+        prime_theories = sum(1 for n in self.nodes.values() if self.is_prime(n.theory_number))
         
         # 复杂度分布
         complexity_dist = {}
@@ -326,10 +352,12 @@ class TheoryParser:
         return {
             'total_theories': total,
             'axiom_theories': axiom_count,
-            'theorem_theories': theorem_count, 
-            'extended_theories': extended_count,
-            'fibonacci_theories': fibonacci_theories,
-            'composite_theories': total - fibonacci_theories,
+            'prime_fib_theories': prime_fib_count,
+            'fibonacci_theories': fibonacci_count,
+            'prime_theories': prime_count,
+            'composite_theories': composite_count,
+            'total_fibonacci': fibonacci_theories,
+            'total_prime': prime_theories,
             'complexity_distribution': complexity_dist,
             'operation_distribution': operation_dist,
             'consistency_rate': f"{consistent_count}/{total} ({consistent_count/total*100:.1f}%)" if total > 0 else "N/A",
@@ -359,8 +387,10 @@ class TheoryParser:
         print(f"\n📊 系统概览:")
         print(f"  总理论数: {stats['total_theories']}")
         print(f"  公理理论: {stats['axiom_theories']} ({'✅' if stats['single_axiom_system'] else '❌'} 单公理系统)")
-        print(f"  递归定理: {stats['theorem_theories']}")
-        print(f"  扩展定理: {stats['extended_theories']}")
+        print(f"  素数-Fibonacci: {stats['prime_fib_theories']}")
+        print(f"  纯Fibonacci: {stats['fibonacci_theories']}")
+        print(f"  纯素数: {stats['prime_theories']}")
+        print(f"  合数理论: {stats['composite_theories']}")
         print(f"  Fibonacci覆盖: {stats['fibonacci_coverage']}")
         print(f"  最高理论: T{stats['max_theory_number']}")
         print(f"  一致性率: {stats['consistency_rate']}")
