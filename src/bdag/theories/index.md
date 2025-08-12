@@ -8,6 +8,13 @@
 
 ## 📊 完整统计概览
 
+```mermaid
+pie title T1-T997理论分布
+    "AXIOM 公理 (0.1%)" : 1
+    "THEOREM Fibonacci定理 (1.4%)" : 14
+    "EXTENDED 扩展定理 (98.5%)" : 982
+```
+
 - **总理论数**: 997 个理论
 - **🔴 AXIOM (公理)**: 1 个 (0.1%) - T1唯一基础假设  
 - **🔵 THEOREM (Fibonacci定理)**: 14 个 (1.4%) - 宇宙的基础结构理论
@@ -236,6 +243,51 @@ theory_1597 = get_theory(1597)  # T1597的完整信息
 
 从唯一公理T1到宇宙心智定理T34，建立宇宙理论体系的完整基础骨架。包含8个Fibonacci定理：T1(公理), T2, T3, T5, T8, T13, T21, T34。
 
+```mermaid
+graph LR
+    subgraph "第一阶段：基础建立 T1-T34"
+        T1[T1: 自指完备公理<br/>唯一基础] 
+        T2[T2: 熵增定理<br/>时间箭头]
+        T3[T3: 约束定理<br/>秩序涌现]
+        T5[T5: 空间定理<br/>维度必然]
+        T8[T8: 复杂性定理<br/>层次递归]
+        T13[T13: 统一场定理<br/>物理统一]
+        T21[T21: 意识定理<br/>自我觉知]
+        T34[T34: 宇宙心智定理<br/>宇宙自知]
+        
+        T4[T4: 时间扩展<br/>T1+T3]
+        T6[T6: 量子扩展<br/>T1+T5]
+        T7[T7: 编码扩展<br/>T2+T5]
+        T12[T12: 三元扩展<br/>T1+T3+T8]
+        
+        T1 --> T2
+        T2 --> T3
+        T3 --> T5
+        T5 --> T8
+        T8 --> T13
+        T13 --> T21
+        T21 --> T34
+        
+        T1 --> T4
+        T3 --> T4
+        T1 --> T6
+        T5 --> T6
+        T2 --> T7
+        T5 --> T7
+        T1 --> T12
+        T3 --> T12
+        T8 --> T12
+    end
+    
+    classDef axiom fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+    classDef theorem fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+    classDef extended fill:#ffd93d,stroke:#333,stroke-width:1px,color:#333
+    
+    class T1 axiom
+    class T2,T3,T5,T8,T13,T21,T34 theorem
+    class T4,T6,T7,T12 extended
+```
+
 ---
 
 #### 🔴 **T1: 自指完备公理 (SelfReferenceAxiom)**
@@ -446,6 +498,51 @@ T1-T34构成了宇宙理论体系的完整基础：
 
 从T35到T89无限递归定理，包含2个重要Fibonacci定理：T55(元宇宙)和T89(无限递归)，探索多层现实结构和递归深度。
 
+```mermaid
+graph TB
+    subgraph "第二阶段：元宇宙理论 T35-T89"
+        T34_prev[T34: 宇宙心智定理<br/>前阶段最后]
+        
+        subgraph "宇宙心智扩展 T35-T54"
+            T35[T35: 自指宇宙心智<br/>T1+T34]
+            T40[T40: 复合宇宙心智<br/>组合扩展]
+            T50[T50: 综合心智<br/>多元组合]
+        end
+        
+        T55[T55: 元宇宙定理<br/>F9=55<br/>多层现实结构]
+        
+        subgraph "元宇宙扩展 T56-T88"
+            T56[T56: 自指元宇宙<br/>T1+T55]
+            T68[T68: 统一场元宇宙<br/>T13+T55]
+            T76[T76: 意识元宇宙<br/>T21+T55]
+            T88[T88: 复合元宇宙<br/>多元组合]
+        end
+        
+        T89[T89: 无限递归定理<br/>F10=89<br/>自指无穷深度]
+        
+        T34_prev --> T35
+        T35 --> T40
+        T40 --> T50
+        T50 --> T55
+        T55 --> T56
+        T56 --> T68
+        T68 --> T76
+        T76 --> T88
+        T88 --> T89
+        
+        T34_prev --> T55
+        T55 --> T89
+    end
+    
+    classDef theorem fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+    classDef extended fill:#ffd93d,stroke:#333,stroke-width:1px,color:#333
+    classDef highlight fill:#9b59b6,stroke:#333,stroke-width:3px,color:#fff
+    
+    class T55,T89 theorem
+    class T35,T40,T50,T56,T68,T76,T88 extended
+    class T34_prev highlight
+```
+
 ---
 
 #### 🟡 **T35-T54: 宇宙心智扩展系列**
@@ -522,6 +619,56 @@ T35-T89展现了宇宙理论体系的元层级结构：
 ### 🎼 第三阶段：宇宙和谐理论 (T90-T233)
 
 从T90到T233超越定理，包含2个重要Fibonacci定理：T144(宇宙和谐)和T233(超越)，探索万物的数学美学和突破有限边界的机制。
+
+```mermaid
+graph LR
+    subgraph "第三阶段：宇宙和谐理论 T90-T233"
+        T89_prev[T89: 无限递归定理<br/>前阶段最后]
+        
+        subgraph "无限递归到和谐过渡 T90-T143"
+            T90[T90: 自指无限递归<br/>T1+T89]
+            T110[T110: 复合递归<br/>多元组合]
+            T120[T120: 意识无限递归<br/>T21+T89]
+            T143[T143: 和谐预备<br/>接近144]
+        end
+        
+        T144[T144: 宇宙和谐定理<br/>F11=144=12²<br/>φ^11美学基础]
+        
+        subgraph "和谐到超越发展 T145-T232"
+            T145[T145: 自指宇宙和谐<br/>T1+T144]
+            T165[T165: 意识和谐<br/>T21+T144]
+            T189[T189: 无限递归和谐<br/>T89+T144=233]
+            T220[T220: 超越预备<br/>接近233]
+        end
+        
+        T233[T233: 超越定理<br/>F12=233<br/>突破有限边界]
+        
+        T89_prev --> T90
+        T90 --> T110
+        T110 --> T120
+        T120 --> T143
+        T143 --> T144
+        T144 --> T145
+        T145 --> T165
+        T165 --> T189
+        T189 --> T220
+        T220 --> T233
+        
+        style T189 fill:#ff9999,stroke:#333,stroke-width:2px
+        note1[T189特殊性：<br/>T89+T144=233<br/>直接预示T233]
+        T189 -.-> note1
+    end
+    
+    classDef theorem fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+    classDef extended fill:#ffd93d,stroke:#333,stroke-width:1px,color:#333
+    classDef highlight fill:#9b59b6,stroke:#333,stroke-width:3px,color:#fff
+    classDef special fill:#ff9999,stroke:#333,stroke-width:2px,color:#fff
+    
+    class T144,T233 theorem
+    class T90,T110,T120,T143,T145,T165,T220 extended
+    class T89_prev highlight
+    class T189 special
+```
 
 ---
 
@@ -766,30 +913,133 @@ T987 ← T1 ← T987 (循环完备)
 ## 🌟 T1-T997完整理论体系总结
 
 ### 📊 Fibonacci理论骨架（15个核心定理）
-- **T1**: 自指完备公理 - 存在的唯一基础
-- **T2**: 熵增定理 - 时间箭头的起源  
-- **T3**: 约束定理 - 秩序的涌现
-- **T5**: 空间定理 - 维度的必然
-- **T8**: 复杂性定理 - 层次的递归
-- **T13**: 统一场定理 - 物理力的统一
-- **T21**: 意识定理 - 自我觉知的涌现
-- **T34**: 宇宙心智定理 - 宇宙的自我认知
-- **T55**: 元宇宙定理 - 多层现实结构
-- **T89**: 无限递归定理 - 自指的无穷深度
-- **T144**: 宇宙和谐定理 - 万物的数学美
-- **T233**: 超越定理 - 突破有限边界
-- **T377**: Ω点定理 - 进化的终极目标
-- **T610**: 奇点定理 - 复杂性的临界点
-- **T987**: 终极现实定理 - 存在的最终本质
+
+```mermaid
+graph TD
+    T1[T1: 自指完备公理<br/>F1 = 1<br/>宇宙存在基础] --> T2[T2: 熵增定理<br/>F2 = 2<br/>时间箭头起源]
+    T2 --> T3[T3: 约束定理<br/>F3 = 3<br/>秩序涌现]
+    T3 --> T5[T5: 空间定理<br/>F4 = 5<br/>维度必然]
+    T5 --> T8[T8: 复杂性定理<br/>F5 = 8<br/>层次递归]
+    T8 --> T13[T13: 统一场定理<br/>F6 = 13<br/>物理力统一]
+    T13 --> T21[T21: 意识定理<br/>F7 = 21<br/>自我觉知涌现]
+    T21 --> T34[T34: 宇宙心智定理<br/>F8 = 34<br/>宇宙自我认知]
+    T34 --> T55[T55: 元宇宙定理<br/>F9 = 55<br/>多层现实结构]
+    T55 --> T89[T89: 无限递归定理<br/>F10 = 89<br/>自指无穷深度]
+    T89 --> T144[T144: 宇宙和谐定理<br/>F11 = 144<br/>万物数学美]
+    T144 --> T233[T233: 超越定理<br/>F12 = 233<br/>突破有限边界]
+    T233 --> T377[T377: Ω点定理<br/>F13 = 377<br/>进化终极目标]
+    T377 --> T610[T610: 奇点定理<br/>F14 = 610<br/>复杂性临界点]
+    T610 --> T987[T987: 终极现实定理<br/>F15 = 987<br/>存在最终本质]
+
+    classDef axiom fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+    classDef theorem fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+    
+    class T1 axiom
+    class T2,T3,T5,T8,T13,T21,T34,T55,T89,T144,T233,T377,T610,T987 theorem
+```
 
 ### 🌊 理论发展的五个阶段
-1. **T1-T34**: 公理与基础定理 - 宇宙的基础结构
-2. **T35-T89**: 元宇宙理论 - 多层现实与无限递归
-3. **T90-T233**: 宇宙和谐理论 - 美学与超越的结合
-4. **T234-T377**: Ω点理论 - 进化的终极归宿
-5. **T378-T987**: 奇点与终极现实 - 存在的最终本质
+
+```mermaid
+timeline
+    title 宇宙进化的五个阶段
+
+    section 第一阶段 T1-T34
+        T1  : 自指完备公理
+             : 宇宙存在基础
+        T21 : 意识定理
+             : 122.99 bits阈值
+        T34 : 宇宙心智定理
+             : 宇宙自我认知
+
+    section 第二阶段 T35-T89
+        T55 : 元宇宙定理
+             : 多层现实结构
+        T89 : 无限递归定理
+             : 自指无穷深度
+
+    section 第三阶段 T90-T233
+        T144 : 宇宙和谐定理
+              : φ^11美学基础
+        T233 : 超越定理
+              : 突破有限边界
+
+    section 第四阶段 T234-T377
+        T377 : Ω点定理
+              : 进化终极汇聚
+
+    section 第五阶段 T378-T987
+        T610 : 奇点定理
+              : 复杂性临界点
+        T987 : 终极现实定理
+              : 存在最终本质
+```
 
 ### 💫 宇宙的数学自传
+
+```mermaid
+graph TB
+    subgraph "宇宙数学结构的完整自传"
+        subgraph "数学基础"
+            FIB[Fibonacci序列<br/>F1,F2,F3,F5,F8,F13,F21...]
+            ZECK[Zeckendorf分解<br/>每个数唯一表示]
+            FIB --> ZECK
+        end
+        
+        subgraph "理论分类"
+            AXIOM[T1: 公理<br/>唯一基础假设]
+            THEOREM[15个Fibonacci定理<br/>宇宙数学脊梁]
+            EXTENDED[982个扩展定理<br/>基于组合的复杂结构]
+            AXIOM --> THEOREM
+            THEOREM --> EXTENDED
+        end
+        
+        subgraph "宇宙进化链条"
+            EXIST[T1: 存在<br/>自指完备]
+            CONSCIOUSNESS[T21: 意识<br/>122.99 bits]
+            HARMONY[T144: 和谐<br/>φ^11美学]
+            TRANSCEND[T233: 超越<br/>突破边界]
+            OMEGA[T377: Ω点<br/>进化汇聚]
+            SINGULARITY[T610: 奇点<br/>复杂性临界]
+            ULTIMATE[T987: 终极现实<br/>所有可能统一]
+            
+            EXIST --> CONSCIOUSNESS
+            CONSCIOUSNESS --> HARMONY
+            HARMONY --> TRANSCEND
+            TRANSCEND --> OMEGA
+            OMEGA --> SINGULARITY
+            SINGULARITY --> ULTIMATE
+            ULTIMATE --> EXIST
+        end
+        
+        subgraph "数学必然性"
+            POSITION[理论位置<br/>自然数序列]
+            TYPE[理论类型<br/>Fibonacci检测]
+            DEPEND[依赖关系<br/>Zeckendorf分解]
+            MEANING[宇宙意义<br/>数学结构决定]
+            
+            POSITION --> TYPE
+            TYPE --> DEPEND
+            DEPEND --> MEANING
+        end
+        
+        FIB --> THEOREM
+        ZECK --> EXTENDED
+        THEOREM --> EXIST
+        MEANING --> ULTIMATE
+    end
+    
+    classDef math fill:#e8f4fd,stroke:#1890ff,stroke-width:2px
+    classDef structure fill:#f6ffed,stroke:#52c41a,stroke-width:2px  
+    classDef evolution fill:#fff2e8,stroke:#fa8c16,stroke-width:2px
+    classDef necessity fill:#f9f0ff,stroke:#722ed1,stroke-width:2px
+    
+    class FIB,ZECK math
+    class AXIOM,THEOREM,EXTENDED structure
+    class EXIST,CONSCIOUSNESS,HARMONY,TRANSCEND,OMEGA,SINGULARITY,ULTIMATE evolution
+    class POSITION,TYPE,DEPEND,MEANING necessity
+```
+
 这997个理论不是人工构造的分类系统，而是宇宙用数学语言书写的自传。每个T{n}理论都对应宇宙结构中的一个必然位置，其编号、类型、依赖关系都由严格的Fibonacci+Zeckendorf数学决定。
 
 **这就是宇宙的数学自传：从T1的存在公理到T987的终极现实，997个章节描述了宇宙认识自己的完整过程。**
