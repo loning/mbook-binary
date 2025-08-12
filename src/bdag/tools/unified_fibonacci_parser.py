@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Unified Fibonacci BDAG Parser
-Pure Fibonacci numbering without artificial layer divisions
+T{n} Natural Number Theory Parser
+Supports T{n} natural number theory sequence with Zeckendorf dependencies
 """
 
 import re
@@ -9,55 +9,53 @@ from typing import List, Dict, Set, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
 
-class FibonacciOperationType(Enum):
-    """基于Fibonacci性质的操作类型"""
-    AXIOM = 'AXIOM'           # 素Fibonacci数对应的基础公理
-    DEFINE = 'DEFINE'         # 基本定义
-    APPLY = 'APPLY'          # 单一应用
-    COMBINE = 'COMBINE'       # 两项组合
-    EMERGE = 'EMERGE'        # 复杂涌现
+class TheoryOperationType(Enum):
+    """基于T{n}自然数编号的理论操作类型"""
+    AXIOM = 'AXIOM'           # 基础公理 (对应Fibonacci数编号)
+    EMERGE = 'EMERGE'         # 组合涌现 (对应复合数编号)
     DERIVE = 'DERIVE'        # 数学推导
+    COMBINE = 'COMBINE'       # 组合理论
     UNIFY = 'UNIFY'          # 高阶统一
 
 @dataclass
-class FibonacciNode:
-    """统一Fibonacci理论节点"""
-    fibonacci_number: int                    # Fibonacci序列位置
+class TheoryNode:
+    """T{n}自然数理论节点"""
+    theory_number: int                      # 理论编号 (自然数T{n})
     name: str                               # 理论名称
-    operation: FibonacciOperationType       # 操作类型
+    operation: TheoryOperationType          # 操作类型
     zeckendorf_decomposition: List[int]     # Zeckendorf分解
-    dependencies: List[int]                 # 自然依赖(=Zeckendorf分解)
+    fibonacci_dependencies: List[int]       # Fibonacci依赖项
+    theory_dependencies: List[int]          # 理论T{n}依赖项
     output_type: str                        # 输出类型
-    attributes: List[str]                   # 属性列表
     filename: str                           # 文件名
     
     # 计算属性
-    complexity_level: int = 0               # 复杂度等级
-    is_prime_fibonacci: bool = False        # 是否素Fibonacci
+    complexity_level: int = 0               # 复杂度等级 = len(Zeckendorf)
+    is_fibonacci_theory: bool = False       # 是否为Fibonacci数理论
     information_content: float = 0.0        # 信息含量
     
     def __post_init__(self):
         """计算派生属性"""
         self.complexity_level = len(self.zeckendorf_decomposition)
-        self.is_prime_fibonacci = self._is_prime_fibonacci()
+        self.is_fibonacci_theory = self._is_fibonacci_theory()
         self.information_content = self._calculate_info_content()
+        # 从Zeckendorf分解推导理论依赖
+        self.theory_dependencies = self.fibonacci_dependencies.copy()
     
-    def _is_prime_fibonacci(self) -> bool:
-        """检查是否为素Fibonacci数"""
-        # 这里简化实现，真实情况需要质数测试
-        prime_fibonacci_positions = {2, 3, 5, 13, 89, 233, 1597}
-        return self.fibonacci_number in prime_fibonacci_positions
+    def _is_fibonacci_theory(self) -> bool:
+        """检查T{n}是否为Fibonacci数理论 (即单项分解)"""
+        return len(self.zeckendorf_decomposition) == 1
     
     def _calculate_info_content(self) -> float:
         """计算信息含量"""
         import math
         phi = (1 + math.sqrt(5)) / 2
-        if self.fibonacci_number > 0:
-            return math.log(self.fibonacci_number) / math.log(phi)
+        if self.theory_number > 0:
+            return math.log(self.theory_number) / math.log(phi)
         return 0.0
 
-class UnifiedFibonacciParser:
-    """统一Fibonacci解析器"""
+class NaturalNumberTheoryParser:
+    """T{n}自然数理论解析器"""
     
     def __init__(self, max_fib=100):
         self.fibonacci_set = self._generate_fibonacci(max_fib)
@@ -65,12 +63,12 @@ class UnifiedFibonacciParser:
         self.nodes: Dict[int, FibonacciNode] = {}
         self.errors: List[str] = []
         
-        # Fibonacci文件名正则
+        # T{n}理论文件名正则
         self.filename_pattern = re.compile(
-            r'^F(\d+)__([A-Za-z][A-Za-z0-9]*)__([A-Z]+)__'
-            r'FROM__((?:F\d+(?:\+F\d+)*)|(?:Universe|Math|Physics|Information|Cosmos|Binary))__'
-            r'TO__([A-Za-z][A-Za-z0-9]*)__'
-            r'ATTR__([A-Za-z][A-Za-z0-9]*(?:_[A-Za-z][A-Za-z0-9]*)*)'
+            r'^T(\d+)__([A-Za-z][A-Za-z0-9]*)__([A-Z]+)__'
+            r'ZECK_(F\d+(?:\+F\d+)*)__'
+            r'FROM__((?:T\d+(?:\+T\d+)*)|(?:Universe|Math|Physics|Information|Cosmos|Binary))__'
+            r'TO__([A-Za-z][A-Za-z0-9]*)'
             r'\.md$'
         )
     

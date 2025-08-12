@@ -63,7 +63,7 @@ class FibonacciTensorSpace:
         self.phi = (1 + np.sqrt(5)) / 2
         
     def _generate_fibonacci_sequence(self) -> List[int]:
-        """生成Fibonacci序列"""
+        """生成Fibonacci序列 (F1=1, F2=2, F3=3, F4=5, F5=8...)"""
         fib = [1, 2]
         while fib[-1] < self.max_fib:
             next_fib = fib[-1] + fib[-2]

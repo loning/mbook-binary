@@ -36,7 +36,7 @@ class TheoryConsistencyChecker:
         self.reports: List[ConsistencyReport] = []
     
     def _generate_fibonacci_sequence(self, max_fib: int) -> List[int]:
-        """生成Fibonacci序列"""
+        """生成Fibonacci序列 (F1=1, F2=2, F3=3, F4=5, F5=8...)"""
         fib = [1, 2]
         while fib[-1] < max_fib:
             next_fib = fib[-1] + fib[-2]
