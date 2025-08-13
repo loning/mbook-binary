@@ -23,7 +23,8 @@
       "Bash(true)",
       "Bash(coqc:*)",
       "Bash(echo:*)",
-      "Bash(coq:*)"
+      "Bash(coq:*)",
+      "Bash(sed:*)"
     ],
     "deny": []
   }
