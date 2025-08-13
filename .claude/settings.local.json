@@ -22,7 +22,8 @@
       "Bash(find:*)",
       "Bash(true)",
       "Bash(coqc:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(coq:*)"
     ],
     "deny": []
   }
