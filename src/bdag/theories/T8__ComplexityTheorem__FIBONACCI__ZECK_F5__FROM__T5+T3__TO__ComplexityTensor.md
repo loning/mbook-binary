@@ -4,7 +4,7 @@
 **ID**: T8 (Natural sequence position 8)  
 **Zeckendorf Decomposition**: F5 = 8 (Fifth Fibonacci number)  
 **Operation Type**: FIBONACCI THEOREM - Pure Fibonacci recursion (non-prime)  
-**Dependencies**: {T8} (Self-referential via Fibonacci recursion F5 = F4 + F3 = 5 + 3)  
+**Dependencies**: {T5, T3} (SpaceTheorem + ConstraintTheorem via Fibonacci recursion F5 = F4 + F3 = 5 + 3)  
 **Output Type**: ComplexityTensor ∈ ℋ8
 
 ## 2. Formal Definition
