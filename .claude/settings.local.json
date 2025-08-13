@@ -24,7 +24,8 @@
       "Bash(coqc:*)",
       "Bash(echo:*)",
       "Bash(coq:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(/dev/null)"
     ],
     "deny": []
   }
