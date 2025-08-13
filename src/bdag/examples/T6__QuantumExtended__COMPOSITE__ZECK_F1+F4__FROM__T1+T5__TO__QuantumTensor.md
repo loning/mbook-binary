@@ -3,7 +3,7 @@
 ## 1. 理论元信息
 **编号**: T6 (自然数序列第6位)  
 **Zeckendorf分解**: 6 = F1 + F4 = 1 + 5  
-**操作类型**: EXTENDED - 扩展定理  
+**操作类型**: COMPOSITE - 合数理论，基于Zeckendorf分解的组合  
 **依赖关系**: {T1, T5} (自指完备公理 + 空间定理)  
 **输出类型**: QuantumTensor ∈ ℋ₁ ⊕ ℋ₅
 
@@ -13,7 +13,7 @@
 设 $\mathcal{U}$ 为宇宙状态空间，$\mathcal{H}$ 为Hilbert空间，定义量子扩展算子：
 $$\hat{Q}: \mathcal{U} \times \mathcal{H}_{\text{space}} \rightarrow \mathcal{H}_{\text{quantum}}$$
 
-### 2.2 定理陈述 (T6-EXTENDED)
+### 2.2 定理陈述 (T6-COMPOSITE)
 **量子扩展定理**：自指完备性与空间结构的Zeckendorf组合必然产生量子力学
 $$(\Omega = \Omega(\Omega)) \oplus (\dim(\text{space}) = 3) \implies \exists \hat{Q}: [\hat{x}_i, \hat{p}_j] = i\hbar\delta_{ij}$$
 

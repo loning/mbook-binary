@@ -3,7 +3,7 @@
 ## 1. 理论元信息
 **编号**: T4 (自然数序列第4位)  
 **Zeckendorf分解**: 4 = F1 + F3 = 1 + 3  
-**操作类型**: EXTENDED - 扩展定理  
+**操作类型**: COMPOSITE - 合数理论，基于Zeckendorf分解的组合  
 **依赖关系**: {T1, T3} (自指完备公理 + 约束定理)  
 **输出类型**: TimeTensor ∈ ℋ₁ ⊕ ℋ₃
 
@@ -13,7 +13,7 @@
 设 $\mathcal{U}$ 为宇宙状态空间，定义时间扩展算子：
 $$\mathcal{T}^{\text{time}}: \mathcal{U} \times \mathcal{U} \rightarrow \mathcal{U}$$
 
-### 2.2 定理陈述 (T4-EXTENDED)
+### 2.2 定理陈述 (T4-COMPOSITE)
 **时间扩展定理**：自指完备与约束机制的Zeckendorf组合产生时间维度
 $$(\Omega = \Omega(\Omega)) \oplus (\exists \mathcal{C}: \mathcal{C}(\text{state}) = \text{constrained}) \implies \exists \mathcal{T}^{\text{time}}: \frac{\partial}{\partial t}\mathcal{U} \neq 0$$
 

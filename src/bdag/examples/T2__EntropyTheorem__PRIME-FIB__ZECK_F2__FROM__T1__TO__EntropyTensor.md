@@ -3,13 +3,13 @@
 ## 1. 理论元信息
 **编号**: T2 (自然数序列第2位)  
 **Zeckendorf分解**: F2 = 2  
-**操作类型**: THEOREM - 应用定理  
+**操作类型**: PRIME-FIB - 既是素数又是Fibonacci的双重基础理论  
 **依赖关系**: T1 (自指完备公理)  
 **输出类型**: EntropyTensor ∈ ℋ₂
 
 ## 2. 形式化定义
 
-### 2.1 定理陈述 (T2-THEOREM)
+### 2.1 定理陈述 (T2-PRIME-FIB)
 **熵增定理**：自指完备必然导致熵增
 $$\Omega = \Omega(\Omega) \implies \frac{dH(\Omega)}{dt} > 0$$
 
@@ -39,7 +39,7 @@ $$\frac{dH(\Omega)}{dt} = \lim_{n \to \infty} \frac{H(\Omega^{(n+1)}) - H(\Omega
 - **张量维度**: F2 = 2，对应张量空间的熵增轴
 - **信息含量**: $\log_\phi(2) \approx 1.44$ bits
 - **复杂度等级**: 1 (单项Zeckendorf分解)
-- **理论类型**: 基础公理型 (宇宙基础假设)
+- **理论类型**: PRIME-FIB双重基础 (素数不可分解性 + Fibonacci递归性)
 
 ## 基本性质
 - **不可逆性**: 熵只能增加，不能自发减少

@@ -3,7 +3,7 @@
 ## 1. 理论元信息
 **编号**: T7 (自然数序列第7位)  
 **Zeckendorf分解**: 7 = F2 + F4 = 2 + 5  
-**操作类型**: EXTENDED - 扩展定理  
+**操作类型**: PRIME - 纯素数理论，不可分解的完整性  
 **依赖关系**: {T2, T5} (熵增定理 + 空间定理)  
 **输出类型**: CodingTensor ∈ ℋ₂ ⊕ ℋ₅
 
@@ -13,7 +13,7 @@
 设 $\mathcal{U}$ 为宇宙状态空间，$\mathcal{I}$ 为信息空间，定义编码扩展算子：
 $$\mathcal{E}^{\text{code}}: \mathcal{U} \times \mathcal{H}_{\text{space}} \rightarrow \mathcal{H}_{\text{coding}}$$
 
-### 2.2 定理陈述 (T7-EXTENDED)
+### 2.2 定理陈述 (T7-PRIME)
 **编码扩展定理**：熵增过程与空间结构的Zeckendorf组合必然产生信息编码能力
 $$\left(\frac{dH}{dt} > 0\right) \oplus \left(\dim(\text{space}) = 3\right) \implies \exists \mathcal{E}^{\text{code}}: \mathcal{I} \hookrightarrow \mathcal{U}$$
 

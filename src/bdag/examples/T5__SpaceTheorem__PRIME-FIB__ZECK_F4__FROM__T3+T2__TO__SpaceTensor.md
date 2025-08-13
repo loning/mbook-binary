@@ -4,7 +4,7 @@
 **编号**: T5 (自然数序列第5位)  
 **Zeckendorf分解**: F4 = 5  
 **Fibonacci递归**: F4 = F3 + F2 = 3 + 2 = 5  
-**操作类型**: THEOREM - Fibonacci递归定理  
+**操作类型**: PRIME-FIB - 既是素数又是Fibonacci的双重基础理论  
 **依赖关系**: {T3, T2} (约束定理 + 熵增定理)  
 **输出类型**: SpaceTensor ∈ ℋ₅
 
@@ -14,7 +14,7 @@
 设 $\mathcal{U}$ 为宇宙状态空间，定义空间涌现算子：
 $$\mathcal{S}: \mathcal{U} \times \mathcal{U} \rightarrow \mathcal{U}^{\otimes 3}$$
 
-### 2.2 定理陈述 (T5-THEOREM)
+### 2.2 定理陈述 (T5-PRIME-FIB)
 **空间定理**：约束机制与熵增过程的Fibonacci递归组合必然产生三维空间结构
 $$\left(\exists \mathcal{C}: \mathcal{C}(\text{state}) = \text{constrained}\right) \land \left(\frac{dH}{dt} > 0\right) \implies \exists \mathcal{S}: \dim(\text{space}) = 3$$
 

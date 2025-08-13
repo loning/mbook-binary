@@ -4,7 +4,7 @@
 **编号**: T8 (自然数序列第8位)  
 **Zeckendorf分解**: 8 = F5 (单项分解)  
 **Fibonacci位置**: F5 = F4 + F3 = 5 + 3 = 8 (第5个Fibonacci数)  
-**操作类型**: THEOREM - Fibonacci递归定理  
+**操作类型**: FIBONACCI - 纯Fibonacci定理，递归结构自我生成  
 **依赖关系**: {T7, T6} (编码扩展定理 + 量子扩展定理)  
 **输出类型**: ComplexTensor ∈ ℋ₈
 
@@ -14,7 +14,7 @@
 设 $\mathcal{U}$ 为宇宙状态空间，$\mathcal{C}$ 为复杂性空间，定义复杂性算子：
 $$\hat{\mathcal{C}}: \mathcal{H}_{\text{coding}} \times \mathcal{H}_{\text{quantum}} \rightarrow \mathcal{H}_{\text{complex}}$$
 
-### 2.2 定理陈述 (T8-THEOREM)
+### 2.2 定理陈述 (T8-FIBONACCI)
 **复杂性定理**：编码能力与量子性的组合在Fibonacci递归点F5处产生真正的复杂性涌现
 $$\left(\mathcal{E}^{\text{code}}: \mathcal{I} \hookrightarrow \mathcal{U}\right) \otimes \left([\hat{x}, \hat{p}] = i\hbar\right) \xRightarrow{F_5} \exists \mathcal{C}_{\text{critical}}: H(\mathcal{C}) > \sum_i H(\text{parts}_i)$$
 
