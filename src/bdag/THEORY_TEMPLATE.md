@@ -1,17 +1,17 @@
 # T{N} 理论名称
 
-**⚠️ CRITICAL FORMAL RIGOR REQUIREMENTS**
+**⚠️ 严格形式化要求**
 
-This template MANDATES the use of strict formal methods and rigorous mathematical proofs. Every theorem statement, proof, and mathematical claim must satisfy the following criteria:
+本模板要求使用严格的形式化方法和严谨的数学证明。每个定理陈述、证明和数学声明都必须满足以下标准：
 
-1. **FORMAL COMPLETENESS**: All proofs must be logically complete and verifiable using formal logic
-2. **MATHEMATICAL PRECISION**: All symbols, operators, and mathematical objects must be precisely defined
-3. **VERIFICATION REQUIREMENT**: Every step in every proof must be independently verifiable
-4. **NO HAND-WAVING**: Statements like "it is obvious" or "clearly" are FORBIDDEN
-5. **CONSTRUCTIVE PROOFS**: Proofs must be constructive where possible, providing explicit constructions
-6. **DEPENDENCY TRACKING**: All assumptions and dependencies must be explicitly stated and tracked
+1. **形式化完整性**: 所有证明必须逻辑完整并可用形式逻辑验证
+2. **数学精确性**: 所有符号、运算符和数学对象必须精确定义
+3. **验证要求**: 证明中的每一步都必须可独立验证
+4. **禁止模糊表述**: 禁止使用"显然"、"明显"等模糊表述
+5. **构造性证明**: 在可能的情况下，证明必须是构造性的，提供显式构造
+6. **依赖跟踪**: 所有假设和依赖关系必须明确说明和跟踪
 
-**ENFORCEMENT**: Any theory failing to meet these standards will be rejected and must be rewritten.
+**执行标准**: 任何不符合这些标准的理论将被拒绝并必须重写。
 
 ---
 
@@ -39,43 +39,59 @@ This template MANDATES the use of strict formal methods and rigorous mathematica
 **{理论名称}**：{严格的数学陈述}
 $$\{数学公式\}$$
 
-### 2.2 严格证明 (**FORMAL VERIFICATION REQUIRED**)
-**PROOF STANDARDS**: This proof must satisfy formal mathematical standards. Each step must be logically justified and independently verifiable.
+### 2.2 严格证明 (**必须形式化验证**)
+**证明标准**: 此证明必须满足形式化数学标准。每一步都必须有逻辑依据并可独立验证。
 
-**Proof Structure Requirements**:
-- **Assumptions**: List all axioms, definitions, and previously proven theorems used
-- **Formal Logic**: Use precise logical operators (∀, ∃, ⟹, ⟺, etc.)
-- **Step Verification**: Each step must follow by valid logical inference
-- **Constructive Elements**: Provide explicit constructions where applicable
+**⚠️ 重要说明：已知数学定理无需重新证明**
+以下基础数学定理被视为已知事实，无需在此重新证明：
+- **Fibonacci数列性质**: F_n = F_{n-1} + F_{n-2}, F_1=1, F_2=2, F_3=3, F_4=5, F_5=8, F_6=13...
+- **Zeckendorf分解定理**: 每个正整数都有唯一的Zeckendorf表示
+- **质数性质**: 素数的基本性质和判定方法
+- **黄金比例**: φ = (1+√5)/2 的基本性质
+- **基础数论**: 最大公约数、最小公倍数、模运算等
+- **基础代数**: 群、环、域的基本性质
+- **基础分析**: 极限、连续性、可微性的基本定理
+
+**本理论需要证明的核心内容**:
+1. **物理意义的建立**: 数学结构如何对应物理现象
+2. **涌现机制**: 组合理论如何产生新的物理性质
+3. **一致性验证**: 理论内部和跨理论的逻辑一致性
+4. **预测能力**: 理论的可验证预测
+
+**证明结构要求**:
+- **物理假设**: 列出所有物理假设和对应关系
+- **逻辑推理**: 使用精确的逻辑算子 (∀, ∃, ⟹, ⟺, etc.)
+- **步骤验证**: 每步必须有有效的逻辑推理
+- **构造性元素**: 在可能的情况下提供显式构造
 
 **证明**：
-{Rigorous step-by-step mathematical derivation with formal justification}
+{严格的逐步数学推导，重点在物理意义而非数学基础}
 
-**Given**: {List all assumptions, axioms, and definitions}
-**To Prove**: {Precise statement of what needs to be established}
+**给定条件**: {列出所有物理假设、公理和定义}
+**待证明**: {需要建立的物理关系的精确陈述}
 
-**步骤1**: {第一步推导 - with logical justification}  
-   **Justification**: {Why this step is valid - cite rules, axioms, or theorems}
+**步骤1**: {第一步推导 - 重点关注物理意义}  
+   **物理依据**: {这一步为什么在物理上合理 - 引用物理原理或实验}
    
-**步骤2**: {第二步推导 - with logical justification}  
-   **Justification**: {Why this step follows from Step 1}
+**步骤2**: {第二步推导 - 建立数学-物理对应}  
+   **依据**: {为什么这一步从步骤1得出}
    
-**步骤3**: {结论 - with final logical connection}  
-   **Justification**: {How conclusion follows from previous steps}
+**步骤3**: {结论 - 最终的物理关系}  
+   **依据**: {结论如何从前面步骤得出}
 
-**Formal Representation**:
-$$\{核心数学关系 - with precise mathematical notation\}$$
+**形式化表示**:
+$$\{核心物理-数学关系 - 精确的数学记号\}$$
 
-**Therefore**: This establishes {理论空间} with {关键性质} by formal construction. **QED** □
+**因此**: 这建立了 {理论空间} 具有 {关键物理性质} 通过形式化构造。**QED** □
 
-**Verification Checklist**:
-- [ ] All symbols defined
-- [ ] All logical steps justified  
-- [ ] All assumptions stated
-- [ ] Proof is constructive (where applicable)
-- [ ] Independent verification possible
+**验证清单**:
+- [ ] 所有符号已定义
+- [ ] 所有逻辑步骤已论证  
+- [ ] 所有物理假设已声明
+- [ ] 证明是构造性的（如适用）
+- [ ] 可独立验证
 
-**注**: For extension theorems, the existence and uniqueness of Zeckendorf decomposition N = F_i + F_j +... is guaranteed by the Zeckendorf theorem. Here we focus on rigorously proving the physical validity of the combination and emergence mechanisms.
+**注**: 对于扩展定理，Zeckendorf分解 N = F_i + F_j +... 的存在性和唯一性由Zeckendorf定理保证。这里我们专注于严格证明组合的物理有效性和涌现机制。
 
 ### 2.3 {关键定理的推导}
 **定理 T{N}.1**: {次要定理陈述}
@@ -311,37 +327,46 @@ For this theory to be accepted, ALL of the following must be verified:
 - 第2.2重点证明扩展组合的物理机制和涌现性质
 - 第3节验证扩展合理性和分解一致性
 - 第5节描述组合涌现的物理意义
-- 注：Zeckendorf分解的唯一性是已知数学定理，无需重复证明
+- **注：Zeckendorf分解的唯一性是已知数学定理，无需重复证明**
+- **注：素因数分解等基础数论性质是已知数学事实，无需重复证明**
 
-### 🚨 CRITICAL MATHEMATICAL RIGOR REQUIREMENTS (NON-NEGOTIABLE):
+### 🚨  严格数学要求 (不可协商):
 
-**MANDATORY FORMAL STANDARDS** - Failure to meet ANY requirement results in immediate rejection:
+**强制形式化标准** - 不满足任何要求将导致立即拒绝:
 
-1. **Complete Formal Proofs**: Every theorem must have a rigorous, step-by-step proof where each step is logically justified
-2. **Precise Symbol Definition**: ALL mathematical symbols, operators, and notation must be formally defined before use
-3. **Algorithmic Verification**: Verification conditions must be implementable as concrete algorithms
-4. **Constructive Existence**: All existence claims must provide explicit constructions, not just proof of existence
-5. **Logical Completeness**: Proofs must be complete - no logical gaps or hand-waving allowed
-6. **Independent Verification**: Any mathematician should be able to verify every proof independently
-7. **Assumption Tracking**: All axioms, definitions, and dependencies must be explicitly listed
-8. **Computational Precision**: All numerical calculations must be exact and verifiable
+1. **完整形式化证明**: 每个定理必须有严格的逐步证明，每步都有逻辑依据
+2. **精确符号定义**: 所有数学符号、运算符和记号必须在使用前正式定义
+3. **算法化验证**: 验证条件必须可实现为具体算法
+4. **构造性存在**: 所有存在性声明必须提供显式构造，而不仅仅是存在性证明
+5. **逻辑完整性**: 证明必须完整 - 不允许逻辑空隙或模糊表述
+6. **独立验证**: 任何数学家都应该能够独立验证每个证明
+7. **假设跟踪**: 所有公理、定义和依赖关系必须明确列出
+8. **计算精确性**: 所有数值计算必须精确且可验证
 
-**FORBIDDEN PRACTICES**:
-- ❌ Statements like "it is obvious", "clearly", "trivially", "without loss of generality" (unless rigorously justified)
-- ❌ Incomplete proofs or proof sketches
-- ❌ Undefined mathematical symbols or operations
-- ❌ Non-constructive existence proofs (unless explicitly noted and justified)
-- ❌ Circular reasoning or self-referential definitions without proper foundation
-- ❌ Unverifiable claims or assertions
+**禁止做法**:
+- ❌ 使用"显然"、"明显"、"平凡地"、"不失一般性"等表述（除非严格论证）
+- ❌ 不完整的证明或证明草图
+- ❌ 未定义的数学符号或运算
+- ❌ 非构造性存在证明（除非明确说明并论证）
+- ❌ 循环推理或没有适当基础的自指定义
+- ❌ 不可验证的声明或断言
+- ❌ **重新证明已知数学定理（如Fibonacci性质、质数判定、Zeckendorf分解等）**
+- ❌ **浪费篇幅在基础数学事实的重复推导上**
 
-**PROOF VERIFICATION PROCESS**:
-Each proof must include:
-1. **Given**: All assumptions and axioms used
-2. **To Prove**: Precise statement of the claim
-3. **Definitions**: All symbols and concepts defined
-4. **Step-by-Step Logic**: Each inference rule or logical step explicitly stated
-5. **Justification**: Why each step is valid (cite theorems, axioms, definitions)
-6. **QED**: Clear conclusion that the claim has been established
+**允许和鼓励的做法**:
+- ✅ **直接引用已知数学定理和性质**
+- ✅ **专注于物理意义和涌现机制的证明**
+- ✅ **建立数学结构与物理现象的对应关系**
+- ✅ **验证理论的一致性和预测能力**
+
+**证明验证过程**:
+每个证明必须包括:
+1. **给定条件**: 使用的所有假设和公理
+2. **待证明**: 声明的精确陈述
+3. **定义**: 所有符号和概念的定义
+4. **逐步逻辑**: 明确说明每个推理规则或逻辑步骤
+5. **论证**: 为什么每步都有效（引用定理、公理、定义）
+6. **证毕**: 明确结论声明已经建立
 
 ### 物理深度要求：
 1. 理论必须有明确的物理解释
