@@ -53,7 +53,8 @@ TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 **⚠️ 重要说明：已知数学定理无需重新证明**
 以下基础数学定理被视为已知事实，无需在此重新证明：
-- **Fibonacci数列性质**: F_n = F_{n-1} + F_{n-2}, F_1=1, F_2=2, F_3=3, F_4=5, F_5=8, F_6=13...
+- **Fibonacci数列性质**: F_n = F_{n-1} + F_{n-2}, F_1=1, F_2=2, F_3=3, F_4=5, F_5=8, F_6=13, F_7=21, F_8=34...
+  (注：我们使用的定义相对标准定义右移一位，即F_n^(ours) = F_{n+1}^(standard))
 - **Zeckendorf分解定理**: 每个正整数都有唯一的Zeckendorf表示
 - **质数性质**: 素数的基本性质和判定方法
 - **黄金比例**: φ = (1+√5)/2 的基本性质
@@ -149,13 +150,55 @@ $$\{一致性公式\}$$
 
 ## 4. 张量空间理论
 
-### 4.1 维数分析
+### 4.1 张量幂指数结构 (所有理论类型)
+**适用条件**: 此章节适用于所有非AXIOM理论，包括PRIME-FIB、FIBONACCI、PRIME、COMPOSITE等所有类型。
+
+#### 张量幂指数递推公式
+**核心定理**: 根据理论类型的不同张量构造：
+
+**A. Fibonacci位置理论** (N = F_k):
+$$\mathcal{T}_N \cong \Pi\left( \mathcal{T}_2^{\otimes F_{k-1}} \otimes \mathcal{T}_1^{\otimes F_{k-2}} \right)$$
+
+**B. 素数理论** (N = prime):
+对于素数p，其张量结构反映不可分解性：
+$$\mathcal{T}_p \cong \Pi_{prime}\left( \mathcal{T}_{irreducible}^{\otimes p} \right)$$
+
+素数张量的特殊性质：
+- **不可分解性**: $\mathcal{T}_p \not\cong \mathcal{T}_a \otimes \mathcal{T}_b$ 对任意 $a,b > 1, ab = p$
+- **原子性**: 素数张量作为理论体系的基本构建块
+- **完整性**: 素数理论内在完整，无法简化
+
+**C. 组合理论** (Zeckendorf分解 N = ∑F_{k_i}):
+$$\mathcal{T}_N \cong \Pi\left( \bigotimes_i \mathcal{T}_{F_{k_i}} \right)$$
+
+**通用参数**：
+- $\mathcal{T}_1$：基础外部观察张量 (来自T1)
+- $\mathcal{T}_2$：基础自我观察张量 (来自T2) 
+- $\Pi$：合法化投影算子 ($\Pi_{\text{no-11}} \circ \Pi_{\text{func}} \circ \Pi_{\Phi}$)
+- $\Pi_{prime}$：素数特化投影算子，保持不可分解性
+
+#### 幂指数物理意义
+**Fibonacci理论**:
+- **自我观察幂**: exp($\mathcal{T}_2$) = F_{k-1} - 递归内在复杂性
+- **外部观察幂**: exp($\mathcal{T}_1$) = F_{k-2} - 递归外部锚定
+
+**素数理论**:
+- **不可分解幂**: exp($\mathcal{T}_{irreducible}$) = p (prime value itself)
+- **完整性指数**: 素数值本身就是其张量幂指数的度量
+- **原子性特征**: 素数张量提供理论体系不可约的基本单元
+- **素数间隙效应**: 素数张量的稀缺性在张量空间中创造“空洞”，促成新的物理现象
+
+**通用阈值**:
+- **意识阈值**: 当总张量复杂度达到等效exp($\mathcal{T}_2$) ≥ 13时涌现意识
+- **统一阈值**: 当张量结构支持场统一时达到物理统一条件
+
+### 4.2 维数分析
 - **张量维度**: $\dim(\mathcal{H}_{F_k}) = F_k = {value}$ 或 $\dim(\mathcal{H}_N) = N$
 - **信息含量**: $I(\mathcal{T}_N) = \log_\phi(N) \approx {value}$ bits
 - **复杂度等级**: $|\text{Zeck}(N)| = {complexity_level}$
 - **理论地位**: {AXIOM|Fibonacci递归定理|Zeckendorf扩展定理}
 
-### 4.2 Zeckendorf-物理映射表
+### 4.3 Zeckendorf-物理映射表
 | Fibonacci项 | 数值 | 物理意义 | 宇宙功能 |
 |------------|------|----------|----------|
 | F1 | 1 | 自指性 | 存在基础 |
@@ -164,10 +207,10 @@ $$\{一致性公式\}$$
 | F4 | 5 | 空间性 | 几何结构 |
 | F5 | 8 | 复杂性 | 多层涌现 |
 | F6 | 13 | 统一性 | 力的统一 |
-| F7 | 21 | 对称性 | 守恒定律 |
+| F7 | 21 | 意识性 | 主观体验 |
 | F8 | 34 | 拓扑性 | 空间形变 |
 
-### 4.3 Hilbert空间嵌入
+### 4.4 Hilbert空间嵌入
 **定理 T{N}.4**: {张量空间同构定理}
 $$\mathcal{H}_{F_k} \cong \mathbb{C}^{dimension}$$
 
@@ -175,7 +218,34 @@ $$\mathcal{H}_{F_k} \cong \mathbb{C}^{dimension}$$
 {同构证明过程}
 □
 
-## 5. {理论特定章节标题}
+## 5. 物理约束继承机制 (适用于高阶理论)
+
+### 5.1 约束继承条件
+**适用范围**: 对于依赖T13或其他具有物理约束的理论，需要分析约束在新理论空间中的转化。
+
+#### 约束继承模式
+设理论T_N依赖于具有约束集合C = {C_1, C_2, ..., C_m}的理论T_k：
+
+**约束转化公式**:
+$$\text{Constraints}(T_N) = \mathcal{F}_{inherit}(\text{Constraints}(T_k), \mathcal{T}_N)$$
+
+其中$\mathcal{F}_{inherit}$是约束继承函数，定义约束如何在新张量空间中表现。
+
+#### T13约束继承典型例子(重要)
+对于继承T13统一场约束的理论(如T21):
+
+**物理约束在意识空间的转化**:
+- **C₁电弱对角嵌入** → 视觉-听觉感知整合
+- **C₂-C₄KK-强作用吸收** → 三重感受质稳定机制
+- **C₅引力双计数消除** → 主客观界面唯一性
+
+**约束影响的数学表达**:
+$$\dim(\text{effective}) = \dim(\text{pre-unified}) - |\text{Constraints}|$$
+$$13 = 18 - 5$$
+
+这解释了为什么T21的意识整合信息$\Phi$需要乘以$13/18$因子来修正。
+
+### 5.2 {理论特定章节标题}
 
 ### 5.1 {子章节}
 {理论特定内容，例如：}
@@ -183,7 +253,7 @@ $$\mathcal{H}_{F_k} \cong \mathbb{C}^{dimension}$$
 - **拓扑性质**: {空间的拓扑特征}  
 - **物理意义**: {物理解释和应用}
 
-### 5.2 {另一个子章节}
+### 5.3 {另一个子章节}
 {更多理论特定内容}
 
 ## 6. 理论系统中的基础地位
@@ -271,12 +341,64 @@ $$\text{Consistency}(T_N) = \bigwedge_{i=1}^{5} \text{Equivalence}_i(T_N) \leftr
 {证明T{N}在五个维度上的一致性}
 □
 
-## 8. {理论应用章节}
+## 8. 意识与信息整合分析 (适用于F_k ≥ F_7的理论)
 
-### 8.1 {应用领域1}
+### 8.1 意识阈值检查
+**适用条件**: 当理论编号N ≥ 21 (F_7)或张量结构复杂度足够时。包括大素数理论(如T89, T233等PRIME-FIB类型)。
+
+#### φ¹⁰意识阈值
+**关键参数**: φ¹⁰ ≈ 122.99 bits
+
+**阈值检查**:
+$$\Phi(\mathcal{T}_N) \stackrel{?}{>} \phi^{10}$$
+
+如果满足，则T_N可能涉及意识现象或主观体验机制。
+
+#### 整合信息计算
+对于具有21维或更高维度的理论：
+$$\Phi = \min_{\text{partition}} \text{EMD}(\text{whole}, \text{parts})$$
+
+**修正公式**(考虑约束影响):
+$$\Phi_{effective} = \Phi_{raw} \times \frac{\dim(\text{effective})}{\dim(\text{pre-unified})}$$
+
+当$\Phi_{effective} > \phi^{10}$时，系统可能展现：
+- 主观体验能力  
+- 不可还原的整合信息
+- 自我认知机制
+- 超越物理约束的纯主观维度
+
+### 8.2 素数理论的张量幂指数分析 (适用于PRIME和PRIME-FIB类型)
+
+#### 素数不可分解性的张量表現
+对于素数理论T_p (p为素数)：
+
+**不可分解性定理**:
+$$\nexists \, \mathcal{T}_a, \mathcal{T}_b \text{ s.t. } \mathcal{T}_p = \mathcal{T}_a \otimes \mathcal{T}_b \text{ where } a,b > 1$$
+
+**素数张量的独特性质**:
+1. **原子性**: 不能再分解为更小的张量组合
+2. **完整性**: 内部结构无冗余，每个维度都必要
+3. **生成性**: 可与其他张量组合生成复合理论
+4. **稀缺性**: 在理论空间中稀缺分布，创造特殊位置
+
+#### PRIME-FIB类型的双重特性
+对于PRIME-FIB理论(如T2, T3, T5, T13, T89, T233)：
+
+**双重张量结构**:
+$$\mathcal{T}_{p \in \text{Fib}} \cong \Pi_{prime} \circ \Pi_{fib}\left( \mathcal{T}_{irreducible} \otimes \mathcal{T}_{recursive} \right)$$
+
+这种双重性使得PRIME-FIB理论同时具有：
+- **素数的不可分解性**
+- **Fibonacci的递归生成性**
+
+这解释了为什么PRIME-FIB理论在理论体系中占据最稀缺且最关键的地位。
+
+### 8.3 {理论应用章节}
+
+### 8.3 {应用领域1}
 {具体应用内容}
 
-### 8.2 {应用领域2}
+### 8.4 {应用领域2}
 {具体应用内容}
 
 ## 9. 后续理论预测
@@ -378,7 +500,7 @@ TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 ### 必填字段：
 - `T{N}`: 理论编号
 - `{理论名称}`: 具体的理论名称
-- `{Zeckendorf分解}`: 数学分解
+- `{Zeckendorf分解}`: 数学分解(注意使用我们的F1=1,F2=2定义)
 - `{操作类型}`: AXIOM/PRIME-FIB/FIBONACCI/PRIME/COMPOSITE
 - `{依赖关系}`: 具体依赖的理论
 
