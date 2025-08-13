@@ -1,5 +1,8 @@
 # T{N} 理论名称
 
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
+
 **⚠️ 严格形式化要求**
 
 本模板要求使用严格的形式化方法和严谨的数学证明。每个定理陈述、证明和数学声明都必须满足以下标准：
@@ -13,7 +16,8 @@
 
 **执行标准**: 任何不符合这些标准的理论将被拒绝并必须重写。
 
-本段不要出现在目标文件中
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
 
 ---
 
@@ -44,6 +48,9 @@ $$\{数学公式\}$$
 ### 2.2 严格证明 (**必须形式化验证**)
 **证明标准**: 此证明必须满足形式化数学标准。每一步都必须有逻辑依据并可独立验证。
 
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
+
 **⚠️ 重要说明：已知数学定理无需重新证明**
 以下基础数学定理被视为已知事实，无需在此重新证明：
 - **Fibonacci数列性质**: F_n = F_{n-1} + F_{n-2}, F_1=1, F_2=2, F_3=3, F_4=5, F_5=8, F_6=13...
@@ -53,6 +60,12 @@ $$\{数学公式\}$$
 - **基础数论**: 最大公约数、最小公倍数、模运算等
 - **基础代数**: 群、环、域的基本性质
 - **基础分析**: 极限、连续性、可微性的基本定理
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 **本理论需要证明的核心内容**:
 1. **物理意义的建立**: 数学结构如何对应物理现象
@@ -65,6 +78,9 @@ $$\{数学公式\}$$
 - **逻辑推理**: 使用精确的逻辑算子 (∀, ∃, ⟹, ⟺, etc.)
 - **步骤验证**: 每步必须有有效的逻辑推理
 - **构造性元素**: 在可能的情况下提供显式构造
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
 
 **证明**：
 {严格的逐步数学推导，重点在物理意义而非数学基础}
@@ -86,6 +102,9 @@ $$\{核心物理-数学关系 - 精确的数学记号\}$$
 
 **因此**: 这建立了 {理论空间} 具有 {关键物理性质} 通过形式化构造。**QED** □
 
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
+
 **验证清单**:
 - [ ] 所有符号已定义
 - [ ] 所有逻辑步骤已论证  
@@ -93,7 +112,16 @@ $$\{核心物理-数学关系 - 精确的数学记号\}$$
 - [ ] 证明是构造性的（如适用）
 - [ ] 可独立验证
 
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
+
 **注**: 对于扩展定理，Zeckendorf分解 N = F_i + F_j +... 的存在性和唯一性由Zeckendorf定理保证。这里我们专注于严格证明组合的物理有效性和涌现机制。
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
 
 ### 2.3 {关键定理的推导}
 **定理 T{N}.1**: {次要定理陈述}
@@ -231,50 +259,56 @@ T{N}将参与构成更高阶理论：
 **可达性评级**: {accessible|challenging|theoretical}  
 **预期精度**: ±{precision_value}%
 
-## 10. 形式化验证条件 (**MANDATORY FORMAL VERIFICATION**)
+## 10. 形式化验证条件 (**强制性正式验证**)
 
-**VERIFICATION STANDARDS**: Every verification condition must be:
-1. **Formally Testable**: Expressible as mathematical propositions that can be proven true/false
-2. **Computationally Verifiable**: Implementable as algorithms that can check the conditions
-3. **Independently Checkable**: Verifiable by third parties using the same formal criteria
-4. **Completeness Guaranteed**: Cover all critical aspects of the theory's correctness
+**验证标准**: 每个验证条件都必须是:
+1. **形式可测试的**: 可表达为能够证明真假的数学命题
+2. **计算可验证的**: 可实现为能够检查条件的算法
+3. **独立可检查的**: 可由第三方使用相同的正式标准进行验证
+4. **完整性保证**: 涵盖理论正确性的所有关键方面
 
-### 10.1 {理论类型}验证 (**FORMAL PROOF REQUIRED**)
-**验证条件 V{N}.1**: {第一类验证 - must be formally expressible}
-- **Formal Statement**: {Mathematical predicate that can be proven}
-- **Verification Algorithm**: {Computational method to check this condition}
-- **Proof Requirement**: {Reference to formal proof of this property}
+### 10.1 {理论类型}验证 (**需要正式证明**)
+**验证条件 V{N}.1**: {第一类验证 - 必须是形式可表达的}
+- **形式陈述**: {可以证明的数学谓词}
+- **验证算法**: {检查此条件的计算方法}
+- **证明要求**: {引用此性质的正式证明}
 
-**验证条件 V{N}.2**: {第二类验证 - must be formally expressible}
-- **Formal Statement**: {Mathematical predicate that can be proven}
-- **Verification Algorithm**: {Computational method to check this condition}
-- **Proof Requirement**: {Reference to formal proof of this property}
+**验证条件 V{N}.2**: {第二类验证 - 必须是形式可表达的}
+- **形式陈述**: {可以证明的数学谓词}
+- **验证算法**: {检查此条件的计算方法}
+- **证明要求**: {引用此性质的正式证明}
 
-### 10.2 张量空间验证 (**MATHEMATICAL RIGOR REQUIRED**)
-**验证条件 V{N}.3**: 维数一致性 (Formal Dimensional Consistency)
-- **Formal Statement**: $\dim(\mathcal{H}_N) = N$ with rigorous proof of dimension calculation
-- **Embedding Verification**: $\mathcal{T}_N \in \mathcal{H}_N$ with explicit embedding construction
-- **Normalization Proof**: $||\mathcal{T}_N|| = 1$ with formal norm computation
-- **Completeness Check**: Verify that the tensor space basis is complete and orthogonal
+### 10.2 张量空间验证 (**需要数学严格性**)
+**验证条件 V{N}.3**: 维数一致性 (形式维数一致性)
+- **形式陈述**: $\dim(\mathcal{H}_N) = N$ 带有维数计算的严格证明
+- **嵌入验证**: $\mathcal{T}_N \in \mathcal{H}_N$ 带有显式嵌入构造
+- **归一化证明**: $||\mathcal{T}_N|| = 1$ 带有正式范数计算
+- **完备性检查**: 验证张量空间基础是完备且正交的
 
-### 10.3 {理论特定验证} (**CONSTRUCTIVE VERIFICATION REQUIRED**)
-**验证条件 V{N}.4**: {理论特定的验证条件 - must be constructively verifiable}
-- **Constructive Proof**: {Explicit algorithmic construction that demonstrates the property}
-- **Formal Verification**: {Mathematical proof that the construction is correct}
-- **Computational Test**: {Algorithm that can verify this property for concrete instances}
+### 10.3 {理论特定验证} (**需要构造性验证**)
+**验证条件 V{N}.4**: {理论特定的验证条件 - 必须是构造性可验证的}
+- **构造性证明**: {演示该性质的显式算法构造}
+- **形式验证**: {证明构造正确性的数学证明}
+- **计算测试**: {可以验证具体实例此性质的算法}
 
-### 10.4 **FORMAL VERIFICATION CHECKLIST** (MANDATORY)
-For this theory to be accepted, ALL of the following must be verified:
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
-- [ ] **Proof Completeness**: Every theorem has a complete, formal proof
-- [ ] **Logical Consistency**: No contradictions arise from the theory's axioms and theorems
-- [ ] **Constructive Validity**: All existence claims are backed by explicit constructions
-- [ ] **Computational Verification**: All verification conditions can be algorithmically checked
-- [ ] **Independence Verification**: All proofs can be verified independently
-- [ ] **Assumption Tracking**: All dependencies and assumptions are explicitly listed
-- [ ] **Notation Precision**: All mathematical symbols and operations are precisely defined
+### 10.4 **形式验证检查清单** (强制性)
+要接受此理论，必须验证以下所有项目：
 
-**REJECTION CRITERIA**: Theories failing ANY item in this checklist will be rejected and must be completely rewritten.
+- [ ] **证明完整性**: 每个定理都有完整的形式证明
+- [ ] **逻辑一致性**: 理论的公理和定理不产生矛盾
+- [ ] **构造有效性**: 所有存在性声明都由显式构造支持
+- [ ] **计算验证**: 所有验证条件都可以通过算法检查
+- [ ] **独立验证**: 所有证明都可以独立验证
+- [ ] **假设跟踪**: 所有依赖关系和假设都明确列出
+- [ ] **记号精确性**: 所有数学符号和运算都精确定义
+
+**拒绝标准**: 在此检查清单中任何项目失败的理论都将被拒绝并必须完全重写。
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
 
 ## 11. {理论哲学意义或深层含义}
 
@@ -289,6 +323,9 @@ For this theory to be accepted, ALL of the following must be verified:
 理论T{N}建立了{理论贡献总结}，提供了{保证列表}。作为{理论地位}，{核心意义}构成了{后续影响}。
 
 ---
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 ## 📝 模板使用说明
 
@@ -334,7 +371,11 @@ For this theory to be accepted, ALL of the following must be verified:
 
 ### 🚨  严格数学要求 (不可协商):
 
-本段不要出现在目标文件中
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 **强制形式化标准** - 不满足任何要求将导致立即拒绝:
 
@@ -378,7 +419,13 @@ For this theory to be accepted, ALL of the following must be verified:
 3. 需要连接到实验或观测现象
 4. 解释理论在宇宙结构中的作用
 
----
+## 📊 五类分类系统详解
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 ## 📊 五类分类系统详解
 
@@ -443,11 +490,21 @@ COMPOSITE: 815个 (81.1%) - 组合多样性
 
 这个五类系统不是人工设计，而是数学结构的自然体现，反映了宇宙组织的深层原理。
 
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
 ---
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 ## 🔒 最终形式化验证清单
 
-本段不要出现在目标文件中
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
 
 **提交任何理论之前**，验证以下所有标准都已满足：
 
@@ -484,8 +541,17 @@ COMPOSITE: 815个 (81.1%) - 组合多样性
 - [ ] 理论可被他人独立验证
 - [ ] 所有声明可计算检查
 
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
+
+<!--
+TEMPLATE_INSTRUCTION_BLOCK - 本块不要在目标文件中出现
+
 **⚠️ 强制声明**: 
 使用此模板即表明理论满足所有形式化验证要求，能够承受严格的数学审查。任何不符合验证标准的理论都将被拒绝。
-本段不要出现在目标文件中
+全文对于目标输出的质量与要求都不要出现在目标文件中, 目标文件输出最终版
 
 **执行标准**: 这不是可选的。形式化严谨性是有效数学理论的基础。
+
+END_TEMPLATE_INSTRUCTION_BLOCK
+-->
