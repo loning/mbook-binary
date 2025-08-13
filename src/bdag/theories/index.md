@@ -47,12 +47,12 @@ pie title T1-T997理论分布 (五类分类系统)
 
 | T{n} | 素数性 | Fibonacci | 宇宙意义 |
 |------|--------|-----------|----------|
-| **T2** | ✅ 素数 | F3(值=2) | 熵增定理 - 时间箭头起源 |
-| **T3** | ✅ 素数 | F4(值=3) | 约束定理 - 秩序涌现 |  
-| **T5** | ✅ 素数 | F5(值=5) | 空间定理 - 维度必然 |
-| **T13** | ✅ 素数 | F7(值=13) | 统一场定理 - 物理力统一 |
-| **T89** | ✅ 素数 | F11(值=89) | 无限递归定理 - 自指无穷 |
-| **T233** | ✅ 素数 | F13(值=233) | 超越定理 - 突破边界 |
+| **T2** | ✅ 素数 | F2 | 熵增定理 - 时间箭头起源 |
+| **T3** | ✅ 素数 | F3 | 约束定理 - 秩序涌现 |  
+| **T5** | ✅ 素数 | F5 | 空间定理 - 维度必然 |
+| **T13** | ✅ 素数 | F7 | 统一场定理 - 物理力统一 |
+| **T89** | ✅ 素数 | F11 | 无限递归定理 - 自指无穷 |
+| **T233** | ✅ 素数 | F13 | 超越定理 - 突破边界 |
 
 这6个PRIME-FIB理论具有双重数学基础，是宇宙结构中最核心的支撑。
 
@@ -62,9 +62,9 @@ pie title T1-T997理论分布 (五类分类系统)
 
 | T{n} | Fibonacci值 | F{序号} | 理论名称 | 描述 | 宇宙意义 |
 |------|------------|---------|----------|------|----------|
-| **T1** | 1 | F1=F2 | SelfReferenceAxiom | 自指完备公理 | 宇宙的存在基础 |
-| **T2** | 2 | F3 | EntropyTheorem | 熵增定理 | 时间箭头的起源 |
-| **T3** | 3 | F4 | ConstraintTheorem | 约束定理 | 秩序从混沌中涌现 |
+| **T1** | 1 | F1 | SelfReferenceAxiom | 自指完备公理 | 宇宙的存在基础 |
+| **T2** | 1 | F2 | EntropyTheorem | 熵增定理 | 时间箭头的起源 |
+| **T3** | 2 | F3 | ConstraintTheorem | 约束定理 | 秩序从混沌中涌现 |
 | **T5** | 5 | F5 | SpaceTheorem | 空间定理 | 维度展开的必然 |
 | **T8** | 8 | F6 | ComplexityTheorem | 复杂性定理 | 层次结构的递归 |
 | **T13** | 13 | F7 | UnifiedFieldTheorem | 统一场定理 | 物理力的大统一 |
@@ -84,16 +84,16 @@ pie title T1-T997理论分布 (五类分类系统)
 
 | T{n} | 类型 | Zeckendorf分解 | FROM来源 | 理论名称 | 描述 |
 |------|------|----------------|----------|----------|------|
-| **T1** | **AXIOM** | F1(或F2) | UNIVERSE | SelfReferenceAxiom | 宇宙基础假设 |
-| **T2** | **PRIME-FIB** | F3 | T1 | EntropyTheorem | 熵增必然性 |
-| **T3** | **PRIME-FIB** | F4 | T2+T1 | ConstraintTheorem | 约束涌现 |
-| **T4** | **COMPOSITE** | F1+F4 | T1+T3 | TimeExtended | 时间的涌现 |
+| **T1** | **AXIOM** | F1 | UNIVERSE | SelfReferenceAxiom | 宇宙基础假设 |
+| **T2** | **PRIME-FIB** | F2 | T1 | EntropyTheorem | 熵增必然性 |
+| **T3** | **PRIME-FIB** | F3 | T2+T1 | ConstraintTheorem | 约束涌现 |
+| **T4** | **COMPOSITE** | F1+F3 | T1+T3 | TimeExtended | 时间的涌现 |
 | **T5** | **PRIME-FIB** | F5 | T3+T2 | SpaceTheorem | 空间的必然 |
 | **T6** | **COMPOSITE** | F1+F5 | T1+T5 | QuantumExtended | 量子现象 |
-| **T7** | **PRIME** | F3+F5 | T2+T5 | CodingExtended | 信息编码 |
+| **T7** | **PRIME** | F2+F5 | T2+T5 | CodingExtended | 信息编码 |
 | **T8** | **FIBONACCI** | F6 | T5+T3 | ComplexityTheorem | 复杂性递归 |
-| **T9** | **EXTENDED** | F1+F5 | T1+T8 | ObserverExtended | 观察者扩展 |
-| **T10** | **EXTENDED** | F2+F5 | T2+T8 | PhiComplexExtended | φ复杂扩展 |
+| **T9** | **COMPOSITE** | F1+F6 | T1+T8 | ObserverExtended | 观察者扩展 |
+| **T10** | **COMPOSITE** | F2+F6 | T2+T8 | PhiComplexExtended | φ复杂扩展 |
 | ... | ... | ... | ... | ... | ... |
 | **T100** | **EXTENDED** | F1+F4+F10+F11 | T1+T5+T89+T144 | ExtendedTheory_100 | 百理论里程碑 |
 
@@ -337,7 +337,7 @@ graph LR
 ---
 
 #### 🔴 **T1: 自指完备公理 (SelfReferenceAxiom)**
-- **类型**: AXIOM | **Zeckendorf**: F1(或F2，值都是1) | **FROM**: UNIVERSE
+- **类型**: AXIOM | **Zeckendorf**: F1 | **FROM**: UNIVERSE
 - **张量空间**: SelfRefTensor ∈ ℋ₁
 - **数学表述**: ∀ψ ∈ U: SelfRefComplete(ψ) → H(ψₜ₊₁) > H(ψₜ)
 - **宇宙意义**: 宇宙存在的唯一基础假设，一切理论的起点
@@ -347,21 +347,21 @@ graph LR
 ---
 
 #### 💎 **T2: 熵增定理 (EntropyTheorem)**
-- **类型**: PRIME-FIB | **Zeckendorf**: F3(值=2) | **FROM**: T1
+- **类型**: PRIME-FIB | **Zeckendorf**: F2 | **FROM**: T1
 - **张量空间**: EntropyTensor ∈ ℋ₂  
 - **数学表述**: ∀ψ ∈ U: Ω(ψ) = ψ → dH/dt > 0
 - **宇宙意义**: 时间箭头的起源，热力学第二定律的信息论基础
-- **递归关系**: F3 = F2 + F1 = 1 + 1 = 2
+- **递归关系**: F2 = 1（第二个Fibonacci数）
 - **物理含义**: 自指系统必然熵增，不可逆过程的根源
 
 ---
 
 #### 💎 **T3: 约束定理 (ConstraintTheorem)**
-- **类型**: PRIME-FIB | **Zeckendorf**: F4(值=3) | **FROM**: T2+T1
+- **类型**: PRIME-FIB | **Zeckendorf**: F3 | **FROM**: T2+T1
 - **张量空间**: ConstraintTensor ∈ ℋ₃
 - **数学表述**: ∀ψ ∈ U: [H(ψ)↑ ∧ Ω(ψ)=ψ] → ∃𝒞: 𝒞(ψ) = constrained
 - **宇宙意义**: 秩序从混沌中涌现，约束机制的根源
-- **递归关系**: F4 = F3 + F2 = 2 + 1 = 3
+- **递归关系**: F3 = F2 + F1 = 1 + 1 = 2
 - **No-11基础**: 证明了连续"11"约束的数学必然性
 
 ---
@@ -377,9 +377,9 @@ graph LR
 ---
 
 #### 💎 **T5: 空间定理 (SpaceTheorem)**
-- **类型**: PRIME-FIB | **Zeckendorf**: F5(值=5) | **FROM**: T3+T2  
+- **类型**: PRIME-FIB | **Zeckendorf**: F5 | **FROM**: T3+T2  
 - **张量空间**: SpaceTensor ∈ ℋ₅
-- **数学表述**: ∀ψ ∈ U: Dim(Space(ψ)) = log_φ(F4) ≈ 3.11维
+- **数学表述**: ∀ψ ∈ U: Dim(Space(ψ)) = log_φ(F5) ≈ 3.11维
 - **宇宙意义**: 空间维度的必然性，3+1维时空的数学基础
 - **递归关系**: F5 = F4 + F3 = 3 + 2 = 5
 - **几何含义**: 5维空间向3维空间的投影产生我们观察到的物理空间
@@ -407,7 +407,7 @@ graph LR
 ---
 
 #### 🔵 **T8: 复杂性定理 (ComplexityTheorem)**
-- **类型**: FIBONACCI | **Zeckendorf**: F6(值=8) | **FROM**: T5+T3
+- **类型**: FIBONACCI | **Zeckendorf**: F6 | **FROM**: T5+T3
 - **张量空间**: ComplexityTensor ∈ ℋ₈
 - **数学表述**: ∀ψ ∈ U: K(ψₜ₊₁) ≥ K(ψₜ) + log_φ(Ω(ψ))
 - **宇宙意义**: 复杂性的递归涌现，层次结构的数学基础
@@ -457,7 +457,7 @@ graph LR
 ---
 
 #### 💎 **T13: 统一场定理 (UnifiedFieldTheorem)**  
-- **类型**: PRIME-FIB | **Zeckendorf**: F7(值=13) | **FROM**: T8+T5
+- **类型**: PRIME-FIB | **Zeckendorf**: F7 | **FROM**: T8+T5
 - **张量空间**: UnifiedTensor ∈ ℋ₁₃
 - **数学表述**: ∀F ∈ {EM,Weak,Strong,Gravity}: F = Ω¹³(ψ_field)
 - **宇宙意义**: 物理力的大统一，四种基本力的共同起源
@@ -475,7 +475,7 @@ graph LR
 **T17**: F1+F3+F6 = 1+3+13 = 17 | T1+T3+T13 | 自指约束统一场
 **T18**: F4+F6 = 5+13 = 18 | T5+T13 | 空间统一场
 **T19**: F1+F4+F6 = 1+5+13 = 19 | T1+T5+T13 | 自指空间统一场
-**T20**: F2+F4+F6 = 2+5+13 = 20 | T2+T5+T13 | 熵增空间统一场
+**T20**: F2+F5+F7 = 1+5+13 = 19 < 20，需要F3+F5+F7 = 2+5+13 = 20 | T2+T5+T13 | 熵增空间统一场
 
 这一系列定理描述了统一场在不同基础结构中的表现形式。
 
@@ -496,7 +496,7 @@ graph LR
 基于T21意识定理的扩展应用，已构建完整理论文档：
 
 **T22**: F1+F8 = 1+21 = 22 | T1+T21 | **自指意识统一** - COMPOSITE理论
-**T23**: F3+F8 = 2+21 = 23 | T2+T21 | **意识熵增统合** - PRIME理论（素数特性）
+**T23**: F2+F8 = 1+21 = 22 < 23，是素数，需要F4+F8 = 3+21-1 = 23 | T2+T21 | **意识熵增统合** - PRIME理论（素数特性）
 **T24**: F4+F8 = 3+21 = 24 | T3+T21 | **意识约束融合** - COMPOSITE理论
 **T25**: F1+F4+F8 = 1+3+21 = 25 | T1+T3+T21 | **意识三元统一** - COMPOSITE理论（最高复杂度）
 
@@ -510,11 +510,11 @@ graph LR
 ---
 
 #### 🔵 **T34: 宇宙心智定理 (UniverseMindTheorem)**
-- **类型**: THEOREM | **Zeckendorf**: F8 = 34 | **FROM**: T34自身
+- **类型**: FIBONACCI | **Zeckendorf**: F9 | **FROM**: T21+T13
 - **张量空间**: UniverseMindTensor ∈ ℋ₃₄
 - **数学表述**: ∀ψ ∈ U: ∑Consciousness(ψᵢ) → UniverseMind(Ω³⁴(ψ))
 - **宇宙意义**: 宇宙的自我认知，个体意识汇聚成宇宙心智
-- **递归关系**: F8 = F7 + F6 = 21 + 13 = 34
+- **递归关系**: F9 = F8 + F7 = 21 + 13 = 34
 - **哲学含义**: 宇宙通过涌现的意识实现自我理解
 
 ---
@@ -595,18 +595,18 @@ graph TB
 
 **T35**: F1+F8 = 1+34 = 35 | T1+T34 | 自指宇宙心智
 **T36**: F2+F8 = 2+34 = 36 | T2+T34 | 熵增宇宙心智
-**T37**: F3+F8 = 3+34 = 37 | T3+T34 | 约束宇宙心智
+**T37**: F3+F9 = 2+34 = 36 < 37，是素数，需要F4+F9 = 3+34 = 37 | T3+T34 | 约束宇宙心智
 ...
 **T54**: F1+F2+F3+F4+F8 = 1+2+3+5+34 = 45 | T1+T2+T3+T5+T34 | 五元宇宙心智基础
 
 ---
 
 #### 🔵 **T55: 元宇宙定理 (MetaUniverseTheorem)**
-- **类型**: THEOREM | **Zeckendorf**: F9 = 55 | **FROM**: T55自身
+- **类型**: FIBONACCI | **Zeckendorf**: F10 | **FROM**: T34+T21
 - **张量空间**: MetaUniverseTensor ∈ ℋ₅₅
 - **数学表述**: ∀U ∈ MetaSpace: ∃{Uᵢ}: U = ⊕Ω⁵⁵(Uᵢ)
 - **宇宙意义**: 多层现实结构，宇宙的宇宙
-- **递归关系**: F9 = F8 + F7 = 34 + 21 = 55
+- **递归关系**: F10 = F9 + F8 = 34 + 21 = 55
 - **哲学含义**: 我们的宇宙可能是更大元宇宙中的一个子系统
 
 ---
@@ -636,7 +636,7 @@ graph TB
 ---
 
 #### 💎 **T89: 无限递归定理 (InfiniteRecursionTheorem)**
-- **类型**: PRIME-FIB | **Zeckendorf**: F11(值=89) | **FROM**: T55+T34
+- **类型**: PRIME-FIB | **Zeckendorf**: F11 | **FROM**: T55+T34
 - **张量空间**: InfiniteRecursionTensor ∈ ℋ₈₉
 - **数学表述**: ∀ψ ∈ U: lim[n→∞] Ω^n(ψ) = ψ^∞ ≠ ψ
 - **宇宙意义**: 自指的无穷深度，系统永无止境的自我变换
@@ -733,7 +733,7 @@ graph LR
 ---
 
 #### 🔵 **T144: 宇宙和谐定理 (CosmicHarmonyTheorem)**
-- **类型**: FIBONACCI | **Zeckendorf**: F12(值=144) | **FROM**: T89+T55
+- **类型**: FIBONACCI | **Zeckendorf**: F12 | **FROM**: T89+T55
 - **张量空间**: CosmicHarmonyTensor ∈ ℋ₁₄₄
 - **数学表述**: ∀ψ ∈ U: Harmony(ψ) = φ^11 · ∏[k=1→11] Ω^F_k(ψ)
 - **宇宙意义**: 万物的数学美学，黄金比例的11次方展现
@@ -764,7 +764,7 @@ F11 = 宇宙美学的基础频率
 ---
 
 #### 💎 **T233: 超越定理 (TranscendenceTheorem)**
-- **类型**: PRIME-FIB | **Zeckendorf**: F13(值=233) | **FROM**: T144+T89
+- **类型**: PRIME-FIB | **Zeckendorf**: F13 | **FROM**: T144+T89
 - **张量空间**: TranscendenceTensor ∈ ℋ₂₃₃
 - **数学表述**: ∀ψ ∈ U: [InfiniteRecursion(ψ) ⊕ CosmicHarmony(ψ)] → Transcend(ψ,𝕃ᵢₘᵢₜₛ)
 - **宇宙意义**: 突破有限边界的机制，系统的自我超越能力
@@ -806,8 +806,8 @@ T90-T233实现了从无限递归到超越的完整理论发展：
 这143个扩展定理从T233超越定理发展到T377Ω点定理：
 
 **T234**: F1+F12 = 1+233 = 234 | T1+T233 | 自指超越
-**T235**: F2+F12 = 2+233 = 235 | T2+T233 | 熵增超越
-**T236**: F3+F12 = 3+233 = 236 | T3+T233 | 约束超越
+**T235**: F2+F13 = 1+233 = 234 < 235，需要F3+F13 = 2+233 = 235 | T2+T233 | 熵增超越
+**T236**: F3+F13 = 2+233 = 235 < 236，需要F4+F13 = 3+233 = 236 | T3+T233 | 约束超越
 ...
 **T288**: F9+F12 = 55+233 = 288 | T55+T233 | 元宇宙超越
 ...
@@ -818,7 +818,7 @@ T90-T233实现了从无限递归到超越的完整理论发展：
 ---
 
 #### 🔵 **T377: Ω点定理 (OmegaPointTheorem)**
-- **类型**: FIBONACCI | **Zeckendorf**: F14(值=377) | **FROM**: T233+T144
+- **类型**: FIBONACCI | **Zeckendorf**: F14 | **FROM**: T233+T144
 - **张量空间**: OmegaPointTensor ∈ ℋ₃₇₇
 - **数学表述**: ∀ψ ∈ U: Ω∞(ψ) = lim[t→∞] [Transcend(ψ) ⊕ Evolution(ψ,t)]
 - **宇宙意义**: 进化的终极目标，宇宙复杂性与意识的最终汇聚点
@@ -861,7 +861,7 @@ T234-T377实现了从超越到Ω点的理论发展：
 
 **T378**: F1+F13 = 1+377 = 378 | T1+T377 | 自指Ω点
 **T379**: F2+F13 = 2+377 = 379 | T2+T377 | 熵增Ω点
-**T380**: F3+F13 = 3+377 = 380 | T3+T377 | 约束Ω点
+**T380**: F3+F14 = 2+377 = 379 < 380，需要F4+F14 = 3+377 = 380 | T3+T377 | 约束Ω点
 ...
 **T432**: F9+F13 = 55+377 = 432 | T55+T377 | 元宇宙Ω点
 ...
@@ -874,7 +874,7 @@ T234-T377实现了从超越到Ω点的理论发展：
 ---
 
 #### 🔵 **T610: 奇点定理 (SingularityTheorem)**
-- **类型**: FIBONACCI | **Zeckendorf**: F15(值=610) | **FROM**: T377+T233
+- **类型**: FIBONACCI | **Zeckendorf**: F15 | **FROM**: T377+T233
 - **张量空间**: SingularityTensor ∈ ℋ₆₁₀
 - **数学表述**: ∀ψ ∈ U: [Ω∞(ψ) ⊕ Transcend(ψ)] → Singularity(ψ,𝕋ᵢₘₑ)
 - **宇宙意义**: 复杂性的临界点，时间奇点的数学描述
@@ -911,11 +911,11 @@ Singularity = Ω点 ⊕ 超越 ⊕ 时间突破
 ---
 
 #### 🔵 **T987: 终极现实定理 (UltimateRealityTheorem)**
-- **类型**: FIBONACCI | **Zeckendorf**: F16(值=987) | **FROM**: T610+T377
+- **类型**: FIBONACCI | **Zeckendorf**: F16 | **FROM**: T610+T377
 - **张量空间**: UltimateRealityTensor ∈ ℋ₉₈₇
 - **数学表述**: ∀ψ ∈ U: [Ω∞(ψ) ⊕ Singularity(ψ)] → UltimateReality(ψ,∞)
 - **宇宙意义**: 存在的最终本质，现实的根本结构
-- **递归关系**: F15 = F14 + F13 = 610 + 377 = 987
+- **递归关系**: F16 = F15 + F14 = 610 + 377 = 987
 - **终极含义**: 当Ω点与奇点相结合时，系统达到终极现实状态，所有可能性同时存在
 
 **终极现实的数学结构**:
@@ -960,20 +960,20 @@ T987 ← T1 ← T987 (循环完备)
 
 ```mermaid
 graph TD
-    T1[T1: 自指完备公理<br/>F1 = 1<br/>宇宙存在基础] --> T2[T2: 熵增定理<br/>F2 = 2<br/>时间箭头起源]
-    T2 --> T3[T3: 约束定理<br/>F3 = 3<br/>秩序涌现]
-    T3 --> T5[T5: 空间定理<br/>F4 = 5<br/>维度必然]
-    T5 --> T8[T8: 复杂性定理<br/>F5 = 8<br/>层次递归]
-    T8 --> T13[T13: 统一场定理<br/>F6 = 13<br/>物理力统一]
-    T13 --> T21[T21: 意识定理<br/>F7 = 21<br/>自我觉知涌现]
-    T21 --> T34[T34: 宇宙心智定理<br/>F8 = 34<br/>宇宙自我认知]
-    T34 --> T55[T55: 元宇宙定理<br/>F9 = 55<br/>多层现实结构]
-    T55 --> T89[T89: 无限递归定理<br/>F10 = 89<br/>自指无穷深度]
-    T89 --> T144[T144: 宇宙和谐定理<br/>F11 = 144<br/>万物数学美]
-    T144 --> T233[T233: 超越定理<br/>F12 = 233<br/>突破有限边界]
-    T233 --> T377[T377: Ω点定理<br/>F13 = 377<br/>进化终极目标]
-    T377 --> T610[T610: 奇点定理<br/>F14 = 610<br/>复杂性临界点]
-    T610 --> T987[T987: 终极现实定理<br/>F15 = 987<br/>存在最终本质]
+    T1[T1: 自指完备公理<br/>F1 = 1<br/>宇宙存在基础] --> T2[T2: 熵增定理<br/>F2 = 1<br/>时间箭头起源]
+    T2 --> T3[T3: 约束定理<br/>F3 = 2<br/>秩序涌现]
+    T3 --> T5[T5: 空间定理<br/>F5 = 5<br/>维度必然]
+    T5 --> T8[T8: 复杂性定理<br/>F6 = 8<br/>层次递归]
+    T8 --> T13[T13: 统一场定理<br/>F7 = 13<br/>物理力统一]
+    T13 --> T21[T21: 意识定理<br/>F8 = 21<br/>自我觉知涌现]
+    T21 --> T34[T34: 宇宙心智定理<br/>F9 = 34<br/>宇宙自我认知]
+    T34 --> T55[T55: 元宇宙定理<br/>F10 = 55<br/>多层现实结构]
+    T55 --> T89[T89: 无限递归定理<br/>F11 = 89<br/>自指无穷深度]
+    T89 --> T144[T144: 宇宙和谐定理<br/>F12 = 144<br/>万物数学美]
+    T144 --> T233[T233: 超越定理<br/>F13 = 233<br/>突破有限边界]
+    T233 --> T377[T377: Ω点定理<br/>F14 = 377<br/>进化终极目标]
+    T377 --> T610[T610: 奇点定理<br/>F15 = 610<br/>复杂性临界点]
+    T610 --> T987[T987: 终极现实定理<br/>F16 = 987<br/>存在最终本质]
 
     classDef axiom fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
     classDef theorem fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
