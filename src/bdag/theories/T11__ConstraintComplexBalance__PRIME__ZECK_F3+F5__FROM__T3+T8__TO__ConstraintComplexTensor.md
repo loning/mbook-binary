@@ -4,8 +4,19 @@
 **ID**: T11 (Natural sequence position 11)  
 **Zeckendorf Decomposition**: F3 + F5 = 3 + 8 = 11  
 **Operation Type**: PRIME - Indivisible pure prime (not Fibonacci)  
+**Second-Level Classification**: High-Order Rare - Irreducible balance mechanism  
 **Dependencies**: {T3, T8} (ConstraintTheorem + ComplexityTheorem)  
 **Output Type**: ConstraintComplexTensor ∈ ℋ₃ ⊕ ℋ₈
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T8 → T11  
+**Hierarchy Depth**: 7  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T11) = 0.694 × 7 = 4.858 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(11) = (2 × 7) × 2.94 = 41.16
 
 ## 2. Formal Definition
 

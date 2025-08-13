@@ -4,8 +4,19 @@
 **ID**: T9 (Natural sequence position 9)  
 **Zeckendorf Decomposition**: F1 + F5 = 1 + 8 = 9  
 **Operation Type**: COMPOSITE EXTENDED - Emergent from Zeckendorf combination  
+**Second-Level Classification**: Dual-Base Composite - Consciousness emergence foundation  
 **Dependencies**: {T1, T8} (SelfReferenceAxiom + ComplexityTheorem)  
 **Output Type**: ObserverTensor ∈ ℋ9
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T8 → T9  
+**Hierarchy Depth**: 7  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T9) = 0.694 × 7 = 4.858 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(9) = (2 × 9) × 2.69 = 48.42
 
 ## 2. Formal Definition
 

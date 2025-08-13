@@ -4,8 +4,19 @@
 **ID**: T7 (Natural sequence position 7)  
 **Zeckendorf Decomposition**: F2 + F4 = 2 + 5 = 7  
 **Operation Type**: PRIME - Indivisible pure prime (not Fibonacci)  
+**Second-Level Classification**: High-Order Rare - Information processing foundation  
 **Dependencies**: {T2, T5} (EntropyTheorem + SpaceTheorem)  
 **Output Type**: CodingTensor ∈ ℋ7
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T5 → T7  
+**Hierarchy Depth**: 5  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T7) = 0.694 × 5 = 3.47 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(7) = (2 × 11) × 2.40 = 52.8
 
 ## 2. Formal Definition
 

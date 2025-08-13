@@ -4,8 +4,19 @@
 **ID**: T12 (Natural sequence position 12)  
 **Zeckendorf Decomposition**: F1 + F3 + F5 = 1 + 3 + 8 = 12  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition combination (12 = 2² × 3)  
+**Second-Level Classification**: Triple-Base Composite - Foundational stability synthesis  
 **Dependencies**: {T1, T3, T8} (SelfReferenceAxiom + ConstraintTheorem + ComplexityTheorem)  
 **Output Type**: TripleTensor ∈ ℋ₁ ⊕ ℋ₃ ⊕ ℋ₈
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T8 → T12  
+**Hierarchy Depth**: 7  
+**Branching Factor**: 3.0 (triple foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T12) = 0.694 × 7 = 4.858 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 3.0 / 3 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(12) = (3 × 6) × 3.04 = 54.72
 
 ## 2. Formal Definition
 

@@ -4,8 +4,19 @@
 **ID**: T13 (Natural sequence position 13)  
 **Zeckendorf Decomposition**: F6 = 13 (Sixth Fibonacci number)  
 **Operation Type**: PRIME-FIB - Both prime and Fibonacci (dual mathematical foundation)  
-**Dependencies**: {T13} (Self-referential via Fibonacci recursion F6 = F5 + F4 = 8 + 5)  
+**Second-Level Classification**: Low-Order Rare - Grand unification foundation  
+**Dependencies**: {T8, T5} (ComplexityTheorem + SpaceTheorem via Fibonacci recursion F6 = F5 + F4 = 8 + 5)  
 **Output Type**: UnifiedTensor ∈ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T5 → T8 → T13  
+**Hierarchy Depth**: 8  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T13) = 0.694 × 8 = 5.552 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(13) = (2 × 5) × 3.11 = 31.1
 
 ## 2. Formal Definition
 
@@ -18,7 +29,7 @@ Where the unification energy scale is:
 $$E_{GUT} = M_{Planck} \cdot c^2 \cdot \phi^{F_6} = M_{Planck} \cdot c^2 \cdot \phi^{13}$$
 
 ### 2.2 Rigorous Proof
-**Proof of Grand Unification at F6**:
+**Proof of Grand Unification at F7**:
 
 **Step 1**: Prime-Fibonacci duality  
 The number 13 uniquely satisfies:
@@ -156,8 +167,8 @@ As both prime and Fibonacci, it exhibits:
 
 ### 8.2 Cosmological Consequences
 - **Inflation**: Driven by unified field symmetry breaking
-- **Dark Matter**: 5/13 of total energy (from F4/F6 ratio)
-- **Dark Energy**: 8/13 of total energy (from F5/F6 ratio)
+- **Dark Matter**: 5/13 of total energy (from F5/F7 ratio)
+- **Dark Energy**: 8/13 of total energy (from F6/F7 ratio)
 - **Baryon Asymmetry**: Generated at GUT phase transition
 
 ### 8.3 Quantum Gravity Connection
@@ -203,7 +214,7 @@ T13 will be the foundation for:
 ## 11. Philosophical Significance
 
 ### 11.1 Mathematical Inevitability
-T13 demonstrates that grand unification is not just physically motivated but mathematically inevitable - the only number that is both prime (indivisible) and the sixth Fibonacci number.
+T13 demonstrates that grand unification is not just physically motivated but mathematically inevitable - the only number that is both prime (indivisible) and the seventh Fibonacci number.
 
 ### 11.2 Universal Mathematics
 The theory shows that the deepest physical laws emerge from pure mathematical relationships, specifically the intersection of prime numbers and Fibonacci sequences.

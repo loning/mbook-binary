@@ -4,8 +4,19 @@
 **ID**: T18 (Natural sequence position 18)  
 **Zeckendorf Decomposition**: F4 + F6 = 5 + 13 = 18  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition (18 = 2 × 3²)  
+**Second-Level Classification**: Dual-Base Composite - Geometric unified field synthesis  
 **Dependencies**: {T5, T13} (SpaceTheorem + UnifiedFieldTheorem)  
 **Output Type**: SpaceUnifiedTensor ∈ ℋ₅ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T5 → T13 → T18  
+**Hierarchy Depth**: 10  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T18) = 0.694 × 10 = 6.94 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(18) = (2 × 0) × 3.44 = 0
 
 ## 2. Formal Definition
 

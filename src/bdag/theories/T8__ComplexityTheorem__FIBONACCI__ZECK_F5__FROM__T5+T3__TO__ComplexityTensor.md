@@ -4,8 +4,19 @@
 **ID**: T8 (Natural sequence position 8)  
 **Zeckendorf Decomposition**: F5 = 8 (Fifth Fibonacci number)  
 **Operation Type**: FIBONACCI THEOREM - Pure Fibonacci recursion (non-prime)  
+**Second-Level Classification**: Low-Order Rare - Complexity emergence mechanism  
 **Dependencies**: {T5, T3} (SpaceTheorem + ConstraintTheorem via Fibonacci recursion F5 = F4 + F3 = 5 + 3)  
 **Output Type**: ComplexityTensor ∈ ℋ8
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T5 → T8  
+**Hierarchy Depth**: 6  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T8) = 0.694 × 6 = 4.164 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(8) = (2 × 10) × 2.55 = 51.0
 
 ## 2. Formal Definition
 

@@ -4,8 +4,19 @@
 **ID**: T17 (Natural sequence position 17)  
 **Zeckendorf Decomposition**: F1 + F3 + F6 = 1 + 3 + 13 = 17  
 **Operation Type**: PRIME - Indivisible pure prime (not Fibonacci)  
+**Second-Level Classification**: High-Order Rare - Self-regulating conscious unified field  
 **Dependencies**: {T1, T3, T13} (SelfReferenceAxiom + ConstraintTheorem + UnifiedFieldTheorem)  
 **Output Type**: SelfConstraintUnifiedTensor ∈ ℋ₁ ⊕ ℋ₃ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T13 → T17  
+**Hierarchy Depth**: 10  
+**Branching Factor**: 3.0 (triple foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T17) = 0.694 × 10 = 6.94 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 3.0 / 3 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(17) = (3 × 1) × 3.38 = 10.14
 
 ## 2. Formal Definition
 

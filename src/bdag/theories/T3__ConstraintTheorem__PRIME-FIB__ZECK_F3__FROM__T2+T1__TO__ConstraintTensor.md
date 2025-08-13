@@ -1,12 +1,22 @@
 # T3 Constraint Theorem
 
 ## 1. Theory Meta-Information
-**Number**: T3 (Natural sequence position 3)  
+**ID**: T3 (Natural sequence position 3)  
 **Zeckendorf Decomposition**: F3 = 3  
-**Fibonacci Recursion**: F3 = F2 + F1 = 2 + 1 = 3
 **Operation Type**: PRIME-FIB - Dual foundation as both prime and Fibonacci  
+**Second-Level Classification**: Low-Order Rare - Fundamental constraint mechanism  
 **Dependencies**: {T2, T1} (Entropy Theorem + Self-Reference Axiom)  
 **Output Type**: ConstraintTensor ∈ ℋ₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T3  
+**Hierarchy Depth**: 3  
+**Branching Factor**: 2.0 (dual dependency)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T3) = 0.694 × 3 = 2.082 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(3) = (2 × 15) × 1.67 = 50.1
 
 ## 2. Formal Definition
 

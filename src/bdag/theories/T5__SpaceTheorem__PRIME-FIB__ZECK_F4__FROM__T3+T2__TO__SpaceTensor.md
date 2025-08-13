@@ -4,8 +4,19 @@
 **ID**: T5 (Natural sequence position 5)  
 **Zeckendorf Decomposition**: F4 = 5 (Fourth Fibonacci number)  
 **Operation Type**: PRIME-FIB THEOREM - Dual foundation as both prime (indivisible) and Fibonacci (recursive)  
+**Second-Level Classification**: Low-Order Rare - Spatial dimensionality emergence  
 **Dependencies**: {T3, T2} (ConstraintTheorem + EntropyTheorem via Fibonacci recursion)  
 **Output Type**: SpaceTensor ∈ ℋ5
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T3 → T5  
+**Hierarchy Depth**: 4  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T5) = 0.694 × 4 = 2.776 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(5) = (2 × 13) × 2.08 = 54.08
 
 ## 2. Formal Definition
 

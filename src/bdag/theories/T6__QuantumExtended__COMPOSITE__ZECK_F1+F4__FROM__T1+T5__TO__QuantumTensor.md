@@ -4,8 +4,19 @@
 **ID**: T6 (Natural sequence position 6)  
 **Zeckendorf Decomposition**: F1 + F4 = 1 + 5 = 6  
 **Operation Type**: COMPOSITE EXTENDED - Emergent from Zeckendorf combination  
+**Second-Level Classification**: Dual-Base Composite - Quantum mechanics foundation  
 **Dependencies**: {T1, T5} (SelfReferenceAxiom + SpaceTheorem)  
 **Output Type**: QuantumTensor ∈ ℋ6
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T5 → T6  
+**Hierarchy Depth**: 5  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T6) = 0.694 × 5 = 3.47 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(6) = (2 × 12) × 2.24 = 53.76
 
 ## 2. Formal Definition
 

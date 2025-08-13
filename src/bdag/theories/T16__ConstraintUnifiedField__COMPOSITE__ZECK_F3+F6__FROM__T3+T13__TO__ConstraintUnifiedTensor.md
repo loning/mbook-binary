@@ -4,8 +4,19 @@
 **ID**: T16 (Natural sequence position 16)  
 **Zeckendorf Decomposition**: F3 + F6 = 3 + 13 = 16  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition (16 = 2⁴, maximal binary power)  
+**Second-Level Classification**: Dual-Base Composite - Self-regulating unified field synthesis  
 **Dependencies**: {T3, T13} (ConstraintTheorem + UnifiedFieldTheorem)  
 **Output Type**: ConstraintUnifiedTensor ∈ ℋ₃ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T13 → T16  
+**Hierarchy Depth**: 9  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T16) = 0.694 × 9 = 6.246 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(16) = (2 × 2) × 3.32 = 13.28
 
 ## 2. Formal Definition
 

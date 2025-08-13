@@ -1,11 +1,22 @@
 # T4 Time Extension Theorem
 
 ## 1. Theory Meta-Information
-**Number**: T4 (Natural sequence position 4)  
+**ID**: T4 (Natural sequence position 4)  
 **Zeckendorf Decomposition**: 4 = F1 + F3 = 1 + 3  
 **Operation Type**: COMPOSITE - Composite number theory built from component theories  
+**Second-Level Classification**: Dual-Base Composite - Temporal emergence synthesis  
 **Dependencies**: {T1, T3} (Self-Reference Axiom + Constraint Theorem)  
 **Output Type**: TimeTensor ∈ ℋ₁ ⊕ ℋ₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T3 → T4  
+**Hierarchy Depth**: 3  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T4) = 0.694 × 3 = 2.082 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(4) = (2 × 14) × 1.86 = 52.08
 
 ## 2. Formal Definition
 

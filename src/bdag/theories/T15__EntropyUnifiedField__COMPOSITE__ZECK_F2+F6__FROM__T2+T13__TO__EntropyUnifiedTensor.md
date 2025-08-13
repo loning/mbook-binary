@@ -4,8 +4,19 @@
 **ID**: T15 (Natural sequence position 15)  
 **Zeckendorf Decomposition**: F2 + F6 = 2 + 13 = 15  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition (15 = 3 × 5, dual Fibonacci factors)  
+**Second-Level Classification**: Dual-Base Composite - Thermodynamic unified field synthesis  
 **Dependencies**: {T2, T13} (EntropyTheorem + UnifiedFieldTheorem)  
 **Output Type**: EntropyUnifiedTensor ∈ ℋ₂ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T13 → T15  
+**Hierarchy Depth**: 9  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T15) = 0.694 × 9 = 6.246 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(15) = (2 × 3) × 3.26 = 19.56
 
 ## 2. Formal Definition
 

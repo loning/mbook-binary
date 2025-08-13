@@ -4,8 +4,19 @@
 **ID**: T20 (Natural sequence position 20)  
 **Zeckendorf Decomposition**: F2 + F4 + F6 = 2 + 5 + 13 = 20  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition (20 = 2² × 5)  
+**Second-Level Classification**: Triple-Base Composite - Thermodynamic spacetime unified field  
 **Dependencies**: {T2, T5, T13} (EntropyTheorem + SpaceTheorem + UnifiedFieldTheorem)  
 **Output Type**: EntropySpaceUnifiedTensor ∈ ℋ₂ ⊕ ℋ₅ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T5 → T13 → T20  
+**Hierarchy Depth**: 11  
+**Branching Factor**: 3.0 (triple foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T20) = 0.694 × 11 = 7.634 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 3.0 / 3 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(20) = (3 × 0) × 3.54 = 0
 
 ## 2. Formal Definition
 

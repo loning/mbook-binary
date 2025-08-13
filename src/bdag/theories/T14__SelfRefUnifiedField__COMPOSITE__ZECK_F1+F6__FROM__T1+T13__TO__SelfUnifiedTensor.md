@@ -4,8 +4,19 @@
 **ID**: T14 (Natural sequence position 14)  
 **Zeckendorf Decomposition**: F1 + F6 = 1 + 13 = 14  
 **Operation Type**: COMPOSITE - Based on Zeckendorf decomposition (14 = 2 × 7)  
+**Second-Level Classification**: Dual-Base Composite - Self-aware unified field synthesis  
 **Dependencies**: {T1, T13} (SelfReferenceAxiom + UnifiedFieldTheorem)  
 **Output Type**: SelfUnifiedTensor ∈ ℋ₁ ⊕ ℋ₁₃
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T13 → T14  
+**Hierarchy Depth**: 9  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T14) = 0.694 × 9 = 6.246 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(14) = (2 × 4) × 3.19 = 25.52
 
 ## 2. Formal Definition
 

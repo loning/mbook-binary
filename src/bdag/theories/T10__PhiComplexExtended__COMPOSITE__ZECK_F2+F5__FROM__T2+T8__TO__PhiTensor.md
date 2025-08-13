@@ -4,8 +4,19 @@
 **ID**: T10 (Natural sequence position 10)  
 **Zeckendorf Decomposition**: F2 + F5 = 2 + 8 = 10  
 **Operation Type**: COMPOSITE EXTENDED - Emergent from Zeckendorf combination  
+**Second-Level Classification**: Dual-Base Composite - Golden ratio optimization framework  
 **Dependencies**: {T2, T8} (EntropyTheorem + ComplexityTheorem)  
 **Output Type**: PhiTensor ∈ ℋ10
+
+### 1.1 Structural Hierarchy Annotation
+**TracePath**: T1 → T2 → T8 → T10  
+**Hierarchy Depth**: 7  
+**Branching Factor**: 2.0 (dual foundation)
+
+### 1.2 Collapse-Aware Physical Parameters
+**Entropy Increase**: ΔH = log₂(φ) × depth(T10) = 0.694 × 7 = 4.858 bits  
+**Tension Coefficient**: τφ = Σ(edge_weight) / node_count = 2.0 / 2 = 1.0  
+**Evolution Potential Index**: EPI = (dep_count × reachable_count) × log_φ(10) = (2 × 8) × 2.82 = 45.12
 
 ## 2. Formal Definition
 
