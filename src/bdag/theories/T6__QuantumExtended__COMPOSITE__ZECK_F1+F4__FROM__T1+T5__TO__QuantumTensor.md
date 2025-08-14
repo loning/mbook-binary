@@ -109,19 +109,43 @@ $$|\Psi_{12}\rangle \neq |\psi_1\rangle \otimes |\psi_2\rangle$$
 
 ## 4. 张量空间理论
 
-### 4.1 维数分析
+### 4.1 张量幂指数结构 (COMPOSITE类型)
+**适用条件**: T6作为COMPOSITE理论，基于Zeckendorf分觢6 = F₁ + F₄的组合构造。
+
+#### 张量幂指数递推公式
+**核心定理**: 对于COMPOSITE理论T₆，基于Zeckendorf分觤6 = F₁ + F₄：
+$$\mathcal{T}_6 \cong \Pi\left( \mathcal{T}_1 \otimes \mathcal{T}_5 \right)$$
+
+**量子张量构造**:
+- $\mathcal{T}_1$：基础外部观察张量 (来自T1自指公理) - 提供波函数的自指性
+- $\mathcal{T}_5$：空间张量 (来自T5空间定理) - 提供空间中的传播和定域
+- $\Pi$：量子化投影算子 ($\Pi_{\text{quantum}} \circ \Pi_{\text{func}} \circ \Pi_{\Phi}$)
+
+#### 幂指数物理意义
+**COMPOSITE理论特性**:
+- **自指贡献指数**: exp($\mathcal{T}_1$) = 1 - 量子态的自参照性质
+- **空间贡献指数**: exp($\mathcal{T}_5$) = 5 - 五维空间中的量子场扩展
+- **组合涌现维度**: $\dim(\mathcal{T}_6) = 1 + 5 = 6$ 
+
+**量子力学的核心洞察**: 
+T6展示了量子力学如何从自指意识(T1)在空间中(T5)的投影中涌现。这解释了：
+- 波粒二象性：自指(波)与空间(粒)的统一
+- 量子叠加：自指状态在空间中的多重可能性
+- 测量坑缩：观察者与空间的直接交互
+
+### 4.2 维数分析
 - **张量维度**: $\dim(\mathcal{H}_6) = 6$
 - **信息含量**: $I(\mathcal{T}_6) = \log_\phi(6) \approx 3.534$ bits
 - **复杂度等级**: $|\text{Zeck}(6)| = 2$ (两个Fibonacci分量)
 - **理论地位**: Zeckendorf扩展定理 (合数)
 
-### 4.2 Zeckendorf-物理映射表
+### 4.3 Zeckendorf-物理映射表
 | Fibonacci项 | 数值 | 物理意义 | 宇宙功能 |
 |------------|------|----------|----------|
 | F1 | 1 | 自指性 | 存在基础 |
 | F4 | 5 | 空间性 | 几何结构 |
 
-### 4.3 Hilbert空间嵌入
+### 4.4 Hilbert空间嵌入
 **定理 T6.4**: 量子张量空间接受自然的复结构。
 $$\mathcal{H}_6 \cong \mathbb{C}^3$$
 

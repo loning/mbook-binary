@@ -27,6 +27,7 @@
       "Bash(sed:*)",
       "Bash(/dev/null)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }

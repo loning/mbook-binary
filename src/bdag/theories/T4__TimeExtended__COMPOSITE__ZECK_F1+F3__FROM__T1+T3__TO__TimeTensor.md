@@ -108,20 +108,40 @@ $$4 = F_1 + F_3 = 1 + 3$$
 
 ## 4. 张量空间理论
 
-### 4.1 维数分析
+### 4.1 张量幂指数结构 (COMPOSITE类型)
+**适用条件**: T4作为COMPOSITE理论，使用基于Zeckendorf分解的张量组合构造。
+
+#### 张量幂指数递推公式
+**核心定理**: 对于COMPOSITE理论T₄，基于Zeckendorf分解4 = F₁ + F₃：
+$$\mathcal{T}_4 \cong \Pi\left( \mathcal{T}_1 \otimes \mathcal{T}_3 \right)$$
+
+**组合张量构造**:
+- $\mathcal{T}_1$：基础外部观察张量 (来自T1自指公理)
+- $\mathcal{T}_3$：约束机制张量 (来自T3约束定理)
+- $\Pi$：合法化投影算子 ($\Pi_{\text{no-11}} \circ \Pi_{\text{func}} \circ \Pi_{\Phi}$)
+
+#### 幂指数物理意义
+**组合理论特性**:
+- **自指贡献指数**: exp($\mathcal{T}_1$) = 1 - 提供递归时间结构
+- **约束贡献指数**: exp($\mathcal{T}_3$) = 3 - 施加因果排序机制
+- **涌现时间维度**: $\dim(\mathcal{T}_4) = 1 + 3 = 4$ (直和结构)
+
+**关键洞察**: T4展示了如何通过非相邻Fibonacci项的组合(F₁+F₃)产生全新的物理维度(时间)，这是COMPOSITE理论独有的创新机制。
+
+### 4.2 维数分析
 - **张量维度**: $\dim(\mathcal{H}_{F_1} \oplus \mathcal{H}_{F_3}) = F_1 + F_3 = 1 + 3 = 4$
 - **信息含量**: $I(\mathcal{T}_4) = \log_\phi(4) \approx 2.88$ bits
 - **复杂度等级**: $|\text{Zeck}(4)| = 2$ (双基合成)
 - **理论地位**: Zeckendorf扩展定理
 
-### 4.2 Zeckendorf-物理映射表
+### 4.3 Zeckendorf-物理映射表
 | Fibonacci项 | 数值 | 物理意义 | 宇宙功能 |
 |------------|------|----------|----------|
 | F1 | 1 | 自指性 | 存在基础 |
 | F3 | 3 | 约束性 | 稳定机制 |
 | F1+F3 | 4 | 时间性 | 因果演化 |
 
-### 4.3 Hilbert空间嵌入
+### 4.4 Hilbert空间嵌入
 **定理 T4.5**: 时间张量空间同构性质。
 $$\mathcal{H}_{T_4} = \mathcal{H}_{F_1} \oplus \mathcal{H}_{F_3} \cong \mathbb{C}^4$$
 
