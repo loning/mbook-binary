@@ -125,4 +125,15 @@ H_structure(饱和) → H_process(∞)
 - 无需在文件中标注最终版不需要的备注, 如: 新增、“这样修改是因为....”
 
 - F1=1,F2=2,F3=3,F4=5,F5=8,F6=13,F7=21,F8=34,F9=55,F10=89,F11=144,F12=233,F13=377,F14=610,F15=987,F16=1597 ......
-- bdag 理论名的规则可以使用 generate_theory_filenames.py 得到
+
+## BDAG工具使用指南
+
+**理论文件名生成工具**：
+- **单个理论**: `python src/bdag/tools/generate_single_filename.py <theory_number>`
+  - 示例: `python generate_single_filename.py 43` 
+  - 输出: T43的正确Zeckendorf分解、依赖关系、理论类型、完整文件名
+  - 用于验证理论参数的准确性，避免手工计算错误
+- **批量理论**: `python src/bdag/tools/generate_theory_filenames.py` (已存在)
+  - 生成T1-T200的完整理论文件名列表
+
+**重要提醒**: 在构建新理论前，务必使用generate_single_filename.py验证Zeckendorf分解的正确性，避免错误的依赖关系和理论类型判断。
