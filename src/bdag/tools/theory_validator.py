@@ -528,7 +528,7 @@ def main():
             return
     
     # 默认验证examples目录
-    examples_dir = Path(__file__).parent.parent / 'examples'
+    examples_dir = Path(__file__).parent.parent / 'theories'
     if examples_dir.exists():
         print(f"验证目录: {examples_dir}")
         report = validator.validate_directory(str(examples_dir))
