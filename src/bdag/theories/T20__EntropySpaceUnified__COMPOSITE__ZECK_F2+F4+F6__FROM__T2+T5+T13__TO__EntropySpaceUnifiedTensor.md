@@ -73,13 +73,53 @@ $$\frac{dS_{spacetime}}{dt} = \text{Tr}[\mathcal{S}_2 \cdot R_{\mu\nu} \cdot \ma
 
 ## 4. 张量空间理论
 
-### 4.1 维度分析
+### 4.1 张量幂指数结构 (COMPOSITE类型)
+**适用条件**: T20作为COMPOSITE理论，基于Zeckendorf分解20 = F₂ + F₄ + F₆ = 2 + 5 + 13的熵-空间-统一场构造。
+
+#### 张量幂指数递推公式
+**核心定理**: 对于COMPOSITE理论T₂₀，基于Zeckendorf分解20 = F₂ + F₄ + F₆：
+$$\mathcal{T}_{20} \cong \Pi\left( \mathcal{T}_2 \otimes \mathcal{T}_5 \otimes \mathcal{T}_{13} \right)$$
+
+**熵-空间-统一场张量构造**:
+- $\mathcal{T}_2$：熵增张量 (来自T2熵定理) - 提供时间演化动力
+- $\mathcal{T}_5$：空间张量 (来自T5空间定理) - 提供几何基础结构
+- $\mathcal{T}_{13}$：统一场张量 (来自T13统一场定理) - 提供场统一基础
+- $\Pi$：熵-空间-统一场投影算子 ($\Pi_{entropy-space-unified} \circ \Pi_{thermal-geometric-field} \circ \Pi_{\Phi}$)
+
+#### 幂指数物理意义
+**COMPOSITE理论特性**:
+- **熵增贡献指数**: exp($\mathcal{T}_2$) = 2 - 热力学时间箭头
+- **空间贡献指数**: exp($\mathcal{T}_5$) = 5 - 五维几何结构
+- **统一场贡献指数**: exp($\mathcal{T}_{13}$) = 13 - 十三维统一场结构
+- **熵-空间-统一涌现维度**: $\dim(\mathcal{T}_{20}) = 2 + 5 + 13 = 20$
+
+**熵-空间-统一场的核心洞察**: 
+T20展示了热力学熵增(T2)、空间几何(T5)、统一场(T13)的三重耦合如何创造热力学时空。这解释了：
+- **热力学时空**: 时空几何从熵增与统一场的耦合中动态涌现
+- **几何熵化**: 空间膨胀直接受热力学第二定律驱动
+- **场热化**: 统一场通过空间-熵耦合获得热力学性质
+- **20维宇宙学**: 热力学、几何、场的完全统一创造宇宙演化框架
+
+#### 约束继承机制分析
+**约束继承条件**: T20通过T13继承约束继承机制，因为T13 = F₆ ≥ 13。
+
+**继承约束系统**:
+- **直接约束**: 来自T2的熵增不可逆性和T5的空间维度约束
+- **继承约束**: 来自T13的复合约束系统（No-11 ∩ 8D-Complex ∩ 13D-Unified）
+- **热力学约束**: T20特有的熵-空间-场一致性条件
+
+**复合约束效应**:
+$$\text{Constraint}_{T20} = \text{Thermal}_{T2} \cap \text{Spatial}_{T5} \cap \text{Inherited}_{T13} \cap \text{Thermodynamic-Spacetime}_{2+5+13}$$
+
+这种四层约束确保熵-空间-统一场系统的热力学一致性和宇宙学稳定性。
+
+### 4.2 维度分析
 - **张量维度**: $\dim(\mathcal{H}_{20}) = 20$
 - **信息内容**: $I(\mathcal{T}_{20}) = \log_\phi(20) \approx 5.71$ bits
 - **复杂性级别**: $|\text{Zeck}(20)| = 3$ (三组分)
 - **理论状态**: COMPOSITE - 热力学时空统一
 
-### 4.2 Hilbert空间嵌入
+### 4.3 Hilbert空间嵌入
 **定理 T20.4**: 熵空间统一张量以热力学结构嵌入。
 $$\mathcal{H}_{20} = \mathcal{H}_2 \oplus \mathcal{H}_5 \oplus \mathcal{H}_{13} \cong \mathbb{C}^2 \oplus \mathbb{C}^5 \oplus \mathbb{C}^{13} \cong \mathbb{C}^{20}$$
 

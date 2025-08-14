@@ -81,19 +81,44 @@ $$\frac{dS_{field}}{dt} = \text{Tr}[\mathcal{S}_2 \cdot \frac{\partial \mathcal{
 
 ## 4. 张量空间理论
 
-### 4.1 维数分析
+### 4.1 张量幂指数结构 (COMPOSITE类型)
+**适用条件**: T15作为COMPOSITE理论，基于Zeckendorf分解15 = F₂ + F₆ = 2 + 13的熵-统一场构造。
+
+#### 张量幂指数递推公式
+**核心定理**: 对于COMPOSITE理论T₁₅，基于Zeckendorf分解15 = F₂ + F₆：
+$$\mathcal{T}_{15} \cong \Pi\left( \mathcal{T}_2 \otimes \mathcal{T}_{13} \right)$$
+
+**熵-统一场张量构造**:
+- $\mathcal{T}_2$：熵增张量 (来自T2熵定理) - 提供时间演化动力
+- $\mathcal{T}_{13}$：统一场张量 (来自T13统一场定理) - 提供场统一基础
+- $\Pi$：熵-统一场投影算子 ($\Pi_{entropy-unified} \circ \Pi_{thermal-field} \circ \Pi_{\Phi}$)
+
+#### 幂指数物理意义
+**COMPOSITE理论特性**:
+- **熵增贡献指数**: exp($\mathcal{T}_2$) = 2 - 热力学时间箭头
+- **统一场贡献指数**: exp($\mathcal{T}_{13}$) = 13 - 十三维统一场结构
+- **熵-统一涌现维度**: $\dim(\mathcal{T}_{15}) = 2 + 13 = 15$
+
+**熵-统一场的核心洞察**: 
+T15展示了热力学熵增(T2)如何与统一场(T13)耦合创造有向宇宙演化。这解释了：
+- **热力学统一**: 统一场通过熵增获得时间方向性
+- **宇宙演化箭头**: 统一场的破缺遵循热力学第二定律
+- **相变动力学**: 15维作为统一场相变的热力学驱动空间
+- **信息热力学**: 统一场信息与热力学熵的深层联系
+
+### 4.2 维数分析
 - **张量维度**: $\dim(\mathcal{H}_{15}) = 15$
 - **信息含量**: $I(\mathcal{T}_{15}) = \log_\phi(15) \approx 5.49$ bits  
 - **复杂度等级**: $|\text{Zeck}(15)| = 2$ (双组分)
 - **理论地位**: COMPOSITE - 双Fibonacci因子分解
 
-### 4.2 Zeckendorf-物理映射表
+### 4.3 Zeckendorf-物理映射表
 | Fibonacci项 | 数值 | 物理意义 | 宇宙功能 |
 |------------|------|----------|----------|
 | F2 | 2 | 熵增性 | 时间箭头 |
 | F6 | 13 | 统一性 | 力的统一 |
 
-### 4.3 Hilbert空间嵌入
+### 4.4 Hilbert空间嵌入
 **定理 T15.4**: 熵-统一张量以热结构嵌入。
 $$\mathcal{H}_{15} = \mathcal{H}_2 \oplus \mathcal{H}_{13} \cong \mathbb{C}^2 \oplus \mathbb{C}^{13} \cong \mathbb{C}^{15}$$
 

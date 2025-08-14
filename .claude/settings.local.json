@@ -25,7 +25,10 @@
       "Bash(echo:*)",
       "Bash(coq:*)",
       "Bash(sed:*)",
-      "Bash(/dev/null)"
+      "Bash(/dev/null)",
+      "Bash(for i in {14..20})",
+      "Bash(done)",
+      "Bash(for i in {16..20})"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
