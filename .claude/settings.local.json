@@ -28,7 +28,9 @@
       "Bash(/dev/null)",
       "Bash(for i in {14..20})",
       "Bash(done)",
-      "Bash(for i in {16..20})"
+      "Bash(for i in {16..20})",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
