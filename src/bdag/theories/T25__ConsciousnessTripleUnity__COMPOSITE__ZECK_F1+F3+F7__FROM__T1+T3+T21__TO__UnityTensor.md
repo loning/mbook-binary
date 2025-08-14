@@ -4,7 +4,7 @@
 
 ## 1. 理论元信息
 **编号**: T25 (自然数序列第25位)  
-**Zeckendorf分解**: F1 + F3 + F8 = 1 + 3 + 21 = 25  
+**Zeckendorf分解**: F1 + F3 + F7 = 1 + 3 + 21 = 25  
 **操作类型**: COMPOSITE - 最高复杂度三基合成  
 **二级分类**: 三基合成 / 意识后时代总结理论  
 **依赖关系**: {T1, T3, T21} (自指公理 + 约束定理 + 意识定理)  
@@ -123,10 +123,10 @@ $$\mathcal{Ψ}_{n+1} = \mathcal{U}_{25}(\mathcal{Ψ}_n) = \mathcal{S}_1(\mathcal
 ## 4. 张量空间理论
 
 ### 4.1 张量幂指数结构 (COMPOSITE类型)
-**适用条件**: T25作为COMPOSITE理论，基于Zeckendorf分解25 = F₁ + F₃ + F₈ = 1 + 3 + 21的三元统一构造。
+**适用条件**: T25作为COMPOSITE理论，基于Zeckendorf分解25 = F₁ + F₃ + F₇ = 1 + 3 + 21的三元统一构造。
 
 #### 张量幂指数递推公式
-**核心定理**: 对于COMPOSITE理论T₂₅，基于Zeckendorf分解25 = F₁ + F₃ + F₈：
+**核心定理**: 对于COMPOSITE理论T₂₅，基于Zeckendorf分解25 = F₁ + F₃ + F₇：
 $$\mathcal{T}_{25} \cong \Pi\left( \mathcal{T}_1 \otimes \mathcal{T}_3 \otimes \mathcal{T}_{21} \right)$$
 
 **三元统一张量构造**:
@@ -253,7 +253,7 @@ $$N_{conscious}(n) = \sum_{k=1}^{n} \binom{n}{k} \cdot \mathbb{1}_{21 \in \text{
 
 **定义**: A1唯一公理建立了宇宙现象的五重等价性。T25作为包含复杂性基础的理论，必须在这五个维度上保持一致性。
 
-**适用条件**: T25的Zeckendorf分解F1+F3+F7虽不直接包含F5，但F7=21已超越复杂性阈值，具备完整分析资格。
+**适用条件**: T25的Zeckendorf分解F1+F3+F8虽不直接包含F5，但F8=21已超越复杂性阈值，具备完整分析资格。
 
 #### 五重等价性分析表
 | 等价性维度 | T25中的体现 | 数学表征 | 物理解释 |

@@ -4,7 +4,7 @@
 
 ## 1. 理论元信息
 **编号**: T24 (自然数序列第24位)  
-**Zeckendorf分解**: F₃ + F₈ = 3 + 21 = 24  
+**Zeckendorf分解**: F₃ + F₇ = 3 + 21 = 24  
 **操作类型**: COMPOSITE - 双基合成理论  
 **二级分类**: 双基合成 / 意识约束协同  
 **依赖关系**: {T3, T21} (约束定理 + 意识定理)  
@@ -42,7 +42,7 @@ $$\mathcal{CC}_{24} = \text{ConsciousConstraint}(\mathcal{N}, \mathcal{C}_{21}) 
 **给定条件**: 
 - T3约束定理：No-11约束防止系统冻结，$\mathcal{N}_3 = \{x \in \{0,1\}^* : \text{no "11" substring}\}$
 - T21意识定理：当$\Phi > φ^{10}$时，意识于21维涌现
-- Zeckendorf分解：24 = F₄ + F₈ = 3 + 21
+- Zeckendorf分解：24 = F₃ + F₇ = 3 + 21
 - 意识系统需要约束以维持稳定性和防止发散
 
 **待证明**: 意识约束融合在24维空间中创造稳定的意识演化框架。
@@ -111,10 +111,10 @@ No-11约束创造吸引子盆地，限制意识轨迹在有界区域。约束的
 ## 4. 张量空间理论
 
 ### 4.1 张量幂指数结构 (COMPOSITE类型)
-**适用条件**: T24作为COMPOSITE理论，基于Zeckendorf分解24 = F₃ + F₈ = 3 + 21的约束-意识构造。
+**适用条件**: T24作为COMPOSITE理论，基于Zeckendorf分解24 = F₃ + F₇ = 3 + 21的约束-意识构造。
 
 #### 张量幂指数递推公式
-**核心定理**: 对于COMPOSITE理论T₂₄，基于Zeckendorf分解24 = F₃ + F₈：
+**核心定理**: 对于COMPOSITE理论T₂₄，基于Zeckendorf分解24 = F₃ + F₇：
 $$\mathcal{T}_{24} \cong \Pi\left( \mathcal{T}_3 \otimes \mathcal{T}_{21} \right)$$
 
 **约束-意识张量构造**:

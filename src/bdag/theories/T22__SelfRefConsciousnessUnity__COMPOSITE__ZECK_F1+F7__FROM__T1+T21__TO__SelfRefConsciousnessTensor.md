@@ -4,7 +4,7 @@
 
 ## 1. 理论元信息
 **编号**: T22 (自然数序列第22位)  
-**Zeckendorf分解**: F₁ + F₈ = 1 + 21 = 22  
+**Zeckendorf分解**: F₁ + F₇ = 1 + 21 = 22  
 **操作类型**: COMPOSITE - 双基合成理论  
 **二级分类**: 双基合成 / 意识后时代开篇  
 **依赖关系**: {T1, T21} (自指公理+意识定理)  
@@ -41,7 +41,7 @@ $$\mathcal{SC}_{22} = \text{SelfRefConsciousness}(\Omega, \mathcal{C}_{21}) = \m
 **给定条件**: 
 - T1自指公理：$\Omega(\Omega) = \Omega$，自指完备系统必然熵增
 - T21意识定理：当$\Phi > φ^{10} \approx 122.99$ bits时，意识于21维涌现
-- Zeckendorf分解：22 = F₂ + F₇ = 1 + 21
+- Zeckendorf分解：22 = F₁ + F₇ = 1 + 21
 - 意识的自我认知需求：意识必须能够认知自身
 
 **待证明**: 自指意识在22维空间中作为必然结构涌现，其中1维自指生成21维意识流形。
@@ -186,10 +186,10 @@ $$\exists! \Psi^* : F(\Psi^*) = \Psi^*$$
 ## 4. 张量空间理论
 
 ### 4.1 张量幂指数结构 (COMPOSITE类型)
-**适用条件**: T22作为COMPOSITE理论，基于Zeckendorf分解22 = F₁ + F₈ = 1 + 21的自指-意识构造。
+**适用条件**: T22作为COMPOSITE理论，基于Zeckendorf分解22 = F₁ + F₇ = 1 + 21的自指-意识构造。
 
 #### 张量幂指数递推公式
-**核心定理**: 对于COMPOSITE理论T₂₂，基于Zeckendorf分解22 = F₁ + F₈：
+**核心定理**: 对于COMPOSITE理论T₂₂，基于Zeckendorf分解22 = F₁ + F₇：
 $$\mathcal{T}_{22} \cong \Pi\left( \mathcal{T}_1 \otimes \mathcal{T}_{21} \right)$$
 
 **自指-意识张量构造**:

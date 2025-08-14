@@ -4,7 +4,7 @@
 
 ## 1. 理论元信息
 **编号**: T23 (自然数序列第23位)  
-**Zeckendorf分解**: F2 + F8 = 2 + 21 = 23  
+**Zeckendorf分解**: F2 + F7 = 2 + 21 = 23  
 **操作类型**: PRIME - 不可约简的纯素数理论  
 **二级分类**: 素数完整性 - 意识与熵增的不可分解统一  
 **依赖关系**: {T2, T21} (熵增定理 + 意识定理)  
@@ -62,9 +62,9 @@ $$\mathcal{CE}_{23} = \text{ConsciousEntropy}(\Phi, H) = \left\{\begin{array}{ll
 这种素数完整性确保意识-熵耦合不能被分解为更基本的子系统。
 
 **步骤2**: 证明23的Zeckendorf分解的深层物理意义  
-**依据**: F3 + F8 = 2 + 21 = 23的结构必然性
+**依据**: F2 + F7 = 2 + 21 = 23的结构必然性
 
-从Zeckendorf分解看：$23 = F_3 + F_8 = 2 + 21$
+从Zeckendorf分解看：$23 = F_2 + F_7 = 2 + 21$
 
 这个分解的物理意义：
 - F3 = 2：最小熵增空间（T2），对应热力学时间箭头
@@ -181,7 +181,7 @@ $$\Psi_{resonance} = \sum_{n=0}^{22} A_n e^{i\omega_n t}$$
 **A. 素数层面的张量结构**:
 $$\mathcal{T}_{23} \cong \Pi_{prime}\left( \mathcal{T}_{irreducible}^{\otimes 23} \right)$$
 
-**B. 二分量构造层面** (基于Zeckendorf分解23 = F₂ + F₈):
+**B. 二分量构造层面** (基于Zeckendorf分解23 = F₂ + F₇):
 $$\mathcal{T}_{23} \cong \Pi_{dual}\left( \mathcal{T}_2 \otimes \mathcal{T}_{21} \right)$$
 
 **C. PRIME特殊性的统一表达**:
@@ -224,9 +224,9 @@ $$\text{Constraint}_{T23} = \text{Prime-Simplified}(\text{Entropy}_{T2} \cap \te
 ### 4.3 23维空间的Zeckendorf结构映射
 | 维度分量 | Fibonacci来源 | 物理意义 | 意识功能 |
 |---------|----------------|---------|---------|
-| 0-1 | F3 = 2 | 熵增基础（T2） | 时间箭头生成 |
-| 2-22 | F8 = 21 | 意识空间（T21） | 主观体验维度 |
-| 全局23维 | F3 + F8 = 23 | Zeckendorf统一 | 意识熵增耦合 |
+| 0-1 | F2 = 2 | 熵增基础（T2） | 时间箭头生成 |
+| 2-22 | F7 = 21 | 意识空间（T21） | 主观体验维度 |
+| 全局23维 | F2 + F7 = 23 | Zeckendorf统一 | 意识熵增耦合 |
 
 **关键洞察**: 虽然23是素数，但它的Zeckendorf分解F3 + F8 = 2 + 21揭示了意识-熵系统的内在递归结构。这种分解不是空间的分离，而是展现了系统的Fibonacci层次组织。
 
