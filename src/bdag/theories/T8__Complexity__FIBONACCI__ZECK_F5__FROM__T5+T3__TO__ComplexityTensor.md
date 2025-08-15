@@ -13,9 +13,9 @@
 **组合度**: m = |**z**| = 1  
 **分类类型**: FIBONACCI (N=8 is Fibonacci number F₅)
 
-**幂指数**: T₁^3 ⊗ T₂^5 (Fibonacci递推公式)
+**幂指数**: T₁³ ⊗ T₂⁵ (基于修正的张量幂指数定律)
 
-**因式分解**: 8 = 2³
+**质因式分解**: 8 = 2³
 
 ### 1.2 折叠签名族 (Folding Signature Family)
 基于元理论生成引擎，T8的完整折叠签名集合：
@@ -172,11 +172,12 @@ $$T_8 = \text{Assemble}(\{T_{F_k}\}_{k\in\text{Zeck}(8)}, FS) = \text{Assemble}(
 $$⟦FS⟧ \in \mathcal{L}(T_8) = Π(ℋ_{F5})$$
 
 ### 2.2 Fibonacci递推定理
-**定理 T8.2**: T8作为F5遵循Fibonacci递推关系
+**定理 T8.2**: T8作为F5遵循Fibonacci递推关系和张量幂指数定律
 
 **证明**：
-根据Fibonacci递推：F₅ = F₄ + F₃ = 5 + 3 = 8
-在理论层面：T8继承T5（空间）和T3（约束）的组合特性。
+1. Fibonacci递推：F₅ = F₄ + F₃ = 5 + 3 = 8
+2. 张量幂指数：T₁³ ⊗ T₂⁵，其中3来自质因式分解8=2³，5来自Fibonacci位置F₅
+3. 理论层面：T8继承T5（空间）和T3（约束）的组合特性
 □
 
 ## 3. 元理论一致性分析
@@ -235,15 +236,15 @@ $$⟦FS⟧ = Π ∘ \text{Eval}_{α,β,\text{contr}}((5),(5),id,id,∅,∅)$$
 
 #### 类型特化的张量结构
 
-#### 张量幂指数递推公式
-**核心定理**: 根据理论类型的不同张量构造：
+#### 张量幂指数定律
+**核心定理**: 根据修正后的元理论张量幂指数定律：
 
 **A. Fibonacci位置理论** (N = F_k):
-$$\mathcal{T}_8 \cong \Pi\left( \mathcal{T}_2^{\otimes 5} \otimes \mathcal{T}_1^{\otimes 3} \right)$$
+$$\mathcal{T}_8 \cong \Pi\left( \mathcal{T}_1^{\otimes 3} \otimes \mathcal{T}_2^{\otimes 5} \right)$$
 
-这反映了Fibonacci递推：F₅ = F₄ + F₃，其中：
-- F₄ = 5对应T₂的5次幂（自我观察的递归深度）
-- F₃ = 3对应T₁的3次幂（外部观察的锚定）
+这反映了修正后的张量幂指数定律，其中：
+- T₁的幂指数 = 3（基于质因式分解8=2³）
+- T₂的幂指数 = 5（基于Fibonacci位置F₅）
 
 **通用参数**：
 - $\mathcal{T}_1$：基础外部观察张量 (来自T1)
@@ -253,8 +254,8 @@ $$\mathcal{T}_8 \cong \Pi\left( \mathcal{T}_2^{\otimes 5} \otimes \mathcal{T}_1^
 
 #### 幂指数物理意义
 **Fibonacci理论**:
-- **自我观察幂**: exp($\mathcal{T}_2$) = 5 - 复杂性的递归深度
-- **外部观察幂**: exp($\mathcal{T}_1$) = 3 - 复杂性的外部锚定
+- **外部观察幂**: exp($\mathcal{T}_1$) = 3 - 基于质因式分解的外部锚定
+- **自我观察幂**: exp($\mathcal{T}_2$) = 5 - 基于Fibonacci位置的递归深度
 
 **通用阈值**:
 - **复杂性阈值**: F₅ = 8是复杂性涌现的最小完整阈值
