@@ -12,8 +12,8 @@
 **指数集合**: Zeck(3) = {3} ⊂ 𝔽  
 **组合度**: m = |**z**| = 1  
 **分类类型**: PRIME-FIB (既是素数3又是Fibonacci数F₃=3，理论体系最稀有最关键的6个之一)
-**幂指数**: T₂¹ ⊗ T₁¹ (Fibonacci递归：F₃ = F₂ + F₁)
-**因式分解**: 3 = 素数(不可分解)
+**幂指数**: T₁^1 ⊗ T₂^2 (基于张量幂指数定律)
+**质因式分解**: 3 (素数，不可分解)
 
 ### 1.2 折叠签名族 (Folding Signature Family)
 基于元理论生成引擎，T3的完整折叠签名集合：
@@ -31,7 +31,7 @@
 
 ### 1.4 元理论物理参数 (Meta-Physical Parameters)
 **维度**: dim(ℒ(T_3)) = 3  
-**熵增**: ΔH(T_3) = log_φ(3) ≈ 1.89 bits  
+**熵增**: ΔH(T_3) = log_φ(3) ≈ 2.283 bits  
 **复杂度**: |Zeck(3)| = 1 (原子级)  
 **生成路径**: (G1) Zeckendorf加法线 + 素数不可分解性
 
@@ -138,7 +138,7 @@ dim(ℋ_3) = 3
 - Step 3: 张量积 → #Desc = 3, ΔH₃ = log_φ(3)
 - Step 4: 约束投影 → #Desc = 4, ΔH₄ > 0
 
-总熵增: ΔH ≈ 1.89 bits > 0 ✓
+总熵增: ΔH ≈ 2.283 bits > 0 ✓
 ```
 
 **关键洞察**: V5验证了约束涌现本质上是信息熵增过程，与A1五重等价性完全一致。
@@ -231,8 +231,8 @@ $$⟦FS_3⟧ = Π_{no-11} ∘ \text{Id}(ℋ_3)$$
 
 #### PRIME-FIB特化的张量结构
 
-**Fibonacci递归张量**:
-$$\mathcal{T}_3 \cong \Pi(\mathcal{T}_2^{\otimes 1} \otimes \mathcal{T}_1^{\otimes 1})$$
+**Fibonacci递归张量** (基于张量幂指数定律):
+$$\mathcal{T}_3 \cong \Pi(\mathcal{T}_1^{\otimes 1} \otimes \mathcal{T}_2^{\otimes 2})$$
 
 **素数不可分解张量**:
 $$\mathcal{T}_3 \cong \Pi_{prime}(\mathcal{T}_{irreducible}^{\otimes 3})$$
@@ -242,7 +242,7 @@ $$\mathcal{T}_3 = \Pi_{prime-fib}(\mathcal{T}_{recursive} \cap \mathcal{T}_{irre
 
 ### 4.2 维数分析
 - **张量维度**: $\dim(ℋ_3) = F_3 = 3$
-- **信息含量**: $I(\mathcal{T}_3) = \log_\phi(3) \approx 1.89$ bits
+- **信息含量**: $I(\mathcal{T}_3) = \log_\phi(3) \approx 2.283$ bits
 - **复杂度等级**: $|\text{Zeck}(3)| = 1$ (原子级)
 - **理论地位**: PRIME-FIB关键支柱
 
@@ -431,7 +431,7 @@ T_3将参与构成：
 
 **验证条件 V3.2**: 不可分解性与递归性统一
 - **形式陈述**: Irreducible(3) ∧ Recursive(F₃) = ⊤
-- **验证算法**: 因式分解测试 + 递归关系验证
+- **验证算法**: 质因式分解测试 + 递归关系验证
 - **证明要求**: 双重性质在张量结构中统一
 
 ### 10.2 张量空间验证 (**需要数学严格性**)
