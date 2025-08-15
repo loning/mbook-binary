@@ -4,7 +4,6 @@
   - [理论概述](./bdag/theories/index.md)
   - [张量理论基础](./bdag/TENSOR_SPACE_MAPPING.md)
   - [理论分类](./bdag/CLASSIFICATION_GUIDE.md)
-  - [新手上手指南](./bdag/QUICK_START_GUIDE.md)
   - [T1-T42 基础理论系列与宇宙心智扩展]()
     - [T1: 自指公理](./bdag/theories/T1__SelfReferenceAxiom__AXIOM__ZECK_F1__FROM__UNIVERSE__TO__SelfRefTensor.md)
     - [T2: 熵增定理](./bdag/theories/T2__EntropyTheorem__PRIME-FIB__ZECK_F2__FROM__T1__TO__EntropyTensor.md)
