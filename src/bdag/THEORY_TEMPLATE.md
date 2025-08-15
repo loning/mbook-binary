@@ -11,9 +11,11 @@
 **Zeckendorf编码**: enc_Z({N}) = **z** = {Zeck编码} ∈ 𝒵  
 **指数集合**: Zeck({N}) = {指数集合} ⊂ 𝔽  
 **组合度**: m = |**z**| = {组合度}  
-**分类类型**: {AXIOM|PRIME-FIB|FIBONACCI|PRIME|COMPOSITE} ({分类依据})
-**幂指数**: {T1 与 T2 的幂指数}
-**因式分解**: {因式分解}
+**分类类型**: {AXIOM|PRIME-FIB|FIBONACCI|PRIME|COMPOSITE} ({分类依据}) 
+
+**幂指数**: {T1 与 T2 的幂指数} 
+
+**因式分解**: {因式分解} 
 
 
 ### 1.2 折叠签名族 (Folding Signature Family)
