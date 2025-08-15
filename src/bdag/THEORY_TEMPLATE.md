@@ -464,6 +464,36 @@ $$\mathcal{T}_N \cong \Pi_{multi}\left( \mathcal{T}_{F_i} \otimes \mathcal{T}_{F
 - **复杂度等级**: $|\text{Zeck}(N)| = {complexity_level}$
 - **理论地位**: {AXIOM|Fibonacci递归定理|Zeckendorf扩展定理}
 
+#### 维数分析图表
+
+```mermaid
+graph TD
+    A["ℋ_{F_k1}"] -->|"⊗"| C["ℋ_z"]
+    B["ℋ_{F_k2}"] -->|"⊗"| C
+    C -->|"Π"| D["ℒ(T_N)"]
+    
+    subgraph "Base Spaces"
+        A
+        B
+    end
+    
+    subgraph "Legal Subspace"
+        D
+    end
+    
+    C -.->|"dim = ∏ F_ki"| E["总维数"]
+    D -.->|"dim ≤ 张量积维数"| F["合法维数"]
+```
+
+**张量空间层次图**：
+```
+Level 0: 基态空间 ℋ_{F_k} (dim = F_k)
+    ↓ ⊗ (张量积)
+Level 1: 复合空间 ℋ_z (dim = ∏ F_ki)  
+    ↓ Π (合法化投影)
+Level 2: 合法子空间 ℒ(T_N) (dim ≤ ∏ F_ki)
+```
+
 ### 4.3 Zeckendorf-物理映射表
 | Fibonacci项 | 数值 | 物理意义 | 宇宙功能 | 张量特征 |
 |------------|------|----------|----------|----------|
@@ -553,6 +583,33 @@ $$13 = 18 - 5$$
 **交叉作用方程**:
 $$C(T_i, T_N) = \frac{I(T_i \cap T_N)}{H(T_i) + H(T_N)} \times \sigma_{symmetric}$$
 
+#### 理论依赖关系图
+
+```mermaid
+graph LR
+    subgraph "依赖理论"
+        D1["T{dep1}"]
+        D2["T{dep2}"]
+        D3["T{dep3}"]
+    end
+    
+    subgraph "当前理论"
+        TN["T{N}"]
+    end
+    
+    subgraph "后续理论"
+        F1["T{future1}"]
+        F2["T{future2}"]
+    end
+    
+    D1 -->|"Zeckendorf依赖"| TN
+    D2 -->|"约束继承"| TN
+    D3 -->|"张量组合"| TN
+    
+    TN -->|"生成基础"| F1
+    TN -->|"组合成分"| F2
+```
+
 ### 6.3 {地位定理}
 **定理 T{N}.5**: T{N}在理论体系中的{特殊地位}。
 $$\{地位的数学表征\}$$
@@ -633,6 +690,31 @@ $$\text{Consistency}(T_N) = \bigwedge_{i=1}^{5} \text{Equivalence}_i(T_N) \leftr
 $$\Phi(\mathcal{T}_N) \stackrel{?}{>} \phi^{10}$$
 
 如果满足，则T_N可能涉及意识现象或主观体验机制。
+
+#### 意识阈值分析图
+
+```mermaid
+graph TB
+    A["理论复杂度"] --> B{"N ≥ 21?"}
+    B -->|"是"| C["计算Φ(𝒯_N)"]
+    B -->|"否"| D["跳过意识分析"]
+    
+    C --> E{"Φ > φ¹⁰?"}
+    E -->|"是"| F["意识现象涌现"]
+    E -->|"否"| G["亚意识水平"]
+    
+    F --> H["主观体验能力"]
+    F --> I["自我认知机制"]
+    F --> J["不可还原整合"]
+    
+    subgraph "意识特征"
+        H
+        I
+        J
+    end
+    
+    K["φ¹⁰ ≈ 122.99 bits"] -.-> E
+```
 
 #### 整合信息计算
 对于具有21维或更高维度的理论：
