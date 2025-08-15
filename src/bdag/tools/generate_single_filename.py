@@ -218,32 +218,44 @@ def calculate_power_exponents(theory_num: int, decomp_indices: List[int], theory
                 'explanation': f'Fibonacci recursion: T₂^{fib_seq[fib_pos - 2] if fib_pos >= 2 else 0} ⊗ T₁^{fib_seq[fib_pos - 3] if fib_pos >= 3 else 0}'
             }
     
-    # For other types, calculate cumulative powers from Zeckendorf decomposition
-    # Each F_k contributes to both T1 and T2 based on Fibonacci recursion
-    total_t1_power = 0
-    total_t2_power = 0
+    # For other types, use Tensor Power Exponent Law
+    # 张量幂指数定律: T_{F_k} ≅ Π(T_2^{⊗F_{k-1}} ⊗ T_1^{⊗F_{k-2}})
+    # with F_0 = 0 by convention
+    
+    total_t1_power = 0  # T_1 power (external observation)
+    total_t2_power = 0  # T_2 power (self observation)
+    
+    # Add F_0 = 0 to the sequence for easier indexing
+    fib_with_zero = [0] + fib_seq  # [0, 1, 2, 3, 5, 8, 13, 21, ...]
+    
+    calculation_steps = []
     
     for idx in decomp_indices:
-        fib_val = fib_seq[idx-1]  # Get F_k value
+        # For F_k, contributions are:
+        # T_2 power: F_{k-1} 
+        # T_1 power: F_{k-2}
         
-        # For each F_k, calculate its contribution to T1 and T2 powers
-        # Using Fibonacci identity: F_k = F_{k-1} + F_{k-2}
-        if idx == 1:  # F_1 = 1, contributes T1^1
-            total_t1_power += 1
-        elif idx == 2:  # F_2 = 2, contributes T2^1  
-            total_t2_power += 1
+        if idx == 1:  # F_1: F_0=0, F_{-1}=1 (by convention for F_1)
+            t2_contrib = 0  # F_0 = 0
+            t1_contrib = 1  # F_{-1} = 1 by convention
+        elif idx == 2:  # F_2: F_1=1, F_0=0  
+            t2_contrib = 1  # F_1 = 1
+            t1_contrib = 0  # F_0 = 0
         else:  # F_k for k >= 3
-            # F_k recursively decomposes: F_k = sum of previous Fibonacci contributions
-            # Simplified: each F_k contributes F_{k-2} to T1 and F_{k-3} to T2 (if exists)
-            if idx >= 3:
-                total_t1_power += fib_seq[idx-3] if idx >= 3 else 0  # F_{k-2}
-            if idx >= 4:
-                total_t2_power += fib_seq[idx-4] if idx >= 4 else 0  # F_{k-3}
+            t2_contrib = fib_with_zero[idx-1] if idx-1 >= 0 else 0  # F_{k-1}
+            t1_contrib = fib_with_zero[idx-2] if idx-2 >= 0 else 0  # F_{k-2}
+            
+        total_t2_power += t2_contrib
+        total_t1_power += t1_contrib
+        
+        calculation_steps.append(f"F_{idx}: T2^{t2_contrib} ⊗ T1^{t1_contrib}")
+    
+    steps_str = " + ".join(calculation_steps)
     
     return {
         'T1_power': total_t1_power,
         'T2_power': total_t2_power,
-        'explanation': f'Cumulative from Zeckendorf {decomp_indices}: T₁^{total_t1_power} ⊗ T₂^{total_t2_power} via Fibonacci recursion'
+        'explanation': f'张量幂指数定律: {steps_str} = T₂^{total_t2_power} ⊗ T₁^{total_t1_power}'
     }
 
 def calculate_tensor_space_dimensions(theory_num: int, decomp_indices: List[int]) -> Dict[str, any]:
