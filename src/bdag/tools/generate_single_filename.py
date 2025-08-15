@@ -153,16 +153,10 @@ def analyze_generation_rules(theory_num: int, theory_type: str) -> Dict[str, any
     """
     g1_applicable = True  # Always via Zeckendorf
     g2_applicable = False
-    factorizations = []
+    prime_factors = get_prime_factorization(theory_num)
     
     if theory_type == "COMPOSITE":
-        # Find all non-trivial factorizations
-        for a in range(2, int(theory_num**0.5) + 1):
-            if theory_num % a == 0:
-                b = theory_num // a
-                if b > 1:
-                    factorizations.append((a, b))
-                    g2_applicable = True
+        g2_applicable = len(prime_factors) > 1 or (len(prime_factors) == 1 and prime_factors[0][1] > 1)
     
     return {
         'g1_zeckendorf': {
@@ -171,7 +165,7 @@ def analyze_generation_rules(theory_num: int, theory_type: str) -> Dict[str, any
         },
         'g2_multiplicative': {
             'applicable': g2_applicable,
-            'factorizations': factorizations,
+            'prime_factorization': prime_factors,
             'atomic': theory_type in ['PRIME', 'PRIME-FIB']
         }
     }
@@ -183,15 +177,44 @@ def calculate_golden_ratio_entropy(n: int) -> float:
         return 0.0
     return math.log(n) / math.log(phi)
 
-def get_factorizations(n: int) -> List[Tuple[int, int]]:
-    """Get all non-trivial factorizations of n."""
+def get_prime_factorization(n: int) -> List[Tuple[int, int]]:
+    """Get prime factorization of n as list of (prime, power) pairs."""
+    if n <= 1:
+        return []
+    
     factors = []
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            j = n // i
-            if j > 1:
-                factors.append((i, j))
+    d = 2
+    while d * d <= n:
+        count = 0
+        while n % d == 0:
+            count += 1
+            n //= d
+        if count > 0:
+            factors.append((d, count))
+        d += 1
+    
+    if n > 1:
+        factors.append((n, 1))
+    
     return factors
+
+def format_prime_factorization(prime_factors: List[Tuple[int, int]]) -> str:
+    """Format prime factorization as readable string."""
+    if not prime_factors:
+        return "1"
+    
+    if len(prime_factors) == 1 and prime_factors[0][1] == 1:
+        return f"{prime_factors[0][0]} (prime)"
+    
+    terms = []
+    for prime, power in prime_factors:
+        if power == 1:
+            terms.append(str(prime))
+        else:
+            terms.append(f"{prime}^{power}")
+    
+    return " × ".join(terms)
+
 
 def calculate_power_exponents(theory_num: int, decomp_indices: List[int], theory_type: str) -> Dict[str, any]:
     """Calculate T1 and T2 power exponents based on theory type."""
@@ -430,7 +453,7 @@ def generate_template_variables(theory_num: int) -> Dict[str, any]:
     fs_complexity = calculate_fold_signature_complexity(decomp_indices)
     tensor_analysis = calculate_tensor_space_dimensions(theory_num, decomp_indices)
     power_exponents = calculate_power_exponents(theory_num, decomp_indices, theory_type)
-    factorizations = get_factorizations(theory_num)
+    prime_factorization = get_prime_factorization(theory_num)
     
     # Build template variable map
     template_vars = {
@@ -448,7 +471,7 @@ def generate_template_variables(theory_num: int) -> Dict[str, any]:
         '复杂度等级': len(decomp_indices),
         '实际维数': tensor_analysis['legal_subspace_dim_bound'],
         'T1 与 T2 的幂指数': f"T₁^{power_exponents['T1_power']} ⊗ T₂^{power_exponents['T2_power']}",
-        '因式分解': str(factorizations) if factorizations else "Prime - no factorizations",
+        '质因式分解': format_prime_factorization(prime_factorization),
         '列出每个F_k对应的基态空间': ', '.join([f"ℋ_F{i} = ℂ^{fib_seq[i-1]}" for i in decomp_indices]),
         '张量积构造': f"⊗_{{k∈{{{', '.join(map(str, decomp_indices))}}}}} ℋ_{{F_k}}",
         '目标空间': f"ℂ^{tensor_analysis['tensor_product_dim']}",
@@ -542,7 +565,7 @@ def format_output(metadata: Dict[str, any]) -> str:
     if template_vars:
         output.append("\n🎯 TEMPLATE VARIABLES:")
         key_vars = ['N', 'Zeck编码', '指数集合', '组合度', '分类依据', '计算结果', 
-                   '维度计算', '熵增值', '复杂度等级', 'T1 与 T2 的幂指数', '因式分解']
+                   '维度计算', '熵增值', '复杂度等级', 'T1 与 T2 的幂指数', '质因式分解']
         for key in key_vars:
             if key in template_vars:
                 output.append(f"{key}: {template_vars[key]}")
@@ -567,8 +590,8 @@ def format_output(metadata: Dict[str, any]) -> str:
     output.append("\n⚙️ GENERATION RULES:")
     output.append(f"G1 (Zeckendorf): {gen_rules['g1_zeckendorf']['applicable']} - {gen_rules['g1_zeckendorf']['method']}")
     output.append(f"G2 (Multiplicative): {gen_rules['g2_multiplicative']['applicable']}")
-    if gen_rules['g2_multiplicative']['factorizations']:
-        output.append(f"  Factorizations: {gen_rules['g2_multiplicative']['factorizations']}")
+    if gen_rules['g2_multiplicative']['prime_factorization']:
+        output.append(f"  Prime Factorization: {format_prime_factorization(gen_rules['g2_multiplicative']['prime_factorization'])}")
     
     # Tensor Space Analysis
     output.append("\n🧮 TENSOR SPACE ANALYSIS:")
