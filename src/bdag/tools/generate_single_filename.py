@@ -176,6 +176,59 @@ def analyze_generation_rules(theory_num: int, theory_type: str) -> Dict[str, any
         }
     }
 
+def calculate_golden_ratio_entropy(n: int) -> float:
+    """Calculate log_φ(N) for entropy calculation."""
+    phi = (1 + math.sqrt(5)) / 2
+    if n <= 0:
+        return 0.0
+    return math.log(n) / math.log(phi)
+
+def get_factorizations(n: int) -> List[Tuple[int, int]]:
+    """Get all non-trivial factorizations of n."""
+    factors = []
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            j = n // i
+            if j > 1:
+                factors.append((i, j))
+    return factors
+
+def calculate_power_exponents(theory_num: int, decomp_indices: List[int], theory_type: str) -> Dict[str, any]:
+    """Calculate T1 and T2 power exponents based on theory type."""
+    fib_seq = fibonacci_sequence(20)
+    
+    if theory_type == "AXIOM":
+        return {
+            'T1_power': 1,
+            'T2_power': 0,
+            'explanation': 'AXIOM theory: pure T1 basis'
+        }
+    elif theory_type == "FIBONACCI":
+        # Find which Fibonacci position this is
+        fib_pos = None
+        for i, fib_val in enumerate(fib_seq):
+            if fib_val == theory_num:
+                fib_pos = i + 1
+                break
+        
+        if fib_pos and fib_pos >= 3:
+            return {
+                'T1_power': fib_seq[fib_pos - 3] if fib_pos >= 3 else 0,  # F_{k-2}
+                'T2_power': fib_seq[fib_pos - 2] if fib_pos >= 2 else 0,  # F_{k-1}
+                'explanation': f'Fibonacci recursion: T₂^{fib_seq[fib_pos - 2] if fib_pos >= 2 else 0} ⊗ T₁^{fib_seq[fib_pos - 3] if fib_pos >= 3 else 0}'
+            }
+    
+    # For other types, use Zeckendorf decomposition
+    fib_values = [fib_seq[i-1] for i in decomp_indices]
+    t1_power = fib_values.count(1)
+    t2_power = fib_values.count(2)
+    
+    return {
+        'T1_power': t1_power,
+        'T2_power': t2_power,
+        'explanation': f'From Zeckendorf components: T₁ appears {t1_power} times, T₂ appears {t2_power} times'
+    }
+
 def calculate_tensor_space_dimensions(theory_num: int, decomp_indices: List[int]) -> Dict[str, any]:
     """Calculate tensor space parameters according to metatheory.
     
@@ -197,6 +250,9 @@ def calculate_tensor_space_dimensions(theory_num: int, decomp_indices: List[int]
     # Legal subspace dimension after Π projection (≤ tensor product)
     legal_subspace_dim = tensor_product_dim  # Upper bound
     
+    # Calculate golden ratio entropy
+    entropy_bits = calculate_golden_ratio_entropy(theory_num)
+    
     return {
         'base_spaces': {
             f'H_F{idx}': {'fibonacci_index': idx, 'fibonacci_value': val, 'dimension': val}
@@ -204,7 +260,8 @@ def calculate_tensor_space_dimensions(theory_num: int, decomp_indices: List[int]
         },
         'tensor_product_dim': tensor_product_dim,
         'legal_subspace_dim_bound': legal_subspace_dim,
-        'information_content_bits': math.log2(theory_num) if theory_num > 0 else 0
+        'information_content_bits': math.log2(theory_num) if theory_num > 0 else 0,
+        'golden_ratio_entropy': entropy_bits
     }
 
 def generate_v1_v5_verification(theory_num: int, decomp_indices: List[int], 
@@ -288,6 +345,92 @@ def analyze_dependency_inheritance(theory_num: int, decomp_indices: List[int]) -
         'dependency_depth': len(decomp_indices)  # Approximation
     }
 
+def get_theory_dependencies(theory_num: int, theory_type: str, decomp_indices: List[int]) -> str:
+    """Get correct dependency string based on theory type and Fibonacci rules."""
+    fib_seq = fibonacci_sequence(20)
+    
+    if theory_type == "AXIOM":
+        return "UNIVERSE"
+    elif theory_type == "FIBONACCI":
+        # Fibonacci theories follow F_k = F_{k-1} + F_{k-2} recursion
+        fib_pos = None
+        for i, fib_val in enumerate(fib_seq):
+            if fib_val == theory_num:
+                fib_pos = i + 1
+                break
+        
+        if fib_pos and fib_pos >= 3:
+            # F_k depends on F_{k-1} and F_{k-2}
+            prev_fib = fib_seq[fib_pos - 2]  # F_{k-1}
+            prev_prev_fib = fib_seq[fib_pos - 3]  # F_{k-2}
+            return f"T{prev_fib}+T{prev_prev_fib}"
+        elif fib_pos == 2:
+            return "T1"  # F_2 depends only on F_1
+    elif theory_type == "PRIME-FIB":
+        # PRIME-FIB theories that are also Fibonacci follow Fibonacci rules
+        fib_pos = None
+        for i, fib_val in enumerate(fib_seq):
+            if fib_val == theory_num:
+                fib_pos = i + 1
+                break
+        
+        if fib_pos and fib_pos >= 3:
+            prev_fib = fib_seq[fib_pos - 2]  # F_{k-1}
+            prev_prev_fib = fib_seq[fib_pos - 3]  # F_{k-2}
+            return f"T{prev_fib}+T{prev_prev_fib}"
+        elif fib_pos == 2:
+            return "T1"
+    
+    # For PRIME and COMPOSITE, use Zeckendorf decomposition
+    return "+".join([f"T{fib_seq[i-1]}" for i in decomp_indices])
+
+def generate_template_variables(theory_num: int) -> Dict[str, any]:
+    """Generate all template variables needed for THEORY_TEMPLATE.md."""
+    # Basic calculations
+    decomp_indices = zeckendorf_decomposition(theory_num)
+    theory_type = determine_theory_type(theory_num)
+    fib_seq = fibonacci_sequence(20)
+    
+    # Build components
+    zeck_parts = [f"F{i}" for i in decomp_indices]
+    zeck_str = "+".join(zeck_parts)
+    zeck_values = "+".join([str(fib_seq[i-1]) for i in decomp_indices])
+    from_deps = get_theory_dependencies(theory_num, theory_type, decomp_indices)
+    
+    # Advanced calculations
+    fs_complexity = calculate_fold_signature_complexity(decomp_indices)
+    tensor_analysis = calculate_tensor_space_dimensions(theory_num, decomp_indices)
+    power_exponents = calculate_power_exponents(theory_num, decomp_indices, theory_type)
+    factorizations = get_factorizations(theory_num)
+    
+    # Build template variable map
+    template_vars = {
+        'N': theory_num,
+        '理论名称': f"Theory{theory_num}",  # Placeholder - should be meaningful name
+        'Zeck编码': f"({', '.join(map(str, decomp_indices))})",
+        '指数集合': f"{{{', '.join(map(str, decomp_indices))}}}",
+        '组合度': len(decomp_indices),
+        '分类依据': f"N={theory_num} is {theory_type.lower()}",
+        '依赖理论集合': from_deps.replace('+', ', '),
+        '计算结果': fs_complexity['total_fs'],
+        '具体分解': f"{zeck_str} = {zeck_values}",
+        '维度计算': tensor_analysis['tensor_product_dim'],
+        '熵增值': f"{tensor_analysis['golden_ratio_entropy']:.3f}",
+        '复杂度等级': len(decomp_indices),
+        '实际维数': tensor_analysis['legal_subspace_dim_bound'],
+        'T1 与 T2 的幂指数': f"T₁^{power_exponents['T1_power']} ⊗ T₂^{power_exponents['T2_power']}",
+        '因式分解': str(factorizations) if factorizations else "Prime - no factorizations",
+        '列出每个F_k对应的基态空间': ', '.join([f"ℋ_F{i} = ℂ^{fib_seq[i-1]}" for i in decomp_indices]),
+        '张量积构造': f"⊗_{{k∈{{{', '.join(map(str, decomp_indices))}}}}} ℋ_{{F_k}}",
+        '目标空间': f"ℂ^{tensor_analysis['tensor_product_dim']}",
+        '理论类型': theory_type,
+        'value': theory_num,  # Generic value placeholder
+        'complexity_level': len(decomp_indices),
+        'dimension': tensor_analysis['tensor_product_dim']
+    }
+    
+    return template_vars
+
 def generate_theory_metadata(theory_num: int) -> Dict[str, any]:
     """Generate complete metatheory-based analysis for theory construction."""
     # Basic calculations
@@ -299,7 +442,7 @@ def generate_theory_metadata(theory_num: int) -> Dict[str, any]:
     zeck_parts = [f"F{i}" for i in decomp_indices]
     zeck_str = "+".join(zeck_parts)
     zeck_values = "+".join([str(fib_seq[i-1]) for i in decomp_indices])
-    from_deps = "+".join([f"T{fib_seq[i-1]}" for i in decomp_indices])
+    from_deps = get_theory_dependencies(theory_num, theory_type, decomp_indices)
     
     # Advanced analysis
     fs_complexity = calculate_fold_signature_complexity(decomp_indices)
@@ -308,6 +451,7 @@ def generate_theory_metadata(theory_num: int) -> Dict[str, any]:
     tensor_analysis = calculate_tensor_space_dimensions(theory_num, decomp_indices)
     v1_v5_verification = generate_v1_v5_verification(theory_num, decomp_indices, theory_type)
     dependency_analysis = analyze_dependency_inheritance(theory_num, decomp_indices)
+    template_vars = generate_template_variables(theory_num)
     
     # Generate theory name placeholder
     theory_name = f"Theory{theory_num}"
@@ -333,6 +477,7 @@ def generate_theory_metadata(theory_num: int) -> Dict[str, any]:
         'tensor_space': tensor_analysis,
         'v1_v5_verification': v1_v5_verification,
         'dependency_analysis': dependency_analysis,
+        'template_variables': template_vars,
         'metatheory_status': {
             'compatible': True,
             'verification_summary': 'All V1-V5 conditions satisfied',
@@ -349,6 +494,7 @@ def format_output(metadata: Dict[str, any]) -> str:
     tensor = metadata['tensor_space']
     v1_v5 = metadata['v1_v5_verification']
     deps = metadata['dependency_analysis']
+    template_vars = metadata.get('template_variables', {})
     
     output = []
     output.append("=" * 80)
@@ -362,6 +508,19 @@ def format_output(metadata: Dict[str, any]) -> str:
     output.append(f"Theory Type: {basic['theory_type']}")
     output.append(f"Dependencies: {{{', '.join(basic['dependencies'])}}}")
     output.append(f"Filename: {basic['filename']}")
+    
+    # Template Variables
+    if template_vars:
+        output.append("\n🎯 TEMPLATE VARIABLES:")
+        key_vars = ['N', 'Zeck编码', '指数集合', '组合度', '分类依据', '计算结果', 
+                   '维度计算', '熵增值', '复杂度等级', 'T1 与 T2 的幂指数', '因式分解']
+        for key in key_vars:
+            if key in template_vars:
+                output.append(f"{key}: {template_vars[key]}")
+        
+        output.append(f"列出每个F_k对应的基态空间: {template_vars.get('列出每个F_k对应的基态空间', 'N/A')}")
+        output.append(f"张量积构造: {template_vars.get('张量积构造', 'N/A')}")
+        output.append(f"目标空间: {template_vars.get('目标空间', 'N/A')}")
     
     # Fold Signature Analysis
     output.append("\n🔧 FOLD SIGNATURE (FS) ANALYSIS:")
@@ -387,6 +546,7 @@ def format_output(metadata: Dict[str, any]) -> str:
     output.append(f"Base spaces: {list(tensor['base_spaces'].keys())}")
     output.append(f"Tensor product dimension: {tensor['tensor_product_dim']}")
     output.append(f"Information content: {tensor['information_content_bits']:.2f} bits")
+    output.append(f"Golden ratio entropy: {tensor['golden_ratio_entropy']:.3f} bits")
     
     # V1-V5 Verification
     output.append("\n✅ V1-V5 VERIFICATION:")
