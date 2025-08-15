@@ -243,13 +243,13 @@ def calculate_power_exponents(theory_num: int, decomp_indices: List[int], theory
     
     # For other types, use Tensor Power Exponent Law
     # 张量幂指数定律: T_{F_k} ≅ Π(T_2^{⊗F_{k-1}} ⊗ T_1^{⊗F_{k-2}})
-    # with F_0 = 0 by convention
+    # with F_0 = 1 by convention (corrected)
     
     total_t1_power = 0  # T_1 power (external observation)
     total_t2_power = 0  # T_2 power (self observation)
     
-    # Add F_0 = 0 to the sequence for easier indexing
-    fib_with_zero = [0] + fib_seq  # [0, 1, 2, 3, 5, 8, 13, 21, ...]
+    # Add F_0 = 1 to the sequence for easier indexing
+    fib_with_f0 = [1] + fib_seq  # [1, 1, 2, 3, 5, 8, 13, 21, ...]
     
     calculation_steps = []
     
@@ -258,15 +258,15 @@ def calculate_power_exponents(theory_num: int, decomp_indices: List[int], theory
         # T_2 power: F_{k-1} 
         # T_1 power: F_{k-2}
         
-        if idx == 1:  # F_1: F_0=0, F_{-1}=1 (by convention for F_1)
-            t2_contrib = 0  # F_0 = 0
-            t1_contrib = 1  # F_{-1} = 1 by convention
-        elif idx == 2:  # F_2: F_1=1, F_0=0  
+        if idx == 1:  # F_1: F_0=1, F_{-1}=? (边界情况)
+            t2_contrib = 1  # F_0 = 1
+            t1_contrib = 0  # F_{-1} = 0 by convention
+        elif idx == 2:  # F_2: F_1=1, F_0=1  
             t2_contrib = 1  # F_1 = 1
-            t1_contrib = 0  # F_0 = 0
+            t1_contrib = 1  # F_0 = 1
         else:  # F_k for k >= 3
-            t2_contrib = fib_with_zero[idx-1] if idx-1 >= 0 else 0  # F_{k-1}
-            t1_contrib = fib_with_zero[idx-2] if idx-2 >= 0 else 0  # F_{k-2}
+            t2_contrib = fib_with_f0[idx-1] if idx-1 >= 0 else 0  # F_{k-1}
+            t1_contrib = fib_with_f0[idx-2] if idx-2 >= 0 else 0  # F_{k-2}
             
         total_t2_power += t2_contrib
         total_t1_power += t1_contrib
