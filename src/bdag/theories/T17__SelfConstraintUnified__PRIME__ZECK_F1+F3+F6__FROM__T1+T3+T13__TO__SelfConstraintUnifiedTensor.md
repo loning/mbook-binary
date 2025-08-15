@@ -13,9 +13,9 @@
 **组合度**: m = |**z**| = 3  
 **分类类型**: PRIME (N=17 is prime) 
 
-**幂指数**: T₁¹ ⊗ T₂⁰ 
+**幂指数**: T₁⁶ ⊗ T₂¹¹ 
 
-**因式分解**: Prime - no factorizations
+**质因式分解**: 17 (素数)
 
 ### 1.2 折叠签名族 (Folding Signature Family)
 基于元理论生成引擎，T17的完整折叠签名集合：
