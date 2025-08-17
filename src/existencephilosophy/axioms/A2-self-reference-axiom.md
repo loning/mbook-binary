@@ -10,7 +10,6 @@
 - `E` : 存在本体
 - `Def(x, y)` : x定义y
 - `SelfDef(x)` : x自我定义
-- `NonE` : 非存在
 - `→` : 逻辑蕴含
 - `¬` : 逻辑否定
 - `∀` : 全称量词
@@ -18,7 +17,8 @@
 ### 公理表述
 
 ```
-A2: ∀x • Def(x, E) → (x = E) ∧ SelfDef(E) ∧ ¬Def(NonE, E)
+A2: (∀x • Def(x, E) → x = E) ∧ SelfDef(E)
+其中 SelfDef(E) ≡ Def(E, E)
 ```
 
 ### 组成部分解析
@@ -35,17 +35,8 @@ A2: ∀x • Def(x, E) → (x = E) ∧ SelfDef(E) ∧ ¬Def(NonE, E)
    ```
    存在本体具有自我定义的性质
 
-3. **非存在的排斥性**：
-   ```
-   ¬Def(NonE, E)
-   ```
-   非存在不能定义存在
 
-4. **定义的完备性**：
-   ```
-   SelfDef(E) → (∀P • P about E → P derivable from SelfDef(E))
-   ```
-   存在的自我定义是关于存在的一切真理的源泉
+注：删除了涉及未定义概念的"完备性"声明。
 
 ## 哲学含义
 

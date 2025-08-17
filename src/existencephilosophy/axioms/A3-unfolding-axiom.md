@@ -30,7 +30,7 @@ A3: Unfold(E) = {Info, Time, Diff} ∧
 ```
 Necessity: SelfDef(E) → Unfold(E)
 ```
-**证明思路**：自指必然产生分化，因为自指包含了主体与客体的区分。
+**推导基础**：根据axiom-derivations.md中A2→A3的严格证明。
 
 ### 组成部分解析
 

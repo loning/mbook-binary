@@ -55,11 +55,11 @@
 9. 分析情况B: 假设y₀ ≠ E且Def(y₀, E)
    
    9.1. 引理：定义的认知依赖
-        Lemma: ∀x,y • (x ≠ y ∧ Def(x, y)) → CognitivelyDependent(y, x)
+        Lemma: ∀x,y • (x ≠ y ∧ Def(x, y)) → RequiresForUnderstanding(y, x)
         说明：如果x≠y且x定义y，则理解y需要先理解x
         这是定义关系的认知结构
    
-   9.2. 应用引理: (y₀ ≠ E ∧ Def(y₀, E)) → CognitivelyDependent(E, y₀)
+   9.2. 应用引理: (y₀ ≠ E ∧ Def(y₀, E)) → RequiresForUnderstanding(E, y₀)
    
    9.3. 分析y₀的存在基础:
         9.3.1. y₀ ∈ 𝔻且y₀ ≠ E                      [假设]
@@ -73,7 +73,7 @@
         9.4.3. 这造成认知循环依赖               [9.4.1 ∧ 9.4.2]
    
    9.5. 原则：避免认知循环依赖
-        Principle: ¬∃x,y • CognitivelyDependent(x,y) ∧ CognitivelyDependent(y,x)
+        Principle: ¬∃x,y • RequiresForUnderstanding(x,y) ∧ RequiresForUnderstanding(y,x)
         理由：认知依赖关系应构成有向无环图
    
    9.6. 矛盾：9.4.3违反9.5的原则
