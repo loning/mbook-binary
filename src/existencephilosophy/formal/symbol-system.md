@@ -97,8 +97,8 @@ Independent(x) ≡ ∀y ≠ x • ¬Depends(x, y)
 SelfAware(o) ≡ ∃i • Aware(o, i) ∧ Aware(o, Aware(o, i))
   "o具有自我觉知"
 
-Consciousness(o) ≡ SelfAware(o) ∧ ∃i • Aware(o, Aware(o, i))
-  "o具有意识"
+Consciousness(o) ≡ SelfAware(o) ∧ ∃reflection_capacity
+  "o具有意识（自我觉知能力和反思能力）"
 ```
 
 ### 4. 逻辑连接词 (Logical Connectives)
