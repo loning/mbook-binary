@@ -344,7 +344,7 @@ $$\mathcal{H}_{61} \cong \mathbb{C}^{275}$$
 设T61继承约束集合C = {C_T1, C_T5, C_T55}：
 
 **约束转化公式**:
-$$\text{Constraints}(T_{61}) = \mathcal{F}_{inherit}(\text{C_T1} \cup \text{C_T5} \cup \text{C_T55}, \mathcal{T}_{61})$$
+$$\text{Constraints}(T_{61}) = \mathcal{F}_{inherit}(\text{C}_{T1} \cup \text{C}_{T5} \cup \text{C}_{T55}, \mathcal{T}_{61})$$
 
 其中约束在275维张量空间中表现为自定位系统的边界条件。
 

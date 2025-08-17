@@ -328,7 +328,7 @@ $$\mathcal{H}_{60} \cong \mathbb{C}^{275}$$
 设T60继承约束集合C = {C_T5, C_T55}：
 
 **约束转化公式**:
-$$\text{Constraints}(T_{60}) = \mathcal{F}_{inherit}(\text{C_T5} \cup \text{C_T55}, \mathcal{T}_{60})$$
+$$\text{Constraints}(T_{60}) = \mathcal{F}_{inherit}(\text{C}_{T5} \cup \text{C}_{T55}, \mathcal{T}_{60})$$
 
 其中约束在275维张量空间中表现为空间导航的边界条件。
 

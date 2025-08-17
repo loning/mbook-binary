@@ -414,7 +414,7 @@ $$T_{57} \leadsto T_m \iff m = 57 + F_k \text{ 且 } \text{No11}(m)$$
 
 ### 7.2 组合数学
 **定理 T57.7**: 熵增超现实的组合复杂度
-$$\text{Complexity}(T_{57}) = \#FS \times \dim(\mathcal{L}) = 2 \times 110 = 220$$
+$$\text{Complexity}(T_{57}) = |\text{FS}| \times \dim(\mathcal{L}) = 2 \times 110 = 220$$
 
 ## 8. 意识与信息整合分析
 

@@ -31,13 +31,13 @@ additional-head-tags = '''
 [output.html.search]
 enable = true
 limit-results = 20
-teaser-word-count = 30
+teaser-word-count = 15
 use-boolean-and = true
 boost-title = 2
 boost-hierarchy = 1
 boost-paragraph = 1
 expand = true
-heading-split-level = 3
+heading-split-level = 2
 copy-js = true
 
 [output.html.fold]

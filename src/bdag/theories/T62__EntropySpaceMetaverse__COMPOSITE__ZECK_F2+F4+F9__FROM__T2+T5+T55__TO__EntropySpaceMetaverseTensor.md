@@ -347,7 +347,7 @@ $$\mathcal{H}_{62} \cong \mathbb{C}^{550}$$
 设T62继承约束集合C = {C_T2, C_T5, C_T55}：
 
 **约束转化公式**:
-$$\text{Constraints}(T_{62}) = \mathcal{F}_{inherit}(\text{C_T2} \cup \text{C_T5} \cup \text{C_T55}, \mathcal{T}_{62})$$
+$$\text{Constraints}(T_{62}) = \mathcal{F}_{inherit}(\text{C}_{T2} \cup \text{C}_{T5} \cup \text{C}_{T55}, \mathcal{T}_{62})$$
 
 其中约束在550维张量空间中表现为演化动力学的边界条件。
 

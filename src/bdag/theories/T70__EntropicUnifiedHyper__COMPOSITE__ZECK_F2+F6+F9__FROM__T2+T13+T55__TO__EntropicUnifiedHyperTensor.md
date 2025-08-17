@@ -447,7 +447,7 @@ $$T_{70} \leadsto T_m \iff m = 70 + F_k \text{ for some } k \text{ or } m \text{
 
 ### 9.2 组合数学
 **定理 T70.7**: T₇₀的组合复杂度
-$$\text{Complexity}(T_{70}) = #FS \times \dim(\mathcal{L}) = 12 \times 1430 = 17160$$
+$$\text{Complexity}(T_{70}) = |\text{FS}| \times \dim(\mathcal{L}) = 12 \times 1430 = 17160$$
 
 ### 9.3 五重等价性映射 (包含F5的扩展分析)
 

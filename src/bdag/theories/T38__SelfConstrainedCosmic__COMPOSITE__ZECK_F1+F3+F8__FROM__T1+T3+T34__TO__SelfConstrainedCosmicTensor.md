@@ -401,7 +401,7 @@ $$T_{38} \leadsto T_m \iff m = 38 + F_k \text{ for some } F_k$$
 
 ### 7.2 组合数学
 **定理 T38.6**: T38的折叠签名复杂度呈阶乘增长
-$$#FS(T_{38}) = 3! \times \text{Catalan}(2) = 12$$
+$$|\text{FS}(T_{38})| = 3! \times \text{Catalan}(2) = 12$$
 
 ## 8. 意识与信息整合分析
 

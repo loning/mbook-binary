@@ -339,7 +339,7 @@ $$\mathcal{H}_{59} \cong \mathbb{C}^{165}$$
 设T59继承约束集合C = {C_T3, C_T55}：
 
 **约束转化公式**:
-$$\text{Constraints}(T_{59}) = \mathcal{F}_{inherit}(\text{C_T3} \cup \text{C_T55}, \mathcal{T}_{59})$$
+$$\text{Constraints}(T_{59}) = \mathcal{F}_{inherit}(\text{C}_{T3} \cup \text{C}_{T55}, \mathcal{T}_{59})$$
 
 其中约束在165维张量空间中表现为投影算子Π的组合。
 
