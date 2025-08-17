@@ -98,6 +98,12 @@
 - [`D1-7-collapse-operator.md`](./D1-7-collapse-operator.md) - 定义1.7：Collapse算子的数学表述
 - [`D1-8-phi-representation.md`](./D1-8-phi-representation.md) - 定义1.8：φ-表示系统的完整定义
 - [`D1-9-measurement-observer-separation.md`](./D1-9-measurement-observer-separation.md) - 定义1.9：测量-观察者分离定义（**新增**：解决循环依赖）
+- [`D1-10-entropy-information-equivalence.md`](./D1-10-entropy-information-equivalence.md) - 定义1.10：熵-信息等价性的精确数学定义（**新增**：H_φ ≡ I_φ关系）
+- [`D1-11-spacetime-encoding-function.md`](./D1-11-spacetime-encoding-function.md) - 定义1.11：时空编码函数的形式化定义（**新增**：Ψ(x,t)时空结构）
+- [`D1-12-quantum-classical-boundary.md`](./D1-12-quantum-classical-boundary.md) - 定义1.12：量子-经典边界的数学表述（**新增**：测量坍缩机制）
+- [`D1-13-multiscale-emergence-hierarchy.md`](./D1-13-multiscale-emergence-hierarchy.md) - 定义1.13：多尺度涌现的层次定义（**新增**：φ^n尺度层次）
+- [`D1-14-consciousness-threshold-definition.md`](./D1-14-consciousness-threshold-definition.md) - 定义1.14：意识阈值的信息论定义（**新增**：Φ_c = φ^10阈值）
+- [`D1-15-self-reference-depth-definition.md`](./D1-15-self-reference-depth-definition.md) - 定义1.15：自指深度的递归量化定义（**新增**：D_self(S)递归测度）
 
 #### 2.2 编码需求引理系列（证明编码的必然性）
 - [`L1-1-encoding-emergence.md`](./L1-1-encoding-emergence.md) - 引理1.1：编码需求的涌现
