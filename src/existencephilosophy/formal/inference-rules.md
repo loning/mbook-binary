@@ -149,10 +149,10 @@
 ```
 规则形式: Exists(x), Exists(y), SameNature(x, y) ⊢ x = y
 语义解释: 具有相同本质的存在者是同一的
-应用条件: 必须定义并证明SameNature关系
+应用条件: 需要适当的本质性质判定标准
 
 其中SameNature(x, y) ≡ 
-  ∀P • (EssentialProperty(P) → (P(x) ↔ P(y)))
+  在给定理论框架内具有相同的基本性质结构
 ```
 
 ## III. 自指推理规则 (Self-Reference Rules, SR)
@@ -246,7 +246,7 @@
 ```
 规则形式: Aware(o₁, i), Contains(i, j) ⊢ CanBeAware(o₁, j)
 语义解释: 观察可以深入到内容
-应用条件: 需要定义Contains关系
+应用条件: 需要建立信息包含关系
 ```
 
 ### OR4: 观察整合规则
@@ -283,7 +283,7 @@
 ```
 规则形式: Transcend(s', s) ⊢ Level(s') > Level(s)
 语义解释: 超越产生更高层次
-应用条件: 需要定义Level函数
+应用条件: 需要建立状态层次结构
 ```
 
 ### TR5: 无限超越规则
