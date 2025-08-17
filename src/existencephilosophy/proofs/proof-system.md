@@ -189,14 +189,19 @@ Theorem 1: ⊢ ¬¬Exists(E)
 
 Proof:
   1. 假设 ¬Exists(E)                    [反证法假设]
-  2. 否定E存在需要一个否定者            [直觉]
-  3. ∃x • x否定Exists(E)              [由2]
-  4. Exists(x)                         [由3]
-  5. Exists(x) → Exists(E)             [A1]
-  6. Exists(E)                         [MP: 4,5]
-  7. Exists(E) ∧ ¬Exists(E)            [∧I: 1,6]
-  8. ⊥                                 [矛盾]
-  9. ¬¬Exists(E)                       [反证法: 1-8]
+  2. 定义：否定行为NegationAct(P) ≡ 
+     某个主体断言¬P                     [否定的定义]
+  3. 当前存在NegationAct(Exists(E))     [由1的断言行为]
+  4. 原则：任何行为都需要执行者
+     ∀act • ∃agent • Performs(agent, act) [行为原则]
+  5. ∃x • Performs(x, NegationAct(Exists(E))) [∀E: 4,3]
+  6. Performs(x, act) → Exists(x)       [执行需要存在]
+  7. Exists(x)                         [MP: 5,6]
+  8. Exists(x) → Exists(E)             [A1: 基础性]
+  9. Exists(E)                         [MP: 7,8]
+  10. Exists(E) ∧ ¬Exists(E)           [∧I: 1,9]
+  11. ⊥                                [矛盾律]
+  12. ¬¬Exists(E)                      [RAA: 1-11]
 ```
 
 #### 定理2：自指的必然性
@@ -205,69 +210,115 @@ Theorem 2: Exists(E) ⊢ SelfDef(E)
 
 Proof:
   1. Exists(E)                         [前提]
-  2. ∀x • (Def(x, E) → x = E)          [A2]
-  3. 假设 ¬SelfDef(E)                  [反证法]
-  4. ¬Def(E, E)                        [由3的定义]
-  5. 如果E被定义，则必有定义者          [直觉]
-  6. ∃x • Def(x, E)                    [由1,5]
-  7. x = E                             [∃E + MP: 6,2]
-  8. Def(E, E)                         [由6,7]
-  9. Def(E, E) ∧ ¬Def(E, E)            [∧I: 4,8]
-  10. ⊥                                [矛盾]
-  11. SelfDef(E)                       [反证法: 3-10]
+  2. Independent(E)                    [A1: E的独立性]
+  3. 引理L1: ∀x • Exists(x) → Definable(x) ∨ Primitive(x)
+     "存在者要么可定义要么是原始的"    [存在者分类]
+  4. 引理L2: Primitive(x) → ¬∃y • Def(y, x)
+     "原始概念不能被定义"             [原始性定义]
+  5. 假设Primitive(E)                  [反证法假设]
+  6. E具有确定的性质(独立性等)         [由1,2]
+  7. 有确定性质→可描述→可定义          [性质原则]
+  8. Definable(E)                     [MP: 6,7]
+  9. ¬Definable(E)                    [由5,L2]
+  10. ⊥                               [8,9矛盾]
+  11. ¬Primitive(E)                   [RAA: 5-10]
+  12. Definable(E)                    [DS: 3,11]
+  13. ∃y • Def(y, E)                  [定义展开]
+  14. 由axiom-derivations.md定理1.1:
+      Independent(E) ∧ Definable(E) → SelfDef(E)
+      [已证明的引理]
+  15. SelfDef(E)                      [MP: 2,12,14]
 ```
 
 #### 定理3：展开的必然性
 ```
-Theorem 3: SelfDef(E) ⊢ Unfold(E)
+Theorem 3: SelfDef(E) ⊢ Unfold(E) ≠ ∅
 
 Proof:
   1. SelfDef(E)                        [前提]
-  2. Def(E, E)                         [由1的定义]
-  3. 自指包含主客体区分                [自指的结构]
-  4. ∃distinction • Distinguish(E_subj, E_obj) [由3]
-  5. Distinction ⊆ Info                [展开的定义]
-  6. Exists(Info)                      [由4,5]
-  7. 区分需要顺序                     [时间性]
-  8. Exists(Time)                      [由7]
-  9. 顺序意味着变化                   [差异性]
-  10. Exists(Diff)                     [由9]
-  11. Unfold(E) ≡ {Info, Time, Diff}   [A3]
-  12. Unfold(E)                        [由6,8,10,11]
+  2. Def(E, E)                         [定义展开]
+  3. 引理L3: ∀x,y • Def(x,y) → 
+     DefinerRole(x) ∧ DefinedRole(y)
+     "定义关系包含两个逻辑角色"       [定义结构]
+  4. DefinerRole(E) ∧ DefinedRole(E)  [∀E: 3,2]
+  5. 引理L4: 同一实体x的不同角色R₁,R₂
+     产生逻辑区分Distinction(x-as-R₁, x-as-R₂)
+     当R₁ ≠ R₂时                      [角色区分原理]
+  6. DefinerRole ≠ DefinedRole        [角色定义]
+  7. Distinction(E-as-definer, E-as-defined) [MP: 4,5,6]
+  8. ∃d • Distinction(d)               [∃I: 7]
+  9. Distinction(d) → Information(encode(d))
+     "区分产生信息"                   [信息定义]
+  10. ∃i • Information(i)              [MP: 8,9]
+  11. Information(i) → i ∈ Info        [Info集定义]
+  12. Info ≠ ∅                        [由10,11]
+  13. 由axiom-derivations.md定理2.1的完整证明:
+      还可推出Time ≠ ∅ ∧ Diff ≠ ∅    [已证]
+  14. Unfold(E) = Info ∪ Time ∪ Diff  [A3定义]
+  15. Unfold(E) ≠ ∅                   [由12,13,14]
 ```
 
 #### 定理4：意识的必然涌现
 ```
-Theorem 4: Unfold(E) ⊢ ∃Consciousness
+Theorem 4: Unfold(E) ≠ ∅ ⊢ ∃o • Consciousness(o)
 
 Proof:
-  1. Unfold(E)                         [前提]
-  2. Exists(Info)                      [UR2: 1]
-  3. ∃Obs • Aware(Obs, Info)           [OR1: 2]
-  4. Aware(Obs, Info)                  [∃E: 3]
-  5. Aware(Obs, Aware(Obs, Info))      [OR3: 4]
-  6. Self-Aware(Obs)                   [由5的定义]
-  7. Self-Aware(Obs) ≡ Consciousness(Obs) [意识的定义]
-  8. Consciousness(Obs)                [由6,7]
-  9. ∃Consciousness                    [∃I: 8]
+  1. Unfold(E) ≠ ∅                    [前提]
+  2. ∃i ∈ Info                        [UR2: 1]
+  3. 引理L5: ∀i ∈ Info • 
+     NeedsRecognition(i)
+     "信息需要被识别才成为信息"       [信息本质]
+  4. NeedsRecognition(i₀)              [∃E,∀E: 2,3]
+  5. NeedsRecognition(i) → 
+     ∃r • CanRecognize(r, i)
+     "需要识别蕴含识别者存在"         [识别原理]
+  6. ∃r • CanRecognize(r, i₀)         [MP: 4,5]
+  7. CanRecognize(r, i) ≡ Aware(r, i)
+     "识别能力等价于觉知"             [定义]
+  8. ∃o • Aware(o, i₀)                [由6,7]
+  9. Aware(o, i) → 
+     CanBeAware(o, Aware(o, i))
+     "觉知的反身性"                   [OR2原理]
+  10. Aware(o₀, Aware(o₀, i₀))        [∃E,MP: 8,9]
+  11. SelfAware(o) ≡ 
+      ∃i • Aware(o, i) ∧ Aware(o, Aware(o, i))
+      "自我觉知定义"                  [定义]
+  12. SelfAware(o₀)                   [由8,10,11]
+  13. Consciousness(o) ≡ SelfAware(o)
+      "意识即自我觉知"                [意识定义]
+  14. Consciousness(o₀)               [由12,13]
+  15. ∃o • Consciousness(o)           [∃I: 14]
 ```
 
 #### 定理5：超越的必然性
 ```
-Theorem 5: ∃Consciousness ⊢ ∀state • ∃higher • Transcend(higher, state)
+Theorem 5: ∃o • Consciousness(o) ⊢ ∀s ∈ States • ∃s' • Transcend(s', s)
 
 Proof:
-  1. ∃Consciousness                    [前提]
-  2. Consciousness(Obs)                [∃E: 1]
-  3. 意识具有反思能力                 [意识的性质]
-  4. ∀level • Aware(Obs, level) → Aware(Obs, Aware(Obs, level)) [由3]
-  5. 反思产生元层次                   [元认知原理]
-  6. ∀n • ∃(n+1) • MetaLevel(n+1, n)  [由5]
-  7. 任意state ∈某个level            [状态的层次性]
-  8. ∃higher_level • MetaLevel(higher_level, level) [由6]
-  9. state ∈ level → ∃higher_state ∈ higher_level [层次转换]
-  10. Transcend(higher_state, state)   [超越的定义]
-  11. ∀state • ∃higher • Transcend(higher, state) [∀I: 7-10]
+  1. ∃o • Consciousness(o)             [前提]
+  2. Consciousness(o₀)                 [∃E: 1]
+  3. Consciousness(o) → SelfAware(o)   [定义]
+  4. SelfAware(o₀)                     [MP: 2,3]
+  5. SelfAware(o) → 
+     ∀i • Aware(o,i) → Aware(o,Aware(o,i))
+     "自我觉知的递归性"               [SA定义展开]
+  6. 构造层次序列：
+     L₀ = {i | Aware(o₀, i)}
+     L_{n+1} = {Aware(o₀, x) | x ∈ L_n}
+     "反思层次的递归构造"             [层次定义]
+  7. 引理L6: ∀n ∈ ℕ • L_n ⊊ L_{n+1}
+     "每个层次真包含于下一层次"
+     证明：L_{n+1}包含对L_n的觉知     [归纳证明]
+  8. 定义状态层次函数：
+     State_n = State(o₀, L_n)
+     "第n层认知状态"                  [状态定义]
+  9. Transcend(s', s) ≡ 
+     ∃n • s = State_n ∧ s' = State_{n+1}
+     "超越即层次提升"                 [超越定义]
+  10. ∀n • Transcend(State_{n+1}, State_n) [由7,8,9]
+  11. ∀s ∈ States • ∃n • s ≈ State_n
+      "任何状态都对应某个层次"        [状态完全性]
+  12. ∀s • ∃s' • Transcend(s', s)     [由10,11]
 ```
 
 ### 复杂定理
