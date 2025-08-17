@@ -4,18 +4,20 @@
 
 ### 1. 原始概念 (Primitive Concepts)
 
-#### 1.1 存在域 (Domain of Existence)
+#### 1.1 论域 (Domain of Discourse)
 ```
-𝔻 = {x | x是可能存在或被谈论的对象}
+𝔻 = {x | x可在此理论中被指称和讨论}
 ```
-- 包含：具体存在物、抽象概念、关系、性质、状态
-- 排除：逻辑矛盾的对象（如"方的圆"）
+- 包含：常量符号、变量、谓词所涉及的对象
+- 排除：形式矛盾的符号组合
+- 注：这是形式系统的论域，不预设本体论承诺
 
 #### 1.2 基本常量 (Basic Constants)
 ```
-E ∈ 𝔻  : 存在本体 (Being itself) - 唯一的自立存在
-⊥ ∈ 𝔻  : 空/矛盾 (Empty/Contradiction) - 逻辑不可能状态
+E ∈ 𝔻  : 指称存在本体的常量符号
+⊥ ∈ 𝔻  : 指称矛盾的常量符号
 ```
+注：E和⊥的具体性质由公理系统定义，此处仅给出符号。
 
 #### 1.3 变量约定 (Variable Conventions)
 ```
@@ -80,25 +82,25 @@ Transcend(s₁, s₂) ≡ "状态s₁超越状态s₂"
 
 #### 3.1 子域定义
 ```
-Observers ⊆ 𝔻 = {o ∈ 𝔻 | ∃i • Aware(o, i)}
-Info ⊆ 𝔻 = {i ∈ 𝔻 | ∃o • Aware(o, i) ∨ i ∈ Unfold(E)}
-States ⊆ 𝔻 = {s ∈ 𝔻 | ∃x,t • s = State(x, t)}
-Time ⊆ 𝔻 = {t ∈ 𝔻 | t表示时序关系}
+注：以下子域由公理推导确定，此处仅给出形式结构
+
+Observers ⊆ 𝔻  (观察者子域)
+Info ⊆ 𝔻       (信息子域)  
+States ⊆ 𝔻     (状态子域)
+Time ⊆ 𝔻       (时间子域)
+
+具体元素由A3展开公理和A4观察公理确定
 ```
 
 #### 3.2 复合谓词
 ```
-Depends(x, y) ≡ Exists(x) → Exists(y)
-  "x的存在依赖于y"
+注：以下谓词基于基本谓词定义，避免循环
 
-Independent(x) ≡ ∀y ≠ x • ¬Depends(x, y)
-  "x是独立存在的"
+Depends: 𝔻 × 𝔻 → {True, False}
+Independent: 𝔻 → {True, False}  
+SelfAware: 𝔻 → {True, False}
 
-SelfAware(o) ≡ ∃i • Aware(o, i) ∧ Aware(o, Aware(o, i))
-  "o具有自我觉知"
-
-Consciousness(o) ≡ SelfAware(o) ∧ ∃reflection_capacity
-  "o具有意识（自我觉知能力和反思能力）"
+具体定义由公理系统的推导确定，此处仅给出谓词签名
 ```
 
 ### 4. 逻辑连接词 (Logical Connectives)

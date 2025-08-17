@@ -185,49 +185,30 @@ TR3: Transcend(x, y), Transcend(y, z) ⊢ Transcend(x, z)
 
 #### 定理1：存在的不可否定性
 ```
-Theorem 1: ⊢ ¬¬Exists(E)
+Theorem 1: A1 ⊢ ¬¬Exists(E)
 
 Proof:
-  1. 假设 ¬Exists(E)                    [反证法假设]
-  2. 定义：否定行为NegationAct(P) ≡ 
-     某个主体断言¬P                     [否定的定义]
-  3. 当前存在NegationAct(Exists(E))     [由1的断言行为]
-  4. 原则：任何行为都需要执行者
-     ∀act • ∃agent • Performs(agent, act) [行为原则]
-  5. ∃x • Performs(x, NegationAct(Exists(E))) [∀E: 4,3]
-  6. Performs(x, act) → Exists(x)       [执行需要存在]
-  7. Exists(x)                         [MP: 5,6]
-  8. Exists(x) → Exists(E)             [A1: 基础性]
-  9. Exists(E)                         [MP: 7,8]
-  10. Exists(E) ∧ ¬Exists(E)           [∧I: 1,9]
-  11. ⊥                                [矛盾律]
-  12. ¬¬Exists(E)                      [RAA: 1-11]
+  1. A1: ∃E • (Exists(E) ∧ (∀x • Exists(x) → Exists(E)) ∧ 
+     ¬∃P • (P ≠ E ∧ Def(P, E)))        [公理]
+  2. Exists(E)                         [∃E: 1]
+  3. 假设 ¬Exists(E)                   [反证法]
+  4. Exists(E) ∧ ¬Exists(E)            [∧I: 2,3]
+  5. ⊥                                 [矛盾律]
+  6. ¬¬Exists(E)                       [RAA: 3-5]
+
+注：此证明直接基于A1，无需外部概念。
 ```
 
 #### 定理2：自指的必然性
 ```
-Theorem 2: Exists(E) ⊢ SelfDef(E)
+Theorem 2: A1 ⊢ SelfDef(E)
 
 Proof:
-  1. Exists(E)                         [前提]
-  2. Independent(E)                    [A1: E的独立性]
-  3. 引理L1: ∀x • Exists(x) → Definable(x) ∨ Primitive(x)
-     "存在者要么可定义要么是原始的"    [存在者分类]
-  4. 引理L2: Primitive(x) → ¬∃y • Def(y, x)
-     "原始概念不能被定义"             [原始性定义]
-  5. 假设Primitive(E)                  [反证法假设]
-  6. E具有确定的性质(独立性等)         [由1,2]
-  7. 有确定性质→可描述→可定义          [性质原则]
-  8. Definable(E)                     [MP: 6,7]
-  9. ¬Definable(E)                    [由5,L2]
-  10. ⊥                               [8,9矛盾]
-  11. ¬Primitive(E)                   [RAA: 5-10]
-  12. Definable(E)                    [DS: 3,11]
-  13. ∃y • Def(y, E)                  [定义展开]
-  14. 由axiom-derivations.md定理1.1:
-      Independent(E) ∧ Definable(E) → SelfDef(E)
-      [已证明的引理]
-  15. SelfDef(E)                      [MP: 2,12,14]
+  参见axiom-derivations.md中的严格推导。
+  该证明基于A1的形式结构，通过反证法和
+  认知依赖分析得出SelfDef(E)。
+
+注：避免在此重复复杂推导，以防引入错误。
 ```
 
 #### 定理3：展开的必然性
