@@ -41,40 +41,45 @@ Filename format: `[Type][Number]-[Descriptive-Name].md`
 ### Chapter 0: Philosophical Foundation
 - [Philosophical Foundation: Systems Containing Their Own Description](./binaryuniverse/philosophy.md)
 
-### Chapter 0: Basic Theoretical Framework (T0 Series)
+### Chapter 0: Existential Logic Structure Theory (T0 Series)
+
+**Note**: The T0 series has been reorganized as an independent "Existential Logic Structure Theory" system that provides the foundational logical architecture for all higher-level phenomena.
+
+- **[Complete T0 Theory Overview](./existential-logic/index.md)** - Comprehensive guide to all 29 existential logic structure theories
+- **[Existential Logic README](./existential-logic/README.md)** - Theory overview and philosophical significance
 
 #### 0.0 Core Foundation Theories (Complete Construction)
-- [T0-0: Time Emergence Foundation Theory](./binaryuniverse/T0-0-time-emergence-foundation.md) - deriving the necessity of time from axiom A1
-- [T0-11: Recursive Depth Hierarchy Theory](./binaryuniverse/T0-11-recursive-depth-hierarchy.md) - recursive depth quantification and Fibonacci hierarchical structure
-- [T0-12: Observer Emergence Theory](./binaryuniverse/T0-12-observer-emergence.md) - necessity of observer differentiation and information cost model
-- [T0-13: System Boundary Theory](./binaryuniverse/T0-13-system-boundaries.md) - boundary emergence, quantification, and information flow regulation
-- [T0-14: Discrete-Continuous Transition Theory](./binaryuniverse/T0-14-discrete-continuous-transition.md) - continuity emerging from φ-convergence in Zeckendorf systems
-- [T0-15: Spatial Dimension Emergence Theory](./binaryuniverse/T0-15-spatial-dimension-emergence.md) - deriving 3+1 dimensional spacetime structure from φ-orthogonality
-- [T0-16: Information-Energy Equivalence Theory](./binaryuniverse/T0-16-information-energy-equivalence.md) - energy as emergent information processing rate
-- [T0-17: Information Entropy Zeckendorf Encoding Theory](./binaryuniverse/T0-17-information-entropy-zeckendorf.md) - φ-quantized representation of entropy and Fibonacci growth
-- [T0-18: Quantum State No-11 Constraint Emergence Theory](./binaryuniverse/T0-18-quantum-state-emergence.md) - derivation of quantum superposition, collapse, and Born rule
-- [T0-19: Observation Collapse Information Process Theory](./binaryuniverse/T0-19-observation-collapse.md) - information-theoretic mechanism of observation-induced wavefunction collapse
-- [T0-20: Zeckendorf Metric Space Foundation Theory](./binaryuniverse/T0-20-zeckendorf-metric-space-foundation.md) - rigorous mathematical foundation for complete metric spaces
-- [T0-21: Mass Emergence from Information Density](./binaryuniverse/T0-21-mass-emergence-from-information-density.md) - emergence mechanism of mass from information density gradients
-- [T0-22: Probability Measure Emergence Theory](./binaryuniverse/T0-22-probability-measure-emergence.md) - probability measure foundation derived from Zeckendorf path multiplicity
-- [T0-23: Causal Cone and Lightcone Structure](./binaryuniverse/T0-23-causal-cone-lightcone-structure.md) - deriving lightcone geometry and causal structure from No-11 constraints
-- [T0-24: Fundamental Symmetries Theory](./binaryuniverse/T0-24-fundamental-symmetries-theory.md) - information-theoretic origin of CPT symmetry and unified derivation of conservation laws
-- [T0-25: Phase Transition Critical Theory](./binaryuniverse/T0-25-phase-transition-critical-theory.md) - φ-critical exponents and information-theoretic classification of universality classes
-- [T0-26: Topological Invariants Theory](./binaryuniverse/T0-26-topological-invariants-theory.md) - Zeckendorf topological numbers and φ-coefficient cohomology theory
-- [T0-27: Fluctuation-Dissipation Theorem](./binaryuniverse/T0-27-fluctuation-dissipation-theorem.md) - unification of quantum fluctuations and information noise, fluctuation-dissipation relation
-- [T0-28: Quantum Error Correction](./binaryuniverse/T0-28-quantum-error-correction.md) - error correction capability of No-11 constraints, Zeckendorf implementation of quantum error correction
+- [T0-0: Time Emergence Foundation Theory](./existential-logic/T0-0-time-emergence-foundation.md) - deriving the necessity of time from axiom A1
+- [T0-11: Recursive Depth Hierarchy Theory](./existential-logic/T0-11-recursive-depth-hierarchy.md) - recursive depth quantification and Fibonacci hierarchical structure
+- [T0-12: Observer Emergence Theory](./existential-logic/T0-12-observer-emergence.md) - necessity of observer differentiation and information cost model
+- [T0-13: System Boundary Theory](./existential-logic/T0-13-system-boundaries.md) - boundary emergence, quantification, and information flow regulation
+- [T0-14: Discrete-Continuous Transition Theory](./existential-logic/T0-14-discrete-continuous-transition.md) - continuity emerging from φ-convergence in Zeckendorf systems
+- [T0-15: Spatial Dimension Emergence Theory](./existential-logic/T0-15-spatial-dimension-emergence.md) - deriving 3+1 dimensional spacetime structure from φ-orthogonality
+- [T0-16: Information-Energy Equivalence Theory](./existential-logic/T0-16-information-energy-equivalence.md) - energy as emergent information processing rate
+- [T0-17: Information Entropy Zeckendorf Encoding Theory](./existential-logic/T0-17-information-entropy-zeckendorf.md) - φ-quantized representation of entropy and Fibonacci growth
+- [T0-18: Quantum State No-11 Constraint Emergence Theory](./existential-logic/T0-18-quantum-state-emergence.md) - derivation of quantum superposition, collapse, and Born rule
+- [T0-19: Observation Collapse Information Process Theory](./existential-logic/T0-19-observation-collapse.md) - information-theoretic mechanism of observation-induced wavefunction collapse
+- [T0-20: Zeckendorf Metric Space Foundation Theory](./existential-logic/T0-20-zeckendorf-metric-space-foundation.md) - rigorous mathematical foundation for complete metric spaces
+- [T0-21: Mass Emergence from Information Density](./existential-logic/T0-21-mass-emergence-from-information-density.md) - emergence mechanism of mass from information density gradients
+- [T0-22: Probability Measure Emergence Theory](./existential-logic/T0-22-probability-measure-emergence.md) - probability measure foundation derived from Zeckendorf path multiplicity
+- [T0-23: Causal Cone and Lightcone Structure](./existential-logic/T0-23-causal-cone-lightcone-structure.md) - deriving lightcone geometry and causal structure from No-11 constraints
+- [T0-24: Fundamental Symmetries Theory](./existential-logic/T0-24-fundamental-symmetries-theory.md) - information-theoretic origin of CPT symmetry and unified derivation of conservation laws
+- [T0-25: Phase Transition Critical Theory](./existential-logic/T0-25-phase-transition-critical-theory.md) - φ-critical exponents and information-theoretic classification of universality classes
+- [T0-26: Topological Invariants Theory](./existential-logic/T0-26-topological-invariants-theory.md) - Zeckendorf topological numbers and φ-coefficient cohomology theory
+- [T0-27: Fluctuation-Dissipation Theorem](./existential-logic/T0-27-fluctuation-dissipation-theorem.md) - unification of quantum fluctuations and information noise, fluctuation-dissipation relation
+- [T0-28: Quantum Error Correction](./existential-logic/T0-28-quantum-error-correction.md) - error correction capability of No-11 constraints, Zeckendorf implementation of quantum error correction
 
 #### 0.1 Extended Foundation Theory Series
-- [T0.1: Binary State Space Foundation Theory](./binaryuniverse/T0-1-binary-state-space-foundation.md)
-- [T0.2: Fundamental Entropy Bucket Theory](./binaryuniverse/T0-2-fundamental-entropy-bucket-theory.md)
-- [T0.3: Zeckendorf Constraint Emergence Theory](./binaryuniverse/T0-3-zeckendorf-constraint-emergence-theory.md)
-- [T0.4: Binary Encoding Completeness Theory](./binaryuniverse/T0-4-binary-encoding-completeness-theory.md)
-- [T0.5: Entropy Flow Conservation Theory](./binaryuniverse/T0-5-entropy-flow-conservation-theory.md)
-- [T0.6: System Component Interaction Theory](./binaryuniverse/T0-6-system-component-interaction-theory.md)
-- [T0.7: Fibonacci Sequence Necessity Theory](./binaryuniverse/T0-7-fibonacci-sequence-necessity-theory.md)
-- [T0.8: Minimal Information Principle Theory](./binaryuniverse/T0-8-minimal-information-principle-theory.md)
-- [T0.9: Binary Decision Logic Theory](./binaryuniverse/T0-9-binary-decision-logic-theory.md)
-- [T0.10: Entropy Capacity Scaling Theory](./binaryuniverse/T0-10-entropy-capacity-scaling-theory.md)
+- [T0-1: Binary State Space Foundation Theory](./existential-logic/T0-1-binary-state-space-foundation.md)
+- [T0-2: Fundamental Entropy Bucket Theory](./existential-logic/T0-2-fundamental-entropy-bucket-theory.md)
+- [T0-3: Zeckendorf Constraint Emergence Theory](./existential-logic/T0-3-zeckendorf-constraint-emergence-theory.md)
+- [T0-4: Binary Encoding Completeness Theory](./existential-logic/T0-4-binary-encoding-completeness-theory.md)
+- [T0-5: Entropy Flow Conservation Theory](./existential-logic/T0-5-entropy-flow-conservation-theory.md)
+- [T0-6: System Component Interaction Theory](./existential-logic/T0-6-system-component-interaction-theory.md)
+- [T0-7: Fibonacci Sequence Necessity Theory](./existential-logic/T0-7-fibonacci-sequence-necessity-theory.md)
+- [T0-8: Minimal Information Principle Theory](./existential-logic/T0-8-minimal-information-principle-theory.md)
+- [T0-9: Binary Decision Logic Theory](./existential-logic/T0-9-binary-decision-logic-theory.md)
+- [T0-10: Entropy Capacity Scaling Theory](./existential-logic/T0-10-entropy-capacity-scaling-theory.md)
 
 ### Chapter 1: Unique Axiom and Complete Definition
 - [Unique Axiom: Self-referentially complete systems must increase in entropy](./binaryuniverse/A1-five-fold-equivalence.md)
