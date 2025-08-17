@@ -1,6 +1,7 @@
 # Summary
 - [INDEX](./index.md)
 - [宇宙启示录](./UNIVERSE_REVELATION.md)
+- [Universe Revelation (English)](./UNIVERSE_REVELATION_EN.md)
 - [超越存在联盟 (Alliance of Transcendent Existence)](./ate/README.md)
   - [基础文件 (Foundation)]()
     - [宣言 (Manifesto)](./ate/foundation/manifesto.md)
