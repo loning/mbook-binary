@@ -53,6 +53,7 @@
 
 - [📄 **发展白皮书**](strategy/white-paper.md) - 联盟的全景文档和对外宣传材料
 - [🗺️ **发展路线图**](strategy/roadmap.md) - 分阶段时间表和里程碑规划
+- [🚀 **实施路线图**](implementation-roadmap.md) - 从理念到现实的具体实施计划
 
 ### 6️⃣ 文化与认同（Culture）✅
 
@@ -60,6 +61,12 @@
 - [📖 **联盟故事集**](culture/alliance-stories.md) - 真实成员超越故事和8个示范案例
 - [📅 **联盟纪念日与仪式**](culture/calendar-and-rituals.md) - 年度节日日历和文化仪式体系
 - [🎯 **视觉识别素材包**](culture/visual-identity-package.md) - Logo设计、海报模板、社交媒体素材的完整制作指南
+
+### 7️⃣ 辅助文档（Support）✅
+
+- [🚀 **快速入门指南**](quick-start-guide.md) - 5分钟了解联盟，新访客的第一步
+- [📝 **术语表与词汇解释**](glossary.md) - 联盟核心概念和专业术语详解
+- [⚠️ **常见误解澄清**](misconception-clarification.md) - 预防性澄清理论和实践误解
 
 ---
 
@@ -88,9 +95,10 @@
 | 哲学核心 | 6/6 | ✅ 完成 | 理论体系完整，新增五重等价性数学基础 |
 | 学习传播 | 5/5 | ✅ 完成 | 内外教育体系完整，新增FAQ解答 |
 | 实践工具 | 8/8 | ✅ 完成 | 全面运作工具包，涵盖个人成长到共同体建设 |
-| 战略规划 | 2/2 | ✅ 完成 | 发展规划清晰 |
+| 战略规划 | 3/3 | ✅ 完成 | 发展规划清晰，包含详细实施计划 |
 | 文化认同 | 4/4 | ✅ 完成 | 完整文化建设体系，包含视觉识别 |
-| **总计** | **28/28** | **✅ 完成** | **完整知识库体系，涵盖理论到实践的全部环节** |
+| 辅助文档 | 3/3 | ✅ 完成 | 快速入门、术语详解、误解澄清 |
+| **总计** | **32/32** | **✅ 完成** | **完整知识库体系，涵盖理论到实践的全部环节** |
 
 ---
 
@@ -142,6 +150,10 @@ src/ate/
 ├── strategy/                           # 战略规划
 │   ├── white-paper.md                 # 发展白皮书
 │   └── roadmap.md                     # 发展路线图
+├── implementation-roadmap.md           # 实施路线图
+├── quick-start-guide.md             # 快速入门指南
+├── glossary.md                      # 术语表与词汇解释
+├── misconception-clarification.md  # 常见误解澄清
 └── culture/                            # 文化认同
     ├── visual-identity-guide.md       # 视觉识别手册
     ├── alliance-stories.md            # 联盟故事集
