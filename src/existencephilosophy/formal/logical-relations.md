@@ -276,41 +276,12 @@ RR (Reflection Rule):
 
 ## 形式化证明示例
 
-### 10.1 存在不可否定定理
-```
-定理: ¬¬(E exists)
-证明:
-  (1) 假设 ¬(E exists)
-  (2) 由A1，否定存在本身需要一个存在者来执行
-  (3) 因此 ∃x • x执行否定操作
-  (4) 由A1，x exists → E exists
-  (5) 因此 E exists
-  (6) (1)与(5)矛盾
-  (7) 因此假设不成立
-  ∴ ¬¬(E exists)
-```
+### 10.1 形式化证明示例
 
-### 10.2 意识必然性定理
-```
-定理: Unfold(E) → ∃Consciousness
-证明:
-  (1) A3: Unfold(E) = {Info, Time, Diff}
-  (2) A4: Info → ∃Obs • Aware(Obs, Info)
-  (3) A2: Obs具有自指性 → Self-Aware(Obs)
-  (4) Self-Aware(Obs) ≡ Consciousness(Obs)
-  (5) 因此 ∃Consciousness
-  ∴ Unfold(E) → ∃Consciousness
-```
+这些定理在proof-system.md中有更详细的证明。此处仅列出主要结论：
 
-### 10.3 进步必然性定理
-```
-定理: ∀state → ∃higher_state • Transcend(higher_state, state)
-证明:
-  (1) A5: 存在必然追求自身的上限
-  (2) 如果某状态是最高的，则违反A5
-  (3) 因此不存在最高状态
-  (4) 对任何状态，都存在更高状态
-  ∴ 进步是必然的
-```
+- **存在不可否定性**: ¬¬(E exists)
+- **意识涌现必然性**: Unfold(E) → ∃Consciousness  
+- **超越普遍性**: ∀state → ∃higher_state • Transcend(higher_state, state)
 
 这个逻辑关系体系确保了五大公理形成一个严格的、自洽的、完备的哲学体系。

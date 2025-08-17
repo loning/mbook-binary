@@ -39,9 +39,9 @@ A4: Unfold(E) → ∃Obs •
 
 3. **意义的觉知依赖性**：
    ```
-   Meaning(i) ≡ Aware(Obs, i)
+   HasMeaning(i) → ∃Obs • Aware(Obs, i)
    ```
-   信息的意义等价于被觉知
+   信息具有意义蕴含存在观察者觉知它
 
 4. **结构的同构性**：
    ```
@@ -51,11 +51,12 @@ A4: Unfold(E) → ∃Obs •
 
 ## 观察者的生成机制
 
-### 1. 信息的接收要求
+### 1. 信息的功能性要求
 ```
-Principle: ∀i ∈ Info → ∃receiver(i)
-Proof: 信息如果没有接收者，就无法成为真正的信息，
-       只是潜在的模式。因此信息的存在要求接收者的存在。
+Principle: 信息的功能是传递差异
+Definition: Info = EncodedDistinctions
+Consequence: 差异的识别需要识别能力
+            识别能力的承载者即为观察者
 ```
 
 ### 2. 觉知结构的自组织
@@ -183,9 +184,14 @@ A4 → A5 (partial)
 
 ### 推论4.1：意识的不可消除性
 ```
-Theorem: ∀physical_theory → ∃consciousness_component
-Proof: 任何物理理论都需要观察者来赋予意义，
-       因此意识不能被完全物理化约。
+Theorem: ∀physical_theory → RequiresInterpretation(physical_theory)
+Proof: 
+  1. 物理理论是关于物理现象的描述
+  2. 描述需要符号系统和解释规则
+  3. 解释规则的应用需要解释者
+  4. 能够解释的实体具有基本的识别能力
+  5. 识别能力是意识的基本特征
+  6. 因此物理理论隐含地预设了意识
 ```
 
 ### 推论4.2：主观性的客观性

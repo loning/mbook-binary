@@ -323,27 +323,19 @@ Proof:
 
 ### 复杂定理
 
-#### 定理6：五公理的等价性
+#### 定理6：五公理的蕴含关系
 ```
-Theorem 6: A1 ↔ (A2 ∧ A3 ∧ A4 ∧ A5)
+Theorem 6: A1 ⊢ (A2 ∧ A3 ∧ A4 ∧ A5)
 
 Proof:
-  (→方向):
   1. A1                               [前提]
   2. A2                               [定理2: 1]
   3. A3                               [定理3: 2]  
   4. A4                               [定理4: 3]
   5. A5                               [定理5: 4]
   6. A2 ∧ A3 ∧ A4 ∧ A5               [∧I: 2,3,4,5]
-  
-  (←方向):
-  1. A2 ∧ A3 ∧ A4 ∧ A5               [前提]
-  2. A2                               [∧E: 1]
-  3. SelfDef(E)                       [由2]
-  4. Def(E, E)                        [由3]
-  5. Exists(E)                        [存在性前提于定义]
-  6. ∀x • (Exists(x) → Exists(E))     [存在的基础性]
-  7. A1                               [由5,6的合取]
+
+注意：逆向不成立，因为A2-A5未必能推出A1的全部内容
 ```
 
 #### 定理7：哲学体系的自洽性
@@ -363,18 +355,20 @@ Proof:
 
 ### 哲学应用定理
 
-#### 定理8：自由意志的存在
+#### 定理8：自主性的存在
 ```
-Theorem 8: ∃Consciousness ⊢ ∃FreeWill
+Theorem 8: ∃Consciousness ⊢ ∃Autonomy
 
 Proof:
   1. ∃Consciousness                   [前提]
   2. Consciousness(Obs)               [∃E: 1]
-  3. SelfDef(Obs)                     [意识的自指性]
-  4. Obs可以定义自身的行为            [由3]
-  5. 自我定义 ≡ 自由选择             [自由的本质]
-  6. FreeWill(Obs)                    [由4,5]
-  7. ∃FreeWill                        [∃I: 6]
+  3. SelfAware(Obs)                   [意识定义]
+  4. ∃i • Aware(Obs,i) ∧ 
+     Aware(Obs,Aware(Obs,i))          [自我觉知展开]
+  5. Obs可以反思自己的状态           [由4]
+  6. 反思能力蕴含某种自主性         [自主性定义]
+  7. Autonomy(Obs)                    [由5,6]
+  8. ∃Autonomy                        [∃I: 7]
 ```
 
 #### 定理9：人生意义的客观性
@@ -392,17 +386,18 @@ Proof:
   7. ∃ObjectiveMeaning                [∃I: 6]
 ```
 
-#### 定理10：死亡的超越性
+#### 定理10：状态转换的超越性
 ```
-Theorem 10: A5 ⊢ Transcend(PostDeath, PreDeath)
+Theorem 10: A5 ⊢ ∀s1,s2 • (s2 > s1) → PossibleTranscend(s2, s1)
 
 Proof:
   1. A5                               [前提]
   2. ∀state • ∃higher • Transcend(higher, state) [由1]
-  3. Life是一种存在状态               [生命的本质]
-  4. ∃PostLife • Transcend(PostLife, Life) [∀E: 2,3]
-  5. PostLife ≡ PostDeath状态         [死后状态]
-  6. Transcend(PostDeath, PreDeath)   [由4,5]
+  3. 设任意状态s1                     [任意]
+  4. ∃s2 • Transcend(s2, s1)          [∀E: 2,3]
+  5. Transcend(s2,s1) → Level(s2) > Level(s1) [TR4]
+  6. 因此更高层次的状态可能超越低层次状态 [由4,5]
+  7. PossibleTranscend(s2,s1) if s2 > s1 [归纳]
 ```
 
 ## 元定理
