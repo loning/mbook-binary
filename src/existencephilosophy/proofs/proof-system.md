@@ -34,7 +34,7 @@ A1-Schema: ∃E • (Exists(E) ∧ ∀x • (Exists(x) → Exists(E)) ∧ ¬∃P
 
 #### A2模式：自指公理
 ```
-A2-Schema: ∀x • (Def(x, E) → x = E) ∧ Def(E, E) ∧ ¬Def(NonE, E)
+A2-Schema: ∀x • (Def(x, E) → x = E) ∧ Def(E, E)
 ```
 
 #### A3模式：展开公理
@@ -121,10 +121,6 @@ SR1: Def(x, E) ⊢ x = E
 SR2: SelfDef(E) ⊢ SelfDef(SelfDef(E))
 ```
 
-**SR3: 非存在排斥**
-```
-SR3: ⊢ ¬Def(NonE, E)
-```
 
 #### 展开推理规则 (Unfolding Rules)
 
