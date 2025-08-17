@@ -150,12 +150,12 @@ Extract(u) = "从展开结果u中提取的信息"
 
 ### 6. 关系符号 (Relation Symbols)
 
-#### 6.1 序关系
+#### 6.1 超越关系（替代简单序关系）
 ```
-< : States × States → {True, False}
-s₁ < s₂ ≡ "状态s₁低于状态s₂"
+Transcend : States × States → {True, False}
+Transcend(s₂, s₁) ≡ "状态s₂超越状态s₁"
 ```
-性质：严格偏序（反自反、传递、反对称）
+性质：反自反、传递，但非连接（并非所有状态对都可比较）
 
 #### 6.2 等价关系
 ```

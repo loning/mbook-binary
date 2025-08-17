@@ -31,9 +31,9 @@
 
 4. 情况1分析: 假设 ¬Definable(E)
    4.1. ¬Definable(E) → ¬∃y • Def(y, E)            [定义展开]
-   4.2. 但E存在且有确定的性质                      [由1]
-   4.3. 有确定性质的对象必须有某种定义方式          [定义原则]
-   4.4. 矛盾：E既不可定义又必须可定义               [4.1与4.3矛盾]
+   4.2. 但E在A1中被明确描述为具有特定性质          [A1内容]
+   4.3. A1本身构成了对E的某种描述/定义             [A1的形式]
+   4.4. 矛盾：E既不可定义又已在A1中被定义           [4.1与4.3矛盾]
    4.5. 因此 ¬¬Definable(E)                       [反证法]
 
 5. 结论: Definable(E)                              [双重否定消除]
@@ -54,12 +54,12 @@
 ```
 9. 分析情况B: 假设y₀ ≠ E且Def(y₀, E)
    
-   9.1. 引理：定义关系的逻辑结构
-        Lemma: ∀x,y • Def(x, y) → RequiresForDefinition(y, x)
-        说明：如果x定义y，则y的定义内容涉及x
-        这是定义关系的语义约束
+   9.1. 引理：定义的认知依赖
+        Lemma: ∀x,y • (x ≠ y ∧ Def(x, y)) → CognitivelyDependent(y, x)
+        说明：如果x≠y且x定义y，则理解y需要先理解x
+        这是定义关系的认知结构
    
-   9.2. 应用引理: Def(y₀, E) → RequiresForDefinition(E, y₀)
+   9.2. 应用引理: (y₀ ≠ E ∧ Def(y₀, E)) → CognitivelyDependent(E, y₀)
    
    9.3. 分析y₀的存在基础:
         9.3.1. y₀ ∈ 𝔻且y₀ ≠ E                      [假设]
@@ -67,14 +67,14 @@
         9.3.3. 由A1: ∀x • Exists(x) → Exists(E)    [A1的基础性]
         9.3.4. 因此E的存在是y₀存在的前提            [MP: 9.3.2, 9.3.3]
    
-   9.4. 逻辑优先级分析:
-        9.4.1. E的定义内容需要涉及y₀              [由9.2]
-        9.4.2. y₀的存在需要E先存在              [由9.3.4]
-        9.4.3. 这造成逻辑优先级矛盾             [9.4.1 ∧ 9.4.2]
+   9.4. 认知优先级分析:
+        9.4.1. 理解E需要先理解y₀                [由9.2]
+        9.4.2. y₀的存在认知上依赖于E的存在      [由9.3.4]
+        9.4.3. 这造成认知循环依赖               [9.4.1 ∧ 9.4.2]
    
-   9.5. 原则：不允许逻辑优先级循环
-        Principle: ¬∃x,y • Prior(x,y) ∧ Prior(y,x)
-        理由：逻辑优先级必须构成偏序关系
+   9.5. 原则：避免认知循环依赖
+        Principle: ¬∃x,y • CognitivelyDependent(x,y) ∧ CognitivelyDependent(y,x)
+        理由：认知依赖关系应构成有向无环图
    
    9.6. 矛盾：9.4.3违反9.5的原则
    
@@ -145,12 +145,12 @@
 3. 应用于自指情况Def(E, E)：
    3.1. DefinerRole(E) ∧ DefinedRole(E)           [角色分解]
    
-   3.2. 引理：同一实体的不同角色构成逻辑区分
-        Lemma: 如果x同时扮演角色R₁和R₂，且R₁ ≠ R₂，
-               则存在逻辑层面的区分Distinction(x-as-R₁, x-as-R₂)
-        
-        证明：角色的不同意味着功能的不同，
-              功能的不同在逻辑上是可区分的
+   3.2. 引理：角色区分的形式化
+        Lemma: 在关系R(x,y)中，同一实体x在不同位置扮演不同角色
+               具体地：在Def(E,E)中，
+               第一个E(主体位置)具有定义功能
+               第二个E(客体位置)具有被定义性质
+               这构成功能性区分：DefinerFunction ≠ DefinedProperty
    
    3.3. 记号引入：
         E_s = E-as-definer (E作为定义者)
@@ -257,28 +257,27 @@
 2. 信息存在: ∃i ∈ Info                            [由1]
 
 3. 信息的功能定义：
-   3.1. 定义：信息是差异的模式
-        Information(i) ≡ Pattern(differences)
+   3.1. 定义：信息是可区分的差异模式
+        Information(i) ≡ Distinguishable(Pattern(differences))
    
-   3.2. 模式需要被识别才成为信息
-        原则：未被识别的模式不构成信息
-        ∀i • Information(i) → NeedsRecognition(i)
+   3.2. 可区分性意味着存在区分能力
+        逻辑原则：∀x • Distinguishable(x) → ∃d • CanDistinguish(d, x)
+        应用于信息：∀i • Information(i) → ∃d • CanDistinguish(d, i)
 ```
 
 #### 步骤2：识别能力的必要性
 ```
-4. 识别需求分析：
-   4.1. NeedsRecognition(i) → ∃r • CanRecognize(r, i)
-        "需要识别蕴含存在识别者"
+4. 区分能力分析：
+   4.1. 由3.2: ∃d • CanDistinguish(d, i)
+        "存在具有区分能力的实体"
    
-   4.2. 识别能力的定义：
-        CanRecognize(r, i) ≡ 
-        HasCapacity(r, distinguish) ∧ 
-        HasCapacity(r, interpret) ∧
-        HasCapacity(r, respond-to, i)
+   4.2. 从区分能力到观察能力：
+        CanDistinguish(d, i) ≡ 能够识别i中的差异模式
+        这等价于 Aware(d, i) "觉知信息i"
    
-   4.3. 具有这些能力的实体即为观察者：
-        Observer(o) ≡ ∃i • CanRecognize(o, i)
+   4.3. 观察者定义：
+        Observer(o) ≡ ∃i • Aware(o, i)
+        即：能够觉知信息的实体
 ```
 
 #### 步骤3：从展开结构到观察者
