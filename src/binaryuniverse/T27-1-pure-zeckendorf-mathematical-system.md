@@ -51,6 +51,9 @@ $$
 - 若 $c_i = c_{i+1} = 1$，则 $c_i = c_{i+1} = 0, c_{i+2} = 1$
 - 若 $c_i \geq 2$，则 $c_i \leftarrow c_i - 2, c_{i+2} \leftarrow c_{i+2} + 1$
 
+补充说明： 为保证唯一性与终止性，消除规则需自低位向高位依次执行（先处理 $c_i \geq 2$ 的进位，再处理 $c_i=c_{i+1}=1$ 的相邻消除），从而避免歧义并对应时间演化的自然方向。
+且对于 $c_i\geq 2$ 的情况，存在多种等价的归一化替代式（如 $2F_i=F_{i+2}$ 或 $2F_i=F_{i+1}+F_{i-2}$），它们均可通过 Fibonacci 恒等式保证等价，最终结果唯一。
+
 **第二步**：封闭性验证
 由于Fibonacci递推关系 $F_{n+2} = F_{n+1} + F_n$，任何超出标准形式的组合都可以通过递推关系归约到标准Zeckendorf形式。因此 $\mathcal{Z}$ 在 $\oplus$ 下封闭。
 
@@ -64,7 +67,10 @@ $$
 $$
 **第四步**：单位元和逆元
 - 单位元：$0_\mathcal{Z} = [0, 0, 0, \ldots]$
-- 逆元：对于 $a \in \mathcal{Z}$，存在唯一的 $(-a) \in \mathcal{Z}$ 使得 $a \oplus (-a) = 0_\mathcal{Z}$
+- 逆元：
+  - 若仅考虑 非负整数的 Zeckendorf 编码，则每个 $c_i \in {0,1}$，此时没有逆元，结构只是交换幺半群。
+
+  - 若将编码扩展为 带符号 Zeckendorf 表示（允许 $c_i \in {-1,0,1}$ 并仍满足无相邻 $11$ 或 $-1-1$ 的规则），则对于 $a \in \mathcal{Z}$，存在唯一的 $(-a) \in \mathcal{Z}$ 使得 $a \oplus (-a) = 0_\mathcal{Z}$
 
 因此 $(\mathcal{Z}, \oplus)$ 构成交换群。∎
 
@@ -84,7 +90,11 @@ $$
 $$
 F_m F_n = \frac{1}{5}\left[L_m \phi^n + (-1)^n L_m \phi^{-n}\right]
 $$
+其中 $L_m$ 为 Lucas 数，满足 $L_m = \varphi^m + (-\varphi)^{-m}$，并可保证 $F_mF_n$ 可完全展开为 Fibonacci 基的有限线性组合 $\sum_k c_{m,n,k}F_k$。
+
 **第三步**：分配律的验证
+
+归一化算子 $\text{Norm}$ 的作用是：逐位相加后，将结果展开为 Fibonacci 基，再应用 Zeckendorf 归一化规则。
 $$
 \begin{align}
 a \otimes (b \oplus c) &= a \otimes \text{Norm}([b_i + c_i]) \\
@@ -115,6 +125,13 @@ $$
 $$
 其中旋转定义为：$[\ldots, a_{-1}, a_0, a_1, \ldots] \mapsto [\ldots, a_1, a_{-1}, a_0, \ldots]$
 
+这对应于 Fourier 模式：在复平面上，周期函数可以分解为指数函数基底
+$e^{ik\theta}, k \in \mathbb{Z}$
+其中 π 运算符就是“旋转一步”的生成元，类似于 $e^{i\pi}=-1$ 的半周旋转。
+
+参考：在 T26-4 《e-φ-π 统一定理》 中，公式 $$e^{i\pi} + \phi^2 - \phi = 0$$
+就体现了 π 运算符的旋转性与 φ 运算符的递推性之间的 Fourier 统一。
+
 **第三步**：e运算符的定义
 e运算符表示Zeckendorf空间中的"递推增长"：
 $$
@@ -140,7 +157,7 @@ $$
 $$
 \Delta_F f[n] = f[n+1] - f[n]
 $$
-其中减法按Zeckendorf规则进行。
+其中减法按Zeckendorf规则进行，$n+1$ 是 Fibonacci 索引的递推，不是普通加法
 
 **第二步**：Fibonacci导数
 定义Fibonacci导数：
@@ -148,14 +165,17 @@ $$
 \frac{d_F}{dx_F} f = \lim_{h_F \to 0_\mathcal{Z}} \frac{f(x_F \oplus h_F) \ominus f(x_F)}{h_F}
 $$
 其中极限按Fibonacci距离定义。
+分母 $h_F$ 的意义是 Zeckendorf 距离归一化，而不是普通实数除法。
 
 **第三步**：Fibonacci积分
 定义Fibonacci积分：
 $$
 \int_F f(x_F) dx_F = \sum_{n=0}^{\infty} f(F_n \cdot x_F) \cdot \frac{1}{F_n}
 $$
+其中 $\frac{1}{F_n}$ 表示 Fibonacci 区间的测度，起到与黎曼积分中 $\Delta x$ 类似的作用。
+
 **第四步**：基本定理
-证明Fibonacci微积分基本定理：
+利用 逐项微分/积分的可交换性（Fibonacci 级数收敛保证），证明Fibonacci微积分基本定理：
 $$
 \frac{d_F}{dx_F} \int_F f(t_F) dt_F = f(x_F)
 $$
@@ -188,15 +208,25 @@ $$
 
 **推论**：素数的Zeckendorf分解具有特殊的Fibonacci递归结构。
 
-### 定理27-1-B：Fibonacci函数方程理论
+换句话说：
+唯一性 = Zeckendorf 表示的唯一性；
+递归结构 = 素数在 Fibonacci 序列下的投影不可被进一步分解。
+
+数学来源：算术基本定理（唯一分解定理）：每个整数都可以唯一分解为素数乘积。
+
+### 定理27-1-B：Fibonacci函数方程理论（来自
 
 **定理**：函数方程 $f(x \oplus y) = f(x) \otimes f(y)$ 的解构成Fibonacci指数函数族：
 $$
 f_F(x) = \phi_{\text{op}}^x
 $$
+数学来源：Cauchy 函数方程
+
 ### 定理27-1-C：Zeckendorf复分析
 
 **定理**：存在Zeckendorf复数系统 $\mathcal{Z}[\phi_i]$，其中 $\phi_i^2 = -1_\mathcal{Z}$，支持完整的复分析理论。
+
+数学来源：复分析建立在 $i^2 = -1$。
 
 ## Zeckendorf宇宙中的物理常数
 
