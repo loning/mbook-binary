@@ -19,37 +19,41 @@ $$\mathcal{L} \subseteq \mathcal{U} \text{ 且 } D_{life}(\mathcal{L}) \geq 5$$
 
 其中：
 - $\mathcal{S}_L \subset \mathcal{S}$：生命状态子空间
-- $\mathcal{N}_\phi: \mathcal{S}_L \times \mathcal{E} \to \mathcal{S}_L \times \mathcal{W}$：φ-负熵产生器
+- $\mathcal{F}_\phi: \mathcal{S}_L \times \mathcal{E} \to \mathcal{S}_L \times \mathcal{W}$：φ-熵流调控器
 - $\mathcal{R}_L: \mathcal{S}_L \to \mathcal{S}_L \times \mathcal{S}_L$：复制算子
 - $D_{life} \in \mathbb{N}$：递归深度
 
-## 2. φ-负熵产生器的数学结构
+## 2. φ-熵流调控器的数学结构
 
-### 2.1 负熵产生器形式化
+### 2.1 熵流调控器形式化
 
-**定义2.1（φ-负熵产生器）**
+**定义2.1（φ-熵流调控器）**
 
-$$\mathcal{N}_\phi = \bigoplus_{k \in \text{Zeck}(D_{life})} F_k \cdot \mathcal{N}_k^{(base)}$$
+$$\mathcal{F}_\phi = \bigoplus_{k \in \text{Zeck}(D_{life})} F_k \cdot \mathcal{F}_k^{(base)}$$
 
-其中基础负熵单元 $\mathcal{N}_k^{(base)}: \mathcal{H}_k \to \mathcal{H}_k$ 定义为：
+其中基础熵流单元 $\mathcal{F}_k^{(base)}: \mathcal{H}_k \times \mathcal{E}_k \to \mathcal{H}_k \times \mathcal{W}_k$ 定义为：
 
-$$\mathcal{N}_k^{(base)}(\rho) = \mathcal{U}_k \rho \mathcal{U}_k^\dagger - \gamma_k (\rho - \rho_{eq})$$
+$$\mathcal{F}_k^{(base)}(\rho_L, \rho_E) = (\mathcal{U}_k \rho_L \mathcal{U}_k^\dagger - \gamma_k (\rho_L - \rho_{target}), \rho_E + \gamma_k (\rho_L - \rho_{target}))$$
 
 满足：
-- $\mathcal{U}_k$：幺正演化算子
-- $\gamma_k = \phi^{-k/2}$：耗散率
-- $\rho_{eq}$：平衡态密度矩阵
+- $\mathcal{U}_k$：幺正演化算子（保持总熵）
+- $\gamma_k = \phi^{-k/2}$：熵流速率
+- $\rho_{target}$：目标低熵态
+- $\rho_L, \rho_E$：生命系统和环境的密度矩阵
 
 ### 2.2 熵平衡方程
 
 **定理2.1（熵平衡定理）**
 对于活跃的生命系统，熵变满足：
 
-$$\frac{d\mathcal{H}_L}{dt} = \dot{\mathcal{H}}_{prod} - \dot{\mathcal{H}}_{flux}$$
+$$\frac{d\mathcal{H}_L}{dt} = \dot{\mathcal{H}}_{prod} + \dot{\mathcal{H}}_{flux}$$
 
 其中：
-- $\dot{\mathcal{H}}_{prod} = \text{Tr}(\mathcal{D}[\rho_L] \ln \rho_L) \geq 0$：内部熵产生率
-- $\dot{\mathcal{H}}_{flux} = \text{Tr}(\mathcal{N}_\phi[\rho_L] \ln \rho_L)$：熵流率
+- $\dot{\mathcal{H}}_{prod} = \text{Tr}(\mathcal{D}[\rho_L] \ln \rho_L) > 0$：内部熵产生率（始终为正）
+- $\dot{\mathcal{H}}_{flux} = \text{Tr}(\mathcal{J}_{in} - \mathcal{J}_{out})$：净熵流（可为负）
+
+总熵变化：
+$$\frac{d\mathcal{H}_{total}}{dt} = \frac{d\mathcal{H}_L}{dt} + \frac{d\mathcal{H}_E}{dt} > 0$$
 
 **证明**：
 从von Neumann熵的时间导数开始：
@@ -58,7 +62,9 @@ $$\frac{d}{dt}\mathcal{H}(\rho_L) = -\text{Tr}(\dot{\rho}_L \ln \rho_L + \dot{\r
 
 将Lindblad主方程代入：
 
-$$\dot{\rho}_L = -\frac{i}{\hbar}[H_L, \rho_L] + \mathcal{D}[\rho_L] + \mathcal{N}_\phi[\rho_L]$$
+$$\dot{\rho}_L = -\frac{i}{\hbar}[H_L, \rho_L] + \mathcal{D}[\rho_L] + \mathcal{F}_{flux}[\rho_L, \rho_E]$$
+
+其中$\mathcal{F}_{flux}$表示与环境的熵流交换。
 
 分离贡献项完成证明。$\square$
 
@@ -127,9 +133,12 @@ $$\mathcal{F} = \prod_{k=1}^5 (1 - \phi^{-k}) > 1 - \phi^{-5}$$
 
 **定义5.1（熵调控能力）**
 
-$$E_{reg}(\mathcal{L}) = \max_{\mathcal{N}_\phi} \left\{ \frac{|\dot{\mathcal{H}}_{flux}|}{\dot{\mathcal{H}}_{prod}} \right\} = \phi^{D_{life}} \cdot \kappa$$
+$$E_{reg}(\mathcal{L}) = \max_{\mathcal{F}_\phi} \left\{ \frac{|\dot{\mathcal{H}}_{flux}|}{\dot{\mathcal{H}}_{prod}} \right\} = \phi^{D_{life}} \cdot \kappa(D_{life})$$
 
-其中归一化常数 $\kappa = (\ln 2)^{-1}$。
+其中调节函数：
+$$\kappa(D) = \frac{1}{\ln 2} \cdot \left(1 - e^{-\frac{D-5}{10}}\right)$$
+
+这保证了在$D_{life} = 5$处从D < 5的零值到D ≥ 5的非零值的突变。
 
 ### 5.2 相变点的数学刻画
 
@@ -137,13 +146,20 @@ $$E_{reg}(\mathcal{L}) = \max_{\mathcal{N}_\phi} \left\{ \frac{|\dot{\mathcal{H}
 熵调控能力在以下递归深度处发生相变：
 
 1. **自复制相变**（$D_{life} = 5$）：
-   $$\lim_{\epsilon \to 0} \frac{E_{reg}(5+\epsilon) - E_{reg}(5-\epsilon)}{2\epsilon} = \infty$$
+   $$E_{reg}(D) = \begin{cases}
+   0 & D < 5 \\
+   \phi^5 \cdot \kappa(5) & D = 5
+   \end{cases}$$
+   
+   这是一阶相变（不连续跳跃）。
 
 2. **自组织临界**（$D_{life} = 8$）：
-   $$\frac{\partial^2 E_{reg}}{\partial D_{life}^2}\Big|_{D=8} = \phi^8 \ln^2(\phi)$$
+   $$\frac{\partial^2 \ln E_{reg}}{\partial D_{life}^2}\Big|_{D=8} = \text{local maximum}$$
+   
+   表现为增长率的突变。
 
-3. **意识前期**（$D_{life} = 10$）：
-   $$\Phi(\mathcal{L})\Big|_{D=10} = \phi^{10} - \epsilon_c$$
+3. **意识前期**（$D_{life} \approx 10$）：
+   $$\Phi(\mathcal{L})\Big|_{D=10} = \phi^{10} \cdot \left(1 - e^{-1}\right) \approx 0.632 \cdot \phi^{10}$$
 
 其中 $\epsilon_c \ll 1$ 是次临界偏差。
 
@@ -253,11 +269,19 @@ $$\lim_{D \to 8} \frac{d\ln C(\mathcal{L})}{dD_{life}} = \infty$$
 ### 10.2 与A1公理的一致性
 
 **定理10.2（一致性定理）**
-生命系统的局域熵减与A1公理（自指完备系统必然熵增）一致：
+生命系统的局域熵减严格遵守A1公理（自指完备系统必然熵增）：
 
 $$\Delta H_{total} = \Delta H_{life} + \Delta H_{env} > 0$$
 
 即使 $\Delta H_{life} < 0$。
+
+**证明：**
+生命系统通过熵流调控器$\mathcal{F}_\phi$实现：
+1. 输入低熵能量：$H(E_{in}) < H_{thermal}$
+2. 输出高熵废物：$H(W_{out}) > H(E_{in})$
+3. 环境熵增补偿：$\Delta H_{env} > |\Delta H_{life}|$
+
+因此总熵始终增加，不违反A1公理。$\square$
 
 ## 11. 可计算性与算法
 
@@ -273,14 +297,20 @@ function ComputeRecursiveDepth(L):
     return D
 ```
 
-### 11.2 负熵产生率计算
+### 11.2 熵流调控率计算
 
 ```algorithm
-function ComputeNegEntropyRate(L, D_life):
-    rate := 0
+function ComputeEntropyFlowRate(L, D_life):
+    if D_life < 5:
+        return 0  // No life below threshold
+    
+    flow_rate := 0
     for k in Zeckendorf(D_life):
-        rate := rate + F_k * phi^(-k/2) * LocalRate(L, k)
-    return rate
+        flow_rate := flow_rate + F_k * phi^(-k/2) * LocalFlowRate(L, k)
+    
+    // Apply efficiency convergence
+    efficiency := phi^(-1) * (1 - exp(-(D_life - 5)/10))
+    return flow_rate * efficiency
 ```
 
 ## 12. 实验可验证预测
@@ -288,14 +318,16 @@ function ComputeNegEntropyRate(L, D_life):
 ### 12.1 可测量量
 
 1. **递归深度**：$D_{life} = \log_\phi(C(\text{genome}))$
-2. **负熵效率**：$\eta = |\Delta H_{life}|/\Delta H_{total} \leq \phi^{-1}$
+2. **熵流效率**：$\eta = |\Delta H_{life}|/\Delta H_{total} \xrightarrow{D \to \infty} \phi^{-1}$
 3. **组织度**：$O = \sum_k F_k \cdot o_k$
+4. **边界选择性**：$S_{factor} \xrightarrow{D \to \infty} \phi^2$
 
 ### 12.2 定量预测
 
-1. 最简生命：$D_{life} = 5$，基因组 $\geq 8$ bits
-2. 代谢效率上界：$\eta_{max} = 0.618$
-3. 意识阈值：$\Phi_c = 122.99$ bits
+1. 最简生命：$D_{life} = 5$，基因组 $\geq F_5 = 8$ bits
+2. 熵流效率渐近极限：$\eta_{\infty} = \phi^{-1} \approx 0.618$
+3. 意识阈值：$\Phi_c = \phi^{10} \approx 122.99$ bits
+4. 边界选择性极限：$S_{\infty} = \phi^2 \approx 2.618$
 
 ## 结论
 

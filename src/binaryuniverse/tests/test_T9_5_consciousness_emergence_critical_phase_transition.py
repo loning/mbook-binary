@@ -47,11 +47,12 @@ class ConsciousnessSystem:
     
     def _enforce_no11_constraint(self, state: np.ndarray) -> np.ndarray:
         """Enforce No-11 constraint on state vector"""
-        for i in range(len(state) - 1):
+        constrained = state.copy()
+        for i in range(len(state)):
             # Check binary representation for consecutive 1s
-            if format(i, 'b').find('11') != -1:
-                state[i] = 0
-        return state
+            if '11' in format(i, 'b'):
+                constrained[i] = 0
+        return constrained
     
     def compute_integrated_information(self) -> float:
         """
@@ -117,14 +118,24 @@ class ConsciousnessSystem:
         
         # Use von Neumann relative entropy
         try:
-            S1 = -np.real(np.trace(rho1 @ logm(rho1)))
-            S12 = -np.real(np.trace(rho1 @ logm(rho2)))
+            # Ensure same dimensions
+            min_dim = min(rho1.shape[0], rho2.shape[0])
+            rho1_safe = rho1[:min_dim, :min_dim]
+            rho2_safe = rho2[:min_dim, :min_dim]
+            
+            S1 = -np.real(np.trace(rho1_safe @ logm(rho1_safe)))
+            S12 = -np.real(np.trace(rho1_safe @ logm(rho2_safe)))
             return S12 - S1
         except:
             # Fallback to classical KL for diagonal matrices
-            p1 = np.real(np.diag(rho1))
-            p2 = np.real(np.diag(rho2))
-            return entropy(p1, p2)
+            min_dim = min(rho1.shape[0], rho2.shape[0])
+            p1 = np.real(np.diag(rho1[:min_dim, :min_dim]))
+            p2 = np.real(np.diag(rho2[:min_dim, :min_dim]))
+            p1 = np.maximum(p1, 1e-10)
+            p2 = np.maximum(p2, 1e-10)
+            p1 = p1 / np.sum(p1)
+            p2 = p2 / np.sum(p2)
+            return np.sum(p1 * np.log(p1 / p2))
     
     def compute_consciousness_parameter(self) -> float:
         """
@@ -202,14 +213,13 @@ class ConsciousnessSystem:
         
         return psi_history
     
-    def _generate_unitary_evolution(self) -> np.ndarray:
+    def _generate_unitary_evolution(self, dt: float = 0.01) -> np.ndarray:
         """Generate unitary evolution operator"""
         # Random Hermitian generator
         H = np.random.randn(self.dim, self.dim) + 1j * np.random.randn(self.dim, self.dim)
         H = (H + H.conj().T) / 2
         
-        # Small time step
-        dt = 0.01
+        # Apply time step
         U = expm(-1j * H * dt)
         
         return U
@@ -407,7 +417,7 @@ class TestConsciousnessEmergence(unittest.TestCase):
         outcomes = []
         for _ in range(100):
             # Reset state
-            self.system.state = self._initialize_state()
+            self.system.state = self.system._initialize_state()
             outcome, _ = self.system.perform_measurement(observable)
             outcomes.append(outcome)
         
@@ -656,16 +666,16 @@ class TestQuantumConsciousness(unittest.TestCase):
         
         final_no_measure = no_measure_system.state
         
-        # Evolution with frequent conscious measurement
+        # Evolution with frequent conscious measurement (Zeno effect)
         system.state = np.copy(initial_state)
         observable = np.outer(initial_state, np.conj(initial_state))
         
         for _ in range(100):
-            # Frequent measurement
-            system.perform_measurement(observable)
-            # Small evolution
-            U = system._generate_unitary_evolution()
+            # Small evolution step
+            U = system._generate_unitary_evolution(dt=0.001)  # Very small time step
             system.state = U @ system.state
+            # Frequent measurement (Zeno effect)
+            system.perform_measurement(observable)
         
         final_with_measure = system.state
         
@@ -674,7 +684,8 @@ class TestQuantumConsciousness(unittest.TestCase):
         dist_with_measure = np.linalg.norm(final_with_measure - initial_state)
         
         self.assertLess(dist_with_measure, dist_no_measure,
-                       "Conscious observation should induce Zeno effect")
+                       f"Conscious observation should induce Zeno effect: "
+                       f"with_measure={dist_with_measure:.6f} < no_measure={dist_no_measure:.6f}")
     
     def test_consciousness_nonlocality(self):
         """Test potential nonlocal correlations between conscious systems"""

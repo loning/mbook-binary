@@ -594,7 +594,7 @@ class TestL1_14_EntropyFlowTopologyPreservation(unittest.TestCase):
         
         for sing_type, expected_value in singularity_encodings.items():
             z = self.flow._encode_singularity_type(sing_type)
-            self.assertEqual(z.value, expected_value)
+            self.assertEqual(z.to_int(), expected_value)
     
     def test_betti_numbers_computation(self):
         """测试Betti数计算"""

@@ -246,11 +246,15 @@ class IntegratedSystem:
                 self.integration_complexity = PHI_10 + 1.0
     
     def verify_no11_constraint(self) -> bool:
-        """验证No-11约束"""
+        """验证No-11约束（增强版）"""
         try:
             # 将整合复杂度编码为Zeckendorf表示
-            I_int = max(1, int(self.integration_complexity))
-            z = ZeckendorfInt.from_int(I_int)
+            # 保留更高精度
+            I_scaled = int(self.integration_complexity * 1000)
+            if I_scaled < 1:
+                return True  # 极小值自动满足
+            
+            z = ZeckendorfInt.from_int(I_scaled)
             
             # 检查是否有连续的Fibonacci索引
             indices = sorted(z.indices)
@@ -258,9 +262,15 @@ class IntegratedSystem:
                 if indices[i+1] - indices[i] == 1:
                     return False
             
+            # 额外验证：检查编码的唯一性
+            reconstructed = sum(ZeckendorfInt.fibonacci(idx) for idx in indices)
+            if abs(reconstructed - I_scaled) > 1:
+                return False  # 编码不精确
+            
             return True
-        except:
-            return True  # 编码失败时默认满足
+        except Exception as e:
+            # 不应默认返回True，这隐藏了错误
+            raise ValueError(f"No-11验证失败: {e}")
     
     def compute_entropy_change(self, I_before: float, I_after: float) -> float:
         """
@@ -430,11 +440,17 @@ class TestInformationIntegrationComplexity(unittest.TestCase):
             
             # 演化并持续验证
             trajectory = system.evolve(10)
-            for I in trajectory:
+            for i, I in enumerate(trajectory):
                 # 为每个状态创建临时系统验证
                 temp_system = IntegratedSystem(system.n_components, system.coupling)
                 temp_system.integration_complexity = I
-                self.assertTrue(temp_system.verify_no11_constraint())
+                self.assertTrue(temp_system.verify_no11_constraint(), 
+                               f"No-11违反在步骤{i}, I={I}")
+                
+                # 关键：验证相变过程中的No-11保持
+                if i > 0:
+                    I_prev = trajectory[i-1]
+                    self._verify_transition_no11(I_prev, I)
     
     def test_integration_entropy_relation(self):
         """测试整合-熵的对数关系"""
@@ -693,6 +709,30 @@ class TestInformationIntegrationComplexity(unittest.TestCase):
                     self.assertIsNotNone(z)
                 except:
                     pass  # 某些值可能无法精确编码
+    
+    def _verify_transition_no11(self, I_before: float, I_after: float):
+        """验证相变过程中No-11约束的保持"""
+        # 检查是否跨越相变阈值
+        thresholds = [PHI_5, PHI_10]
+        for threshold in thresholds:
+            if (I_before < threshold <= I_after) or (I_after < threshold <= I_before):
+                # 相变发生，验证过渡路径
+                # 构造中间状态序列
+                n_steps = 10
+                for alpha in np.linspace(0, 1, n_steps):
+                    I_intermediate = I_before + alpha * (I_after - I_before)
+                    if I_intermediate > 1:
+                        try:
+                            # 验证中间状态的Zeckendorf编码
+                            z_int = ZeckendorfInt.from_int(int(I_intermediate))
+                            indices = sorted(z_int.indices)
+                            # 检查No-11约束
+                            for j in range(len(indices) - 1):
+                                self.assertNotEqual(indices[j+1] - indices[j], 1,
+                                    f"相变中No-11违反: I={I_intermediate:.2f}")
+                        except Exception as e:
+                            # 记录但不失败，某些值可能无法精确编码
+                            pass
     
     def test_theoretical_consistency(self):
         """测试理论一致性"""

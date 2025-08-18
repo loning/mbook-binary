@@ -2,8 +2,8 @@ book/
 *~
 .DS_Store
 !.claude/settings.local.json
-src/bdag/formals/*.aux
-src/bdag/formals/*.glob
+*.aux
+*.glob
 .gitignore
 src/bdag/formals/*.v*
 !src/bdag/formals/*.v
