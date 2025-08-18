@@ -36,7 +36,9 @@
       "Bash(fi)",
       "Bash(for i in {127..130})",
       "Bash(for i in {131..135})",
-      "Bash(for i in {136..140})"
+      "Bash(for i in {136..140})",
+      "Bash(for:*)",
+      "Bash(do)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
