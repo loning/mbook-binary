@@ -31,7 +31,9 @@
       "Bash(for i in {16..20})",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(for i in {43..50})"
+      "Bash(for i in {43..50})",
+      "Bash(for i in {100..120})",
+      "Bash(fi)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
