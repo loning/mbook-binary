@@ -1,7 +1,9 @@
 # Summary
 - [INDEX](./index.md)
 - [宇宙启示录](./UNIVERSE_REVELATION.md)
-- [Universe Revelation (English)](./UNIVERSE_REVELATION_EN.md)
+- [Universe Revelation](./UNIVERSE_REVELATION_EN.md)
+- [The Genesis Structure of the Information Universe: From a Single Axiom to Complete Theory](./genesis-unified-theory-en.md)
+- [信息宇宙的创世结构：从单一公理到完整理论](./genesis-unified-theory.md)
 - [超越存在联盟 (Alliance of Transcendent Existence)](./ate/README.md)
   - [基础文件 (Foundation)]()
     - [宣言 (Manifesto)](./ate/foundation/manifesto.md)
