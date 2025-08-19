@@ -1,30 +1,22 @@
 """
-M1.4 理论完备性元定理 - 测试验证
+Test Suite for M1.4 Theory Completeness Metatheorem
 
-本测试模块验证理论完备性元定理的核心性质：
-1. 结构完备性：理论体系的Zeckendorf构造完备性
-2. 语义完备性：物理现象的理论覆盖度
-3. 计算完备性：图灵完备性验证
-4. 元理论完备性：自验证能力
-5. 演化完备性：理论扩展能力
+This comprehensive test suite validates the completeness framework for Binary Universe theories.
+Tests cover five-layer completeness analysis, φ^10 threshold verification, and systematic
+assessment algorithms.
 """
 
-import numpy as np
-from typing import Dict, List, Tuple, Optional, Set, Callable, Any
-from dataclasses import dataclass
-from enum import Enum
+import pytest
 import unittest
+import numpy as np
+from typing import Dict, List, Tuple, Optional
+from dataclasses import dataclass
+from math import log, sqrt, prod
+from enum import Enum
 
-# 导入共享基础设施
-from base_framework import (
-    BinaryUniverseSystem, FormalSystem,
-    Proposition, Proof, FormalSymbol,
-    ZeckendorfEncoder, PhiBasedMeasure
-)
-
-# 黄金比例常数
-PHI = (1 + np.sqrt(5)) / 2
-PHI_10 = PHI ** 10  # 意识/完备性阈值 ≈ 122.99
+# Golden ratio constant
+PHI = (1 + sqrt(5)) / 2
+PHI_10 = PHI ** 10  # ≈ 122.991869
 
 class BaseTheory:
     """基础理论类"""
