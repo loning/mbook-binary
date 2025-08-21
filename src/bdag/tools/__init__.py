@@ -22,11 +22,11 @@ from .fibonacci_tensor_space import (
 )
 from .prime_theory_classifier import (
     PrimeTheoryClassifier,
-    PrimeClassification
+    TheoryClassification
 )
 from .prime_theory_analyzer import (
     PrimeTheoryAnalyzer,
-    PrimeAnalysis
+    PrimeTheoryAnalysis
 )
 from .classification_statistics import (
     ClassificationStatisticsGenerator
@@ -56,9 +56,9 @@ __all__ = [
     
     # 素数理论工具
     'PrimeTheoryClassifier',
-    'PrimeClassification',
+    'TheoryClassification',
     'PrimeTheoryAnalyzer', 
-    'PrimeAnalysis',
+    'PrimeTheoryAnalysis',
     
     # 统计分析工具
     'ClassificationStatisticsGenerator',
