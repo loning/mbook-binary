@@ -43,3 +43,7 @@ copy-js = true
 [output.html.fold]
 enable = true   # 打开折叠
 level  = 0      # 默认展开到第 1 层，其他层可点击折叠
+
+[build]
+build-dir = "book"   # 构建输出目录
+create-missing = false   # 如果链接的文件不存在则报错
